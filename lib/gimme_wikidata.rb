@@ -5,5 +5,11 @@ require 'gimme_wikidata/snak'
 require 'gimme_wikidata/item'
 
 module GimmeWikidata
-  # Your code goes here...
+  class << self
+
+    Language    = 'en' # The language with which to query the Wikidata API
+    Api_Url     = 'https://www.wikidata.org/w/api.php?'
+    Data_Format = 'json'
+
+  end
 end
