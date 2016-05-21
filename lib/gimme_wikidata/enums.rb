@@ -10,4 +10,10 @@ module GimmeWikidata
     define :GERMAN, 'de'
   end
 
+  class Actions
+    include Ruby::Enum
+
+    define :SEARCH, 'wbsearchentities'
+  end
+
 end

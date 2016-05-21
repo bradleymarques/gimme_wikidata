@@ -40,4 +40,8 @@ class GimmeWikidataTest < Minitest::Test
     assert_equal 'json', WikidataAPI::Format
   end
 
+  def test_it_can_build_search_query_with_default_parameters
+    assert_equal 'https://www.wikidata.org/w/api.php?action=wbsearchentities&format=json&search=wikidata&language=en', WikidataAPI.build_search_query()
+  end
+
 end

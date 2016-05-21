@@ -6,8 +6,8 @@ module GimmeWikidata
 
   class WikidataAPI
 
-    API_URL = 'https://www.wikidata.org/w/api.php?'
-    Format = 'json'
+    API_URL   = 'https://www.wikidata.org/w/api.php?'
+    Format    = 'json'
 
     @@language = Languages::DEFAULT
 
@@ -19,6 +19,32 @@ module GimmeWikidata
 
     def self.get_language
       @@language
+    end
+
+    ##
+    # Builds a search query.  Interfaces with the module described here: https://www.wikidata.org/w/api.php?action=help&modules=wbsearchentities
+    #
+    # search              - the search term to look for
+    # language            - the language in which to search
+    # strict_language     - disable language fallback or not
+    # type                - either 'item' or 'property'
+    # limit               - maximum number of things returned
+    # continue            - offset of things
+    def self.build_search_query (search: "wikidata", language: @@language, strict_language: false, type: 'item', limit: 50, continue: 0)
+      url = [API_URL]
+      url << ['action=', Actions::SEARCH]
+      url << ['&format=', Format]
+      url << ['&search=', search]
+      url << ['&language=', language]
+      url << ['&strinctlanguage=', strict_language] unless strict_language == false
+      url << ['&type=', type] unless type == 'item'
+      url << ['&limit=', limit] unless limit == 50
+      url << ['&continue=' << continue] unless continue == 0
+      url.flatten.join
+    end
+
+    def self.base_url
+      nil
     end
 
 
