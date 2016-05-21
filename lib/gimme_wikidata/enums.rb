@@ -2,6 +2,10 @@ require 'ruby-enum'
 
 module GimmeWikidata
 
+  ##
+  # The languages possible when communicating with the Wikidata API
+  #
+  # See: https://www.wikidata.org/w/api.php?action=help&modules=wbgetentities
   class Languages
     include Ruby::Enum
 
@@ -10,6 +14,10 @@ module GimmeWikidata
     define :GERMAN, 'de'
   end
 
+  ##
+  # Models an enum of the 'action' parameters in Wikidata API calls
+  #
+  # See https://www.wikidata.org/w/api.php?action=help&modules=main
   class Actions
     include Ruby::Enum
 
@@ -17,6 +25,10 @@ module GimmeWikidata
     define :GET_ENTITIES, 'wbgetentities'
   end
 
+  ##
+  # Models an enum of the 'props' arguments in wbgetentity calls.
+  #
+  # See https://www.wikidata.org/w/api.php?action=help&modules=wbgetentities
   class Props
     include Ruby::Enum
 

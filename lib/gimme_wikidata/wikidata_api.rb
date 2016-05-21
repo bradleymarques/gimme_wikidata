@@ -11,6 +11,8 @@ module GimmeWikidata
 
     @@language = Languages::DEFAULT
 
+    ##
+    # Set the language for the WikidataAPI.  This will be used when communicating to the API.
     def self.set_language(language_symbol)
       new_lang = Languages.to_h[language_symbol]
       @@language = new_lang unless new_lang.nil?
@@ -22,7 +24,9 @@ module GimmeWikidata
     end
 
     ##
-    # Builds a search query.  Interfaces with the module described here: https://www.wikidata.org/w/api.php?action=help&modules=wbsearchentities
+    # Builds a search query.
+    #
+    # Interfaces with the module described here: https://www.wikidata.org/w/api.php?action=help&modules=wbsearchentities
     #
     # search              - the search term to look for
     # language            - the language in which to search
@@ -44,7 +48,12 @@ module GimmeWikidata
     end
 
     ##
-    # Build a query to get Entities (Items and Properties) from Wikidata
+    # Build a query to get Entities (Items and Properties) from Wikidata.
+    #
+    # Interfaces the the module described here: https://www.wikidata.org/w/api.php?action=help&modules=wbgetentities
+    #
+    # ids         - an array of strings representing the ids of the entities on Wikidata.  Example: ['Q1', 'Q3', 'P106']
+    # props       - the properties to get.  See the Props class
     def self.get_entities_query(ids: ['Q1'], props: [Props::LABELS, Props::DESCRIPTIONS, Props::ALIASES])
       url = [base_url]
       url << ['&action=', Actions::GET_ENTITIES]
@@ -53,6 +62,8 @@ module GimmeWikidata
       url.flatten.join
     end
 
+    ##
+    # Helper function to build a commonly-used URL
     def self.base_url
       url = [API_URL]
       url << ['format=', Format]
