@@ -30,23 +30,35 @@ module GimmeWikidata
     # type                - either 'item' or 'property'
     # limit               - maximum number of things returned
     # continue            - offset of things
-    def self.build_search_query (search: "wikidata", language: @@language, strict_language: false, type: 'item', limit: 50, continue: 0)
+    def self.search_query (search: "wikidata", strict_language: false, type: 'item', limit: 50, continue: 0)
       url = [API_URL]
       url << ['action=', Actions::SEARCH]
       url << ['&format=', Format]
       url << ['&search=', search]
-      url << ['&language=', language]
-      url << ['&strinctlanguage=', strict_language] unless strict_language == false
+      url << ['&language=', @@language]
+      url << ['&strictlanguage=', strict_language] unless strict_language == false
       url << ['&type=', type] unless type == 'item'
       url << ['&limit=', limit] unless limit == 50
-      url << ['&continue=' << continue] unless continue == 0
+      url << ['&continue=', continue] unless continue == 0
+      url.flatten.join
+    end
+
+    ##
+    # Build a query to get Entities (Items and Properties) from Wikidata
+    def self.get_entities_query(ids: ['Q1'], props: [Props::LABELS, Props::DESCRIPTIONS, Props::ALIASES])
+      url = [base_url]
+      url << ['&action=', Actions::GET_ENTITIES]
+      url << ['&ids=', ids.join('|')]
+      url << ['&props=', props.join('|')]
       url.flatten.join
     end
 
     def self.base_url
-      nil
+      url = [API_URL]
+      url << ['format=', Format]
+      url << ['&languages=', @@language]
+      url.flatten.join
     end
-
 
   end
 
