@@ -36,4 +36,8 @@ class GimmeWikidataTest < Minitest::Test
     assert_equal 'https://www.wikidata.org/w/api.php?', WikidataAPI::API_URL
   end
 
+  def test_it_has_a_data_format
+    assert_equal 'json', WikidataAPI::Format
+  end
+
 end

@@ -7,6 +7,7 @@ module GimmeWikidata
   class WikidataAPI
 
     API_URL = 'https://www.wikidata.org/w/api.php?'
+    Format = 'json'
 
     @@language = Languages::DEFAULT
 

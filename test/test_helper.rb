@@ -17,7 +17,7 @@ MiniTest::Display.options = {
   }
 }
 
-#Minitest::Reporters.use! [ Minitest::Reporters::ProgressReporter.new(color: true) ]
 Minitest::Reporters.use! [ Minitest::Reporters::SpecReporter.new(color: true) ]
+#Minitest::Reporters.use! [ Minitest::Reporters::ProgressReporter.new(color: true) ]
 #Minitest::Reporters.use! [ Minitest::Reporters::HtmlReporter.new ]
 
