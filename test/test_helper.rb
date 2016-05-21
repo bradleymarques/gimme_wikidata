@@ -3,8 +3,8 @@ require 'gimme_wikidata'
 
 require 'minitest'
 require 'minitest/autorun'
-require 'minitest/reporters'
 require 'minitest/display'
+require 'minitest/reporters'
 
 MiniTest::Display.options = {
   suite_names: true,
@@ -17,4 +17,7 @@ MiniTest::Display.options = {
   }
 }
 
-Minitest::Reporters.use! [ Minitest::Reporters::ProgressReporter.new(color: true) ]
+#Minitest::Reporters.use! [ Minitest::Reporters::ProgressReporter.new(color: true) ]
+Minitest::Reporters.use! [ Minitest::Reporters::SpecReporter.new(color: true) ]
+#Minitest::Reporters.use! [ Minitest::Reporters::HtmlReporter.new ]
+

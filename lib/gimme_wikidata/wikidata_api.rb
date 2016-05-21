@@ -6,6 +6,8 @@ module GimmeWikidata
 
   class WikidataAPI
 
+    API_URL = 'https://www.wikidata.org/w/api.php?'
+
     @@language = Languages::DEFAULT
 
     def self.set_language(language_symbol)
@@ -17,6 +19,7 @@ module GimmeWikidata
     def self.get_language
       @@language
     end
+
 
   end
 

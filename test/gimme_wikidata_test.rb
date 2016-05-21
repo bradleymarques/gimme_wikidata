@@ -32,4 +32,8 @@ class GimmeWikidataTest < Minitest::Test
     assert_equal 'de', WikidataAPI.set_language(:GERMAN)
   end
 
+  def test_it_has_an_api_url
+    assert_equal 'https://www.wikidata.org/w/api.php?', WikidataAPI::API_URL
+  end
+
 end
