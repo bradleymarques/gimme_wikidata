@@ -60,5 +60,17 @@ class GimmeWikidataTest < Minitest::Test
     assert_equal 'https://www.wikidata.org/w/api.php?format=json&languages=en&action=wbgetentities&ids=Q1|Q2|Q3&props=labels', WikidataAPI.get_entities_query(ids: ['Q1', 'Q2', 'Q3'], props: [Props::LABELS])
   end
 
+  ######################################
+  # Parser Tests
+  ######################################
+
+  def test_it_can_parse_search_response
+    skip
+  end
+
+  def test_it_raises_argument_error_if_search_response_does_not_have_correct_form
+    skip
+  end
+
 
 end
