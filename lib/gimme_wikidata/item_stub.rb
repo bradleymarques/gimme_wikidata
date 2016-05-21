@@ -2,10 +2,10 @@ require 'gimme_wikidata/entity'
 
 module GimmeWikidata
 
-  class Property < Entity
+  class ItemStub < Entity
 
     def wikidata_id
-      "P#{@id}"
+      "Q#{@id}"
     end
 
   end
