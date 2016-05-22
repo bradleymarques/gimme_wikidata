@@ -19,6 +19,10 @@ module GimmeWikidata
       @success
     end
 
+    def empty?
+      results.count == 0
+    end
+
   end
 
   class SearchResult

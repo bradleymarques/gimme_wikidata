@@ -1,3 +1,5 @@
+require 'gimme_wikidata/wikidata_api'
+
 module GimmeWikidata
 
   ##
@@ -15,6 +17,35 @@ module GimmeWikidata
         search.results << SearchResult.new(r[:id], r[:label], r[:description])
       end
       return search
+    end
+
+    ##
+    # Parses the results from a get entities query
+    def self.parse_entity_response(response)
+      entity_result = EntityResult.new(response[:success], response[:error])
+      response[:entities].each do |key, value|
+        entity_result.entities << parse_entity(value)
+      end
+      return entity_result
+    end
+
+    def self.parse_entity(e)
+      puts e
+      id = e[:id]
+      label = e[:labels][WikidataAPI.get_language.to_sym][:value]
+      description = e[:descriptions][WikidataAPI.get_language.to_sym][:value]
+      aliases = e[:aliases][WikidataAPI.get_language.to_sym].map { |a| a[:value] }
+
+      case e[:type]
+      when 'item'
+        entity = Item.new(id, label, description, aliases)
+      when 'property'
+        entity = Property.new(id, label, description, aliases)
+      end
+
+      # TODO: Extract sub-properties
+
+      return entity
     end
 
   end
