@@ -71,6 +71,13 @@ module GimmeWikidata
       url.flatten.join
     end
 
+    ##
+    #
+    def self.make_call(query)
+      response = HTTParty.get(query).to_h
+      symbolize_recursive(response)
+    end
+
   end
 
 end

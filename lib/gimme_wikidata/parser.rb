@@ -10,7 +10,7 @@ module GimmeWikidata
     ##
     # Parses the results from a search query
     def self.parse_search_response(response)
-      return ArgumentError 'response did not seem to be a response from a search query' if response[:searchinfo].nil?
+      return ArgumentError, 'response did not seem to be a response from a search query' if response[:searchinfo].nil?
       search = Search.new(response[:success], response[:searchinfo][:search])
       return search unless search.was_successful?
       response[:search].each do |r|

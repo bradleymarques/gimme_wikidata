@@ -23,6 +23,10 @@ module GimmeWikidata
       results.count == 0
     end
 
+    def top_result
+      @results.first
+    end
+
   end
 
   class SearchResult
@@ -31,6 +35,8 @@ module GimmeWikidata
     @type
     @label
     @description
+
+    attr_accessor :id, :type, :label, :description
 
     def initialize(id, label, description)
       @id = id

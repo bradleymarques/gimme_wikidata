@@ -12,6 +12,8 @@ module GimmeWikidata
     define :DEFAULT, 'en'
     define :ENGLISH, 'en'
     define :GERMAN, 'de'
+    # etc...
+
   end
 
   ##
