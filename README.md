@@ -22,18 +22,40 @@ Or install it yourself as:
 
 ### Search Wikidata
 
-TODO: Docuement search feature
+```
+search = GimmeWikidata.search('David Bowie');
+```
+
+This will return a `Search` object, which you can use like:
+
+```
+search.was_successful?
+  => true
+
+search.search_term
+  => "David Bowie"
+
+search.results.count
+  => 7
+
+search.top_result.id
+  => "Q5383"
+```
 
 ### Get Data from Wikidata
 
-TODO: Document getting data
+You could use the search results above to get more data about an `Item` (identtified by an `id`):
+
+```
+entities = GimmeWikidata.fetch(["Q5383", "Q1"])
+result.entities # Will return a collection of the Entities grabbed from Wikidata
+```
 
 ### Publish
 
 Please note that the GimmeWikidata gem does not currently support publishing data to Wikidata.
 
-TODO: Implement this part of the gem
-TODO: Document publishing data
+### Advanced usage
 
 ## The Data Model
 
@@ -53,6 +75,8 @@ Please feel free to contribute:
 + Make your own bugfix/feature branch
 + Make tests for your contribution
 + Submit a pull request
+
+Alternatively, please feel free to make suggestions.
 
 ## License
 
