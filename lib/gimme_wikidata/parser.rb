@@ -51,7 +51,6 @@ module GimmeWikidata
     # * *Returns* :
     #   - Either an +Item+ object or a +Property+ object representing the passed +Entity+
     def self.parse_entity(e)
-      puts e
       id = e[:id]
       label = e[:labels][WikidataAPI.get_language.to_sym][:value]
       description = e[:descriptions][WikidataAPI.get_language.to_sym][:value]
