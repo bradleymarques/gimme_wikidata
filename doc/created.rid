@@ -1,0 +1,25 @@
+Thu, 26 May 2016 14:29:09 +0200
+./README.md	Mon, 23 May 2016 18:19:48 +0200
+./Gemfile.lock	Mon, 23 May 2016 18:05:38 +0200
+./Rakefile	Sat, 21 May 2016 17:02:04 +0200
+./LICENSE.txt	Fri, 20 May 2016 16:41:01 +0200
+./bin/console	Sun, 22 May 2016 21:49:14 +0200
+./bin/setup	Fri, 20 May 2016 16:41:01 +0200
+./gimme_wikidata.gemspec	Tue, 24 May 2016 18:06:16 +0200
+./test/gimme_wikidata_test.rb	Sun, 22 May 2016 21:49:14 +0200
+./test/test_helper.rb	Sun, 22 May 2016 21:49:14 +0200
+./test/html_reports/index.html	Sat, 21 May 2016 17:02:04 +0200
+./Gemfile	Sun, 22 May 2016 21:48:50 +0200
+./lib/gimme_wikidata/version.rb	Sun, 22 May 2016 21:49:14 +0200
+./lib/gimme_wikidata/parser.rb	Thu, 26 May 2016 14:28:30 +0200
+./lib/gimme_wikidata/property.rb	Thu, 26 May 2016 14:28:37 +0200
+./lib/gimme_wikidata/wikidata_api.rb	Thu, 26 May 2016 14:18:25 +0200
+./lib/gimme_wikidata/snak.rb	Sat, 21 May 2016 17:02:04 +0200
+./lib/gimme_wikidata/entity.rb	Thu, 26 May 2016 14:04:52 +0200
+./lib/gimme_wikidata/enums.rb	Thu, 26 May 2016 14:09:46 +0200
+./lib/gimme_wikidata/search.rb	Sun, 22 May 2016 21:49:14 +0200
+./lib/gimme_wikidata/extensions.rb	Sun, 22 May 2016 21:49:14 +0200
+./lib/gimme_wikidata/claim.rb	Thu, 26 May 2016 14:09:11 +0200
+./lib/gimme_wikidata/entity_result.rb	Thu, 26 May 2016 14:09:29 +0200
+./lib/gimme_wikidata/item.rb	Thu, 26 May 2016 14:14:46 +0200
+./lib/gimme_wikidata.rb	Tue, 24 May 2016 12:50:55 +0200
