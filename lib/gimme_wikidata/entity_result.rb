@@ -6,10 +6,18 @@ module GimmeWikidata
 
     attr_reader :success, :error, :entities
 
-    def initialize(success, error)
+    def initialize(success, error = nil, entities = [])
       @error = error
       @success = @error.nil? ? (success == 1) : false
-      @entities = []
+      @entities = entities
+    end
+
+    def was_successful?
+      @success
+    end
+
+    def empty?
+      @entities.empty?
     end
 
   end

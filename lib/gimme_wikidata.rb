@@ -38,14 +38,45 @@ module GimmeWikidata
     end
 
     ##
-    # Fetch Entities from Wikidata by id
+    # Fetch Entitiy (or Entities) from Wikidata by id (or ids)
+    #
+    # * *Args*    :
+    #   - +ids+ -> Either a single Wikidata id or an array of them
+    # * *Returns* :
+    #   - An Entity in the case of a single id, and an EntityResult in the case of multiple ids
+    def fetch(ids)
+      return fetch_entity if ids.is_a? String
+      return fetch_entities if ids.is_a? Array
+      raise ArgumentError.new 'Ids was neither a string nor an Array'
+    end
+
+    private
+
+    ##
+    # Fetch a single Entity from Wikidata by id
+    #
+    # * *Args*    :
+    #   - +id+ -> The Wikidata id of the Entity to get
+    # * *Returns* :
+    #   - An Entity if successful, and an EntityResponse (with error message) if unsuccessful
+    def fetch_entity(id)
+      raise ArgumentError.new('Invalid Wikidata id') unless valid_id? id
+      get_query = WikidataAPI.get_entities_query(ids: [id])
+      response = WikidataAPI.make_call(get_query)
+      entityResult = Parser.parse_entity_response(response)
+      return entityResult unless entityResult.was_successful?
+      entityResult.entities[0]
+    end
+
+    ##
+    # Fetch multiple Entities from Wikidata by id
     #
     # Makes a call to Wikidata and get the results wrapped in a +EntityResult+ object
     # * *Args*    :
     #   - +ids+ -> An array of Wikidata ids, such as ['Q1', 'Q2', 'P206', 'P16']
     # * *Returns* :
     #   - An EntityResult object containing Entities
-    def fetch(ids)
+    def fetch_entities(ids)
       raise ArgumentError.new('Invalid Wikidata ids') unless valid_ids? ids
       get_query = WikidataAPI.get_entities_query(ids: ids)
       response = WikidataAPI.make_call(get_query)

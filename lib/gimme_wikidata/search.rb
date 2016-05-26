@@ -2,17 +2,13 @@ module GimmeWikidata
 
   class Search
 
-    @search_term
-    @success
-    @results
-
     attr_reader :search_term, :success
     attr_accessor :results
 
-    def initialize(success, search_term)
+    def initialize(success, search_term, results = [])
       @search_term = search_term
       @success = (success == 1)
-      @results = []
+      @results = results
     end
 
     def was_successful?
@@ -20,7 +16,7 @@ module GimmeWikidata
     end
 
     def empty?
-      results.count == 0
+      results.empty?
     end
 
     def top_result
@@ -30,11 +26,6 @@ module GimmeWikidata
   end
 
   class SearchResult
-
-    @id
-    @type
-    @label
-    @description
 
     attr_accessor :id, :type, :label, :description
 

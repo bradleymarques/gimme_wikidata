@@ -10,7 +10,7 @@ module GimmeWikidata
 
     attr_reader :id, :label, :description, :aliases
 
-    def initialize(id, label, description, aliases)
+    def initialize(id = 'Q1', label = '', description = '', aliases = [])
       @id = id
       @label = label
       @description = description
