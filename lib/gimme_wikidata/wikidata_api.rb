@@ -4,17 +4,20 @@ require 'gimme_wikidata/enums'
 
 module GimmeWikidata
 
+  ##
+  # TODO: DOCUMENT THIS IMPORTANT CLASS
+  #
   class WikidataAPI
 
-    API_URL   = 'https://www.wikidata.org/w/api.php?'
-    Format    = 'json'
+    APIURL = 'https://www.wikidata.org/w/api.php?'
+    FORMAT = 'json'
 
     @@language = Languages::DEFAULT
 
     ##
     # Set the language for the WikidataAPI.  This is used when communicating to the API.
     #
-    # Returns the string format of the language it is set to (returns the current language if not set successfully)
+    # Returns the string format of the language it is set to (or, of the current language if *not* set successfully)
     def self.set_language(language_symbol)
       new_lang = Languages.to_h[language_symbol]
       @@language = new_lang unless new_lang.nil?
@@ -40,9 +43,9 @@ module GimmeWikidata
     #   limit => maximum number of things returned
     #   continue => offset of things
     def self.search_query (search: "wikidata", strict_language: false, type: 'item', limit: 50, continue: 0)
-      url = [API_URL]
+      url = [APIURL]
       url << "action=#{Actions::SEARCH}"
-      url << "&format=#{Format}"
+      url << "&format=#{FORMAT}"
       url << "&search=#{search}"
       url << "&language=#{@@language}"
       url << "&strictlanguage=#{strict_language}" unless strict_language == false
@@ -72,8 +75,8 @@ module GimmeWikidata
     #
     # Appends default format and language to the base Wikidata API URL
     def self.base_url
-      url = [API_URL]
-      url << 'format=' << Format
+      url = [APIURL]
+      url << 'format=' << FORMAT
       url << '&languages=' << @@language
       url.join
     end

@@ -5,7 +5,7 @@ module GimmeWikidata
   ##
   # The languages possible when communicating with the Wikidata API
   #
-  # See: https://www.wikidata.org/w/api.php?action=help&modules=wbgetentities
+  # See: https://www.wikidata.org/w/api.php?action=help&modules=wbgetentities for a list of the supported languages
   class Languages
     include Ruby::Enum
 

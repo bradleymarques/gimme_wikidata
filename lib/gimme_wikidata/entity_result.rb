@@ -4,10 +4,6 @@ module GimmeWikidata
   # Models a parsed response from a get entities query to the Wikidata API
   class EntityResult
 
-    @success
-    @error
-    @entities
-
     attr_reader :success, :error, :entities
 
     def initialize(success, error)
