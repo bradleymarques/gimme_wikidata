@@ -19,8 +19,10 @@ module GimmeWikidata
 
     ##
     # Search Wikidata for a particular search term, and get the results.
+    #
     # Searches the Wikidata API for a particular term and returns some SearchResults (wrapped in a Search object).
     # Constructs the required search query, makes the call to the API and parses the response.
+    #
     # * *Args*    :
     #   - +search_term+ -> the search term to look for on Wikidata
     #   - +strict_language+ -> Should we force a restriction to the current language?  See WikidataAPI::language
@@ -37,12 +39,14 @@ module GimmeWikidata
 
     ##
     # Fetch Entities from Wikidata by id
+    #
     # Makes a call to Wikidata and get the results wrapped in a +EntityResult+ object
     # * *Args*    :
     #   - +ids+ -> An array of Wikidata ids, such as ['Q1', 'Q2', 'P206', 'P16']
     # * *Returns* :
     #   - An EntityResult object containing Entities
     def fetch(ids)
+      raise ArgumentError.new('Invalid Wikidata ids') unless valid_ids? ids
       get_query = WikidataAPI.get_entities_query(ids: ids)
       response = WikidataAPI.make_call(get_query)
       Parser.parse_entity_response(response)
@@ -50,6 +54,7 @@ module GimmeWikidata
 
     ##
     # Valdiates that the passed array of ids matches Wikidata format
+    #
     # Wikidata has ids in the form 'QN' or 'PN' where Q means 'Item', P means 'Property', and N is any number.
     # * *Args*    :
     #   - +ids+ -> An array of (possible) Wikidata ids to be validated
@@ -61,6 +66,7 @@ module GimmeWikidata
 
     ##
     # Valdiates that a single ids matches Wikidata format
+    #
     # Wikidata has ids in the form 'QN' or 'PN' where Q means 'Item', P means 'Property', and N is any number.
     # * *Args*    :
     #   - +id+ -> A (possible) Wikidata ids to be validated

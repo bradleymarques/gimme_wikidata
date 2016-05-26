@@ -5,8 +5,13 @@ require 'gimme_wikidata/enums'
 module GimmeWikidata
 
   ##
-  # TODO: DOCUMENT THIS IMPORTANT CLASS
+  # Responsible for communication with the Wikidata API
   #
+  # Handles the language and formatting of API calls
+  #
+  # Supported API actions:
+  # - +wbsearchentities+ -> https://www.wikidata.org/w/api.php?action=help&modules=wbsearchentities
+  # - +wbgetentities+ -> https://www.wikidata.org/w/api.php?action=help&modules=wbgetentities
   class WikidataAPI
 
     APIURL = 'https://www.wikidata.org/w/api.php?'
@@ -17,7 +22,10 @@ module GimmeWikidata
     ##
     # Set the language for the WikidataAPI.  This is used when communicating to the API.
     #
-    # Returns the string format of the language it is set to (or, of the current language if *not* set successfully)
+    # * *Args*    :
+    #   - +language_symbol+ -> A symbol from the Languages Enum class
+    # * *Returns* :
+    #   - The string format of the language it is set to (or, of the current language if *not* set successfully)
     def self.set_language(language_symbol)
       new_lang = Languages.to_h[language_symbol]
       @@language = new_lang unless new_lang.nil?
@@ -82,7 +90,12 @@ module GimmeWikidata
     end
 
     ##
-    # Simply makes a call to the Wikidata API and formats the response into a symbolized hash
+    # Makes a call to the Wikidata API and formats the response into a symbolized hash
+    #
+    # * *Args*    :
+    #   - +query+ -> The query for the API call
+    # * *Returns* :
+    #   - A hash representation of the API's response
     def self.make_call(query)
       response = HTTParty.get(query).to_h
       symbolize_recursive(response)
