@@ -9,9 +9,9 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Bradley Marques"]
   spec.email         = ["bradmarxmoosepi@gmail.com"]
 
-  spec.summary       = %q{TODO: Write a short summary, because Rubygems requires one.}
-  spec.description   = %q{TODO: Write a longer description or delete this line.}
-  spec.homepage      = "TODO: Put your gem's website or public repo URL here."
+  spec.summary       = %q{Search and fetch data from Wikidata}
+  spec.description   = %q{GimmeWikidata is a Ruby gem that provides an interface to search, pull and publish data from Wikidata.  It provides a number of classes that encapsualte the concept model of Wikidata.}
+  spec.homepage      = "https://github.com/bradleymarques/gimme_wikidata"
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org by setting 'allowed_push_host', or
