@@ -8,11 +8,13 @@ module GimmeWikidata
   # For more details, please see: https://www.wikidata.org/wiki/Wikidata:Glossary#Claims_and_statements
   class Claim
 
-    def initialize(property, value)
+    def initialize(property = nil, value = nil, value_type = nil)
       @property = property
       @value = value
+      @value_type = value_type
     end
 
   end
+
 
 end

@@ -68,6 +68,10 @@ module GimmeWikidata
       entityResult = Parser.parse_entity_response(response)
       return entityResult unless entityResult.was_successful?
       entityResult.entities[0]
+
+      # TODO: RESOLVE ITEM PROPERTIES
+      # TODO: RESOLVE ITEM CLAIMS THAT REFERENCE OTHER ITEMS
+
     end
 
     ##
@@ -84,6 +88,10 @@ module GimmeWikidata
       get_query = WikidataAPI.get_entities_query(ids: ids, props: props)
       response = WikidataAPI.make_call(get_query)
       Parser.parse_entity_response(response)
+
+      # TODO: RESOLVE ITEM
+      # TODO: RESOLVE ITEM CLAIMS THAT REFERENCE OTHER ITEMS
+
     end
 
     ##

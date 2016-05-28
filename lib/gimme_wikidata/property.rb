@@ -10,4 +10,18 @@ module GimmeWikidata
 
   end
 
+  ##
+  # TODO: DOCUMENT
+  class PropertyStub < Entity
+
+    def initialize(id)
+      @id = id
+    end
+
+    def resolve
+      throw NotImplementedError
+    end
+
+  end
+
 end

@@ -55,17 +55,33 @@ module GimmeWikidata
       label = e[:labels][WikidataAPI.get_language.to_sym][:value]
       description = e[:descriptions][WikidataAPI.get_language.to_sym][:value]
       aliases = e[:aliases][WikidataAPI.get_language.to_sym].map { |a| a[:value] }
-
+      # Parse claims, if any
+      unless e[:claims].nil?
+        claims = parse_claims(e[:claims])
+      end
+      # Create an Item or a Property
       case e[:type]
       when 'item'
-        entity = Item.new(id, label, description, aliases)
+        return Item.new(id, label, description, aliases, claims)
       when 'property'
-        entity = Property.new(id, label, description, aliases)
+        return Property.new(id, label, description, aliases, claims)
+      else
+        return nil
       end
+    end
 
-      # TODO: Extract sub-properties
-
-      return entity
+    ##
+    # TODO: DOCUMENT
+    def self.parse_claims(c)
+      claims = []
+      c.each do |property_id, property_claims|
+        property_stub = PropertyStub.new(property_id)
+        property_claims.each do |subclaim|
+          snak = subclaim[:mainsnak]
+          claims << Claim.new(property_stub.clone, snak[:datavalue][:value], snak[:datatype])
+        end
+      end
+      return claims
     end
 
   end
