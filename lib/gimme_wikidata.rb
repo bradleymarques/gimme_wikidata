@@ -1,3 +1,4 @@
+require 'colorize'
 require 'gimme_wikidata/claim'
 require 'gimme_wikidata/entity'
 require 'gimme_wikidata/entity_result'
@@ -7,7 +8,6 @@ require 'gimme_wikidata/item'
 require 'gimme_wikidata/parser'
 require 'gimme_wikidata/property'
 require 'gimme_wikidata/search'
-require 'gimme_wikidata/snak'
 require 'gimme_wikidata/version'
 require 'gimme_wikidata/wikidata_api'
 
@@ -50,7 +50,7 @@ module GimmeWikidata
     def fetch(ids, props: [Props::ALIASES, Props::LABELS, Props::DESCRIPTIONS, Props::CLAIMS])
       return fetch_entity(ids, props: props) if ids.is_a? String
       return fetch_entities(ids, props: props) if ids.is_a? Array
-      raise ArgumentError.new 'Ids was neither a string nor an Array'
+      raise ArgumentError.new 'ids was neither a String nor an Array'
     end
 
     ##

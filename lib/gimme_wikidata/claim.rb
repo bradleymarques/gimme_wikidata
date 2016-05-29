@@ -16,6 +16,33 @@ module GimmeWikidata
       @value_type = value_type
     end
 
+    ##
+    # Returns a simple hash form of the claim.
+    #
+    # Example: {sex_or_gender: "Male"}
+    def simplify
+      key = @property.label.downcase.gsub(/[^0-9a-z]/, '_').to_sym
+      value = simplify_value
+      return {key => value}
+    end
+
+    ##
+    # Simplifies the value
+    #
+    # TODO: THAT IS REDUNDANT DOCUMENTATION
+    def simplify_value
+      case @value_type
+      when :item, :property
+        return "#{@value.label} (#{@value.id})"
+      when :wikidata_time
+        return @value.fetch(:time, nil)
+      when :external_id, :media, :text, :url, :gps_coordinates, :quantity
+        return @value
+      else
+        return nil # TODO: Consider throwing an exception here
+      end
+    end
+
   end
 
 

@@ -127,9 +127,9 @@ module GimmeWikidata
       type = raw_value.fetch(:"entity-type", nil)
       case type
       when 'item'
-        return Item.new("Q#{id}"), Item
+        return Item.new("Q#{id}"), :item
       when 'property'
-        return Property.new("P#{id}"), Property
+        return Property.new("P#{id}"), :property
       else
         raise StandardError.new "Unknown wikibase item type #{raw_value[:entity_type]}"
       end
@@ -145,8 +145,8 @@ module GimmeWikidata
     #
     # Times on Wikidata are stored as timestamp resembling ISO 8601
     def self.parse_snak_time(raw_value)
-      timestamp = raw_value[:time]
-      precision = raw_value[:precision]
+      #timestamp = raw_value[:time]
+      #precision = raw_value[:precision]
       # TODO: Format this into a Ruby DateTime object
       # TODO: Figure out how to store variable-precision dates
       return raw_value, :wikidata_time

@@ -64,7 +64,59 @@ module GimmeWikidata
     # TODO: IMPLEMENT AND DOCUMENT!
     def resolve_claims
       return unless has_claims?
-      puts "resolving claims for item #{id} - #{label}"
+      item_claims = get_claims_by_value_type(:item)
+      item_ids = item_claims.map {|c| c.value.id }
+      entity_result = GimmeWikidata.fetch(item_ids, props: [Props::LABELS])
+      entity_result.entities.each do |item_details|
+        item_index = item_ids.index(item_details.id)
+        item_to_resolve = item_claims[item_index].value
+        item_to_resolve.resolve_with(item_details)
+      end
+    end
+
+    ##
+    # TODO: DOCUMENT
+    def get_claims_by_value_type(type)
+      return [] unless has_claims?
+      claims = []
+      @claims.each do |c|
+        claims << c if c.value_type == type
+      end
+      return claims
+    end
+
+    ##
+    # Returns a simple hash of claims and their values
+    #
+    # TODO: Replace with actual content, not just placeholder data
+    def simple_claims
+      simple = claims.map {|c| c.simplify }
+      simple.reduce({}, :merge)
+    end
+
+    ##
+    # TODO: DOCUMENT
+    def resolve_with(entity_details)
+      raise StandardError.new "Attempting to resolve Entity with id #{@id} with entity_details with id #{entity_details.id}" unless @id == entity_details.id
+      raise ArgumentError.new "Attempting to resolve an Item with a Property or vice versa" if entity_details.id[0] != @id[0]
+      @label = entity_details.label
+      @description = entity_details.description
+      @aliases = entity_details.aliases
+      @claims = entity_details.claims
+      @claims = [] if @claims.nil?
+    end
+
+    ##
+    # Prints a pretty version of the Entity
+    def print(colour = :blue)
+      puts "#{label} (#{id})".bold.colorize(background: colour)
+      puts description.colorize(color: colour)
+      puts "Aliases: " + @aliases.join(', ')
+      puts "Claims:".underline
+      simple_claims.each do |label, value|
+        puts "\t#{label}: ".bold.colorize(color: colour) + "#{value}"
+      end
+      return nil
     end
 
   end

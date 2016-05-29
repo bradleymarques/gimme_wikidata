@@ -23,17 +23,13 @@ module GimmeWikidata
     ##
     # TODO: DOCUMENT!
     def resolve_all_properties
-      return false if empty?
       entities.each {|e| e.resolve_properties }
-      return true
     end
 
     ##
     # TODO: DOCUMENT!
     def resolve_all_claims
-      return false if empty?
       entities.each {|e| e.resolve_claims }
-      return true
     end
 
   end
