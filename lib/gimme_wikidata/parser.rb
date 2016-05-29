@@ -86,7 +86,11 @@ module GimmeWikidata
     # TODO: DOCUMENT
     def self.parse_snak(s)
       property = Property.new(s[:property])
-      raw_value = s[:datavalue][:value]
+      raw_value = s.fetch(:datavalue, {}).fetch(:value, nil)
+
+      #TODO: Figure out why raw_value has some strange keys
+      #TODO: Correct for the very strange keys in raw_value
+
       value, value_type = case s[:datatype]
       when 'wikibase-item'
         parse_snak_wikibase_item(raw_value)
@@ -112,42 +116,65 @@ module GimmeWikidata
       Claim.new(property, value, value_type)
     end
 
-
     # Individual Snak Parsing
+
+    ##
+    # TODO: DOCUMENT FULLY
+    #
+    # A List of all Wikidata datatypes: https://www.wikidata.org/wiki/Special:ListDatatypes
     def self.parse_snak_wikibase_item(raw_value)
-      return 0, Item
+      id = raw_value.fetch(:"numeric-id", nil)
+      type = raw_value.fetch(:"entity-type", nil)
+      case type
+      when 'item'
+        return Item.new("Q#{id}"), Item
+      when 'property'
+        return Property.new("P#{id}"), Property
+      else
+        raise StandardError.new "Unknown wikibase item type #{raw_value[:entity_type]}"
+      end
     end
 
     def self.parse_snak_external_id(raw_value)
-      return 0, :external_id
+      #TODO: Extract the authoritative source
+      return raw_value, :external_id
     end
 
+    ##
+    # Parses a Wikidata Time value
+    #
+    # Times on Wikidata are stored as timestamp resembling ISO 8601
     def self.parse_snak_time(raw_value)
-      return Time.now, Time
+      timestamp = raw_value[:time]
+      precision = raw_value[:precision]
+      # TODO: Format this into a Ruby DateTime object
+      # TODO: Figure out how to store variable-precision dates
+      return raw_value, :wikidata_time
     end
 
     def self.parse_snak_commons_media(raw_value)
-      return 'image-to-go-here.jpg', :media
+      return raw_value, :media
     end
 
     def self.parse_snak_monolingual_text(raw_value)
-      return 'text-to-go-here', :text
+      return raw_value.fetch(:text, nil), :text
     end
 
     def self.parse_snak_string(raw_value)
-      return 'text-to-go-here', :text
+      return raw_value, :text
     end
 
     def self.parse_snak_url(raw_value)
-      return 'www.url-to-go-here.com', :url
+      return raw_value, :url
     end
 
     def self.parse_snak_gps_coordinate(raw_value)
-      return 'GPS TO GO HERE', :url
+      return {latitude: raw_value[:latitude], longitude: raw_value[:longitude]}, :gps_coordinates
     end
 
     def self.parse_snak_quantity(raw_value)
-      return 0, :number
+      quantity = {amount: raw_value[:amount], upper_bound: raw_value[:upperBound], lower_bound: raw_value[:lower_bound]}
+      return quantity, :quantity
     end
 
   end
