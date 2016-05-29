@@ -54,13 +54,13 @@ module GimmeWikidata
       lang = WikidataAPI.get_language.to_sym
       # Parse the fingerprint (id, label and description)
       id = e.fetch(:id, nil)
-      label = e.fetch(:labels, nil).fetch(lang, nil).fetch(:value, nil)
-      description = e.fetch(:descriptions, nil).fetch(lang, nil).fetch(:value, nil)
+      label = e.fetch(:labels, {}).fetch(lang, {}).fetch(:value, nil)
+      description = e.fetch(:descriptions, {}).fetch(lang, {}).fetch(:value, nil)
       # Parse aliases, if any:
-      aliases_hash = e.fetch(:aliases, nil).fetch(lang, nil)
-      aliases = aliases_hash.nil? ? [] :aliases_hash.map { |a| a[:value] }
+      aliases_hash = e.fetch(:aliases, {}).fetch(lang, nil)
+      aliases = aliases_hash.nil? ? [] :aliases_hash.map { |a| a.fetch(:value, nil) }
       # Parse claims, if any
-      claims = e.fetch(:claims, nil).nil? ? [] : parse_claims(e.fetch(:claims))
+      claims = e.fetch(:claims, nil).nil? ? [] : parse_claims(e.fetch(:claims, nil))
       # Create an Item or a Property
       case e.fetch(:type, nil)
       when 'item'

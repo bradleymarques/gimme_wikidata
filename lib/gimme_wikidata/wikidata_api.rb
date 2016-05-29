@@ -97,6 +97,8 @@ module GimmeWikidata
     # * *Returns* :
     #   - A hash representation of the API's response
     def self.make_call(query)
+      puts "Making API CALL:"
+      puts query
       response = HTTParty.get(query).to_h
       symbolize_recursive(response)
     end
