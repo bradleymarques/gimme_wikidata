@@ -62,16 +62,9 @@ module GimmeWikidata
     # * *Returns* :
     #   - An Entity if successful, and an EntityResponse (with error message) if unsuccessful
     def fetch_entity(id, props: [Props::ALIASES, Props::LABELS, Props::DESCRIPTIONS, Props::CLAIMS])
-      raise ArgumentError.new('Invalid Wikidata id') unless valid_id? id
-      get_query = WikidataAPI.get_entities_query(ids: [id], props: props)
-      response = WikidataAPI.make_call(get_query)
-      entityResult = Parser.parse_entity_response(response)
-      return entityResult unless entityResult.was_successful?
-      entityResult.entities[0]
-
-      # TODO: RESOLVE ITEM PROPERTIES
-      # TODO: RESOLVE ITEM CLAIMS THAT REFERENCE OTHER ITEMS
-
+      entity_result = fetch_entities([id], props: props)
+      return entity_result unless entity_result.was_successful?
+      entity_result.entities.first # Simply return the first element, since there was only 1 Entity to fetch
     end
 
     ##
@@ -87,11 +80,14 @@ module GimmeWikidata
       raise ArgumentError.new('Invalid Wikidata ids') unless valid_ids? ids
       get_query = WikidataAPI.get_entities_query(ids: ids, props: props)
       response = WikidataAPI.make_call(get_query)
-      Parser.parse_entity_response(response)
+      entity_result = Parser.parse_entity_response(response)
 
-      # TODO: RESOLVE ITEM
-      # TODO: RESOLVE ITEM CLAIMS THAT REFERENCE OTHER ITEMS
+      # Resolve all properties for the fetched entities
+      entity_result.resolve_all_properties
+      # Resolve claims that reference other Wikidata items, if claims were fetched
+      entity_result.resolve_all_claims if props.include? Props::CLAIMS
 
+      return entity_result
     end
 
     ##

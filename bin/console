@@ -11,6 +11,9 @@ def fetch_winston_churchill
   wc = GimmeWikidata.fetch('Q332528')
 end
 
+def ruby_ids
+  ["Q43088", "Q161053", "Q218935", "Q3942185", "Q79807", "Q2987013", "Q3734530"]
+end
 
 # You can also use a different console, if you like.
 # Let's use pry:

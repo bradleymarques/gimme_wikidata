@@ -51,16 +51,18 @@ module GimmeWikidata
     # * *Returns* :
     #   - Either an +Item+ object or a +Property+ object representing the passed +Entity+
     def self.parse_entity(e)
-      id = e[:id]
-      label = e[:labels][WikidataAPI.get_language.to_sym][:value]
-      description = e[:descriptions][WikidataAPI.get_language.to_sym][:value]
-      aliases = e[:aliases][WikidataAPI.get_language.to_sym].map { |a| a[:value] }
+      lang = WikidataAPI.get_language.to_sym
+      # Parse the fingerprint (id, label and description)
+      id = e.fetch(:id, nil)
+      label = e.fetch(:labels, nil).fetch(lang, nil).fetch(:value, nil)
+      description = e.fetch(:descriptions, nil).fetch(lang, nil).fetch(:value, nil)
+      # Parse aliases, if any:
+      aliases_hash = e.fetch(:aliases, nil).fetch(lang, nil)
+      aliases = aliases_hash.nil? ? [] :aliases_hash.map { |a| a[:value] }
       # Parse claims, if any
-      unless e[:claims].nil?
-        claims = parse_claims(e[:claims])
-      end
+      claims = e.fetch(:claims, nil).nil? ? [] : parse_claims(e.fetch(:claims))
       # Create an Item or a Property
-      case e[:type]
+      case e.fetch(:type, nil)
       when 'item'
         return Item.new(id, label, description, aliases, claims)
       when 'property'
@@ -83,7 +85,6 @@ module GimmeWikidata
     ##
     # TODO: DOCUMENT
     def self.parse_snak(s)
-      puts s
       property = Property.new(s[:property])
       raw_value = s[:datavalue][:value]
       value, value_type = case s[:datatype]
@@ -94,19 +95,25 @@ module GimmeWikidata
       when 'time'
         parse_snak_time(raw_value)
       when 'commonsMedia'
-        parse_commons_media(raw_value)
+        parse_snak_commons_media(raw_value)
       when 'monolingualtext'
-        parse_monolingual_text(raw_value)
+        parse_snak_monolingual_text(raw_value)
+      when 'string'
+        parse_snak_string(raw_value)
+      when 'url'
+        parse_snak_url(raw_value)
+      when 'globe-coordinate'
+        parse_snak_gps_coordinate(raw_value)
+      when 'quantity'
+        parse_snak_quantity(raw_value)
       else
         raise NotImplementedError.new "Unsupported snak datatype: #{s[:datatype]}"
       end
-
       Claim.new(property, value, value_type)
     end
 
 
     # Individual Snak Parsing
-
     def self.parse_snak_wikibase_item(raw_value)
       return 0, Item
     end
@@ -119,12 +126,28 @@ module GimmeWikidata
       return Time.now, Time
     end
 
-    def self.parse_commons_media(raw_value)
-      return 'image.jpg', :media
+    def self.parse_snak_commons_media(raw_value)
+      return 'image-to-go-here.jpg', :media
     end
 
-    def self.parse_monolingual_text(raw_value)
+    def self.parse_snak_monolingual_text(raw_value)
       return 'text-to-go-here', :text
+    end
+
+    def self.parse_snak_string(raw_value)
+      return 'text-to-go-here', :text
+    end
+
+    def self.parse_snak_url(raw_value)
+      return 'www.url-to-go-here.com', :url
+    end
+
+    def self.parse_snak_gps_coordinate(raw_value)
+      return 'GPS TO GO HERE', :url
+    end
+
+    def self.parse_snak_quantity(raw_value)
+      return 0, :number
     end
 
   end
