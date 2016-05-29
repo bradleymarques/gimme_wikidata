@@ -74,14 +74,57 @@ module GimmeWikidata
     # TODO: DOCUMENT
     def self.parse_claims(c)
       claims = []
-      c.each do |property_id, property_claims|
-        property_stub = PropertyStub.new(property_id)
-        property_claims.each do |subclaim|
-          snak = subclaim[:mainsnak]
-          claims << Claim.new(property_stub.clone, snak[:datavalue][:value], snak[:datatype])
-        end
+      c.values.flatten.each do |snak|
+        claims << parse_snak(snak[:mainsnak])
       end
       return claims
+    end
+
+    ##
+    # TODO: DOCUMENT
+    def self.parse_snak(s)
+      puts s
+      property = Property.new(s[:property])
+      raw_value = s[:datavalue][:value]
+      value, value_type = case s[:datatype]
+      when 'wikibase-item'
+        parse_snak_wikibase_item(raw_value)
+      when 'external-id'
+        parse_snak_external_id(raw_value)
+      when 'time'
+        parse_snak_time(raw_value)
+      when 'commonsMedia'
+        parse_commons_media(raw_value)
+      when 'monolingualtext'
+        parse_monolingual_text(raw_value)
+      else
+        raise NotImplementedError.new "Unsupported snak datatype: #{s[:datatype]}"
+      end
+
+      Claim.new(property, value, value_type)
+    end
+
+
+    # Individual Snak Parsing
+
+    def self.parse_snak_wikibase_item(raw_value)
+      return 0, Item
+    end
+
+    def self.parse_snak_external_id(raw_value)
+      return 0, :external_id
+    end
+
+    def self.parse_snak_time(raw_value)
+      return Time.now, Time
+    end
+
+    def self.parse_commons_media(raw_value)
+      return 'image.jpg', :media
+    end
+
+    def self.parse_monolingual_text(raw_value)
+      return 'text-to-go-here', :text
     end
 
   end

@@ -5,8 +5,15 @@ require "gimme_wikidata"
 
 include GimmeWikidata
 
-# You can add fixtures and/or initialization code here to make experimenting
-# with your gem easier. You can also use a different console, if you like.
+# You can add fixtures and/or initialization code here to make experimenting with your gem easier.
 
+def fetch_winston_churchill
+  wc = GimmeWikidata.fetch('Q332528')
+end
+
+
+# You can also use a different console, if you like.
+# Let's use pry:
 require 'pry'
 Pry.start
+

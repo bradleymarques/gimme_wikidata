@@ -8,6 +8,8 @@ module GimmeWikidata
   # For more details, please see: https://www.wikidata.org/wiki/Wikidata:Glossary#Claims_and_statements
   class Claim
 
+    attr_reader :property, :value, :value_type
+
     def initialize(property = nil, value = nil, value_type = nil)
       @property = property
       @value = value
