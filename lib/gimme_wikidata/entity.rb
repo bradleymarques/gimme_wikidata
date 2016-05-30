@@ -88,17 +88,16 @@ module GimmeWikidata
     ##
     # Returns a simple hash of claims and their values
     #
-    # TODO: Replace with actual content, not just placeholder data
     def simple_claims
       simple = claims.map {|c| c.simplify }
-      simple.reduce({}, :merge)
+      simple.merge_hashes
     end
 
     ##
     # TODO: DOCUMENT
     def resolve_with(entity_details)
-      raise StandardError.new "Attempting to resolve Entity with id #{@id} with entity_details with id #{entity_details.id}" unless @id == entity_details.id
       raise ArgumentError.new "Attempting to resolve an Item with a Property or vice versa" if entity_details.id[0] != @id[0]
+      raise StandardError.new "Attempting to resolve Entity with id #{@id} with entity_details with id #{entity_details.id}" unless @id == entity_details.id
       @label = entity_details.label
       @description = entity_details.description
       @aliases = entity_details.aliases
