@@ -5,24 +5,31 @@ require 'gimme_wikidata/enums'
 module GimmeWikidata
 
   ##
-  # Responsible for communication with the Wikidata API
+  # Responsible for communication with the Wikidata API.
   #
-  # Handles the language and formatting of API calls
+  # Handles the language and formatting of API calls.
   #
   # Supported API actions:
   # - +wbsearchentities+ -> https://www.wikidata.org/w/api.php?action=help&modules=wbsearchentities
   # - +wbgetentities+ -> https://www.wikidata.org/w/api.php?action=help&modules=wbgetentities
   class WikidataAPI
 
+    ##
+    # The base API URL: https://www.wikidata.org/w/api.php?
     APIURL = 'https://www.wikidata.org/w/api.php?'
+
+    ##
+    # The format in which to pull data (json)
     FORMAT = 'json'
 
+    ##
+    # The current language to use in all communication with the Wikidata API.
     @@language = Languages::DEFAULT
 
     ##
-    # Set the language for the WikidataAPI.  This is used when communicating to the API.
+    # Set the language to use when communicating to the the WikidataAPI.
     #
-    # * *Args*    :
+    # * *Parameters*    :
     #   - +language_symbol+ -> A symbol from the Languages Enum class
     # * *Returns* :
     #   - The string format of the language it is set to (or, of the current language if *not* set successfully)
@@ -43,13 +50,15 @@ module GimmeWikidata
     #
     # Interfaces with the module described here: https://www.wikidata.org/w/api.php?action=help&modules=wbsearchentities
     #
-    # Parameters:
-    #   search => the search term to look for
-    #   language => the language in which to search
-    #   strict_language => disable language fallback or not
-    #   type => either 'item' or 'property'
-    #   limit => maximum number of things returned
-    #   continue => offset of things
+    # * *Parameters*    :
+    #   - +search+ -> the search term to look for
+    #   - +language+ -> the language in which to search
+    #   - +strict_language+ -> disable language fallback or not
+    #   - +type+ -> either 'item' or 'property'
+    #   - +limit+ -> maximum number of things returned
+    #   - +continue+ -> offset of things
+    # * *Returns* :
+    #   - A +wbsearchentities+ query to be used in a Wikidata API call
     def self.search_query (search: "wikidata", strict_language: false, type: 'item', limit: 50, continue: 0)
       url = [APIURL]
       url << "action=#{Actions::SEARCH}"
@@ -67,9 +76,11 @@ module GimmeWikidata
     # Build a query to get Entities (Items and Properties) from Wikidata.
     #
     # Interfaces the the module described here: https://www.wikidata.org/w/api.php?action=help&modules=wbgetentities
-    #
-    # ids         - an array of strings representing the ids of the entities on Wikidata.  Example: ['Q1', 'Q3', 'P106']
-    # props       - the properties to get.  See the Props class
+    # * *Parameters*    :
+    #   - +ids+ -> an array of strings representing the ids of the entities on Wikidata.
+    #   - +props+ -> the properties to get.  See the Props class.
+    # * *Returns* :
+    #   - A +wbgetentities+ query to be used in a Wikidata API call
     def self.get_entities_query(ids: ['Q1'], props: [Props::LABELS, Props::DESCRIPTIONS, Props::ALIASES])
       url = [base_url]
       url << '&action=' << Actions::GET_ENTITIES
@@ -92,7 +103,7 @@ module GimmeWikidata
     ##
     # Makes a call to the Wikidata API and formats the response into a symbolized hash
     #
-    # * *Args*    :
+    # * *Parameters*    :
     #   - +query+ -> The query for the API call
     # * *Returns* :
     #   - A hash representation of the API's response
