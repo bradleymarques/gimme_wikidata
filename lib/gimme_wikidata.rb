@@ -23,14 +23,14 @@ module GimmeWikidata
     # Searches the Wikidata API for a particular term and returns some SearchResults (wrapped in a Search object).
     # Constructs the required search query, makes the call to the API and parses the response.
     #
-    # * *Args*    :
+    # * *Parameters*    :
     #   - +search_term+ -> the search term to look for on Wikidata
     #   - +strict_language+ -> Should we force a restriction to the current language?  See WikidataAPI::language
     #   - +type+ -> Either search for 'item' or 'property'.  Defaults to 'item'
     #   - +limit+ -> The maximum number of SearchResults to return.  Defaults to 50.
-    #   - +continue+ ->
+    #   - +continue+ -> Where to continue the search from.  Defaults to 0.
     # * *Returns* :
-    #   - A +Search+ object representing and containing the +SearchResults+ found
+    #   - A Search object representing and containing the +SearchResults+ found
     def search(search_term, strict_language: false, type: 'item', limit: 50, continue: 0)
       search_query = WikidataAPI.search_query(search: search_term, strict_language: strict_language, type: type, limit: limit, continue: continue)
       response = WikidataAPI.make_call(search_query)
@@ -42,9 +42,9 @@ module GimmeWikidata
     #
     # Uses either +fetch_entity+ or +fetch_entities+, so is just for convenience.
     #
-    # * *Args*    :
-    #   - +ids+ -> Either a single Wikidata id or an array of them
-    #   - +props+ -> The properties to pull from Wikidata (see Props class)
+    # * *Parameters*    :
+    #   - +ids+ -> Either a single Wikidata id or an array of them.  If the former, will call +fetch_entity+; if the latter, will call +fetch_entities+
+    #   - +props+ -> The properties to pull from Wikidata (see Props class).  Defaults to +aliases+, +labels+, +descriptions+ and +claims+.
     # * *Returns* :
     #   - An Entity in the case of a single id, and an EntityResult in the case of multiple ids
     def fetch(ids, props: [Props::ALIASES, Props::LABELS, Props::DESCRIPTIONS, Props::CLAIMS])
@@ -56,7 +56,7 @@ module GimmeWikidata
     ##
     # Fetch a single Entity from Wikidata by id
     #
-    # * *Args*    :
+    # * *Parameters*    :
     #   - +id+ -> The Wikidata id of the Entity to get
     #   - +props+ -> The properties to pull from Wikidata (see Props class)
     # * *Returns* :
@@ -71,7 +71,7 @@ module GimmeWikidata
     # Fetch multiple Entities from Wikidata by id
     #
     # Makes a call to Wikidata and get the results wrapped in a +EntityResult+ object
-    # * *Args*    :
+    # * *Parameters*    :
     #   - +ids+ -> An array of Wikidata ids, such as ['Q1', 'Q2', 'P206', 'P16']
     #   - +props+ -> The properties to pull from Wikidata (see Props class)
     # * *Returns* :
@@ -91,24 +91,24 @@ module GimmeWikidata
     end
 
     ##
-    # Valdiates that the passed array of ids matches Wikidata format
+    # Valdiates an array of ids against Wikidata format
     #
     # Wikidata has ids in the form 'QN' or 'PN' where Q means 'Item', P means 'Property', and N is any number.
-    # * *Args*    :
-    #   - +ids+ -> An array of (possible) Wikidata ids to be validated
-    # * *Returns* :
+    # * *Parameters*:
+    #   - +ids+ -> An array of (possible) Wikidata ids to be validated, in string form
+    # * *Returns*:
     #   - boolean
     def valid_ids?(ids)
-      return ids.all? { |id| valid_id? id }
+      return ids.all?(&:valid_id?)
     end
 
     ##
-    # Valdiates that a single ids matches Wikidata format
+    # Valdiates a single id against Wikidata format
     #
     # Wikidata has ids in the form 'QN' or 'PN' where Q means 'Item', P means 'Property', and N is any number.
-    # * *Args*    :
-    #   - +id+ -> A (possible) Wikidata ids to be validated
-    # * *Returns* :
+    # * *Parameters*    :
+    #   - +id+ -> A (possible) Wikidata id to be validated, as a String
+    # * *Returns*:
     #   - boolean
     def valid_id?(id)
       return false unless id.is_a? String
