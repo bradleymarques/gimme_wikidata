@@ -90,9 +90,7 @@ module GimmeWikidata
     end
 
     ##
-    # Helper function to build a commonly-used URL
-    #
-    # Appends default format and language to the base Wikidata API URL
+    # Helper function to build a commonly-used URL. Appends default format and language to the base Wikidata API URL
     def self.base_url
       url = [APIURL]
       url << 'format=' << FORMAT
