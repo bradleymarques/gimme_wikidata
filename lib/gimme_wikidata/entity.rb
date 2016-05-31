@@ -90,7 +90,6 @@ module GimmeWikidata
     #
     def simple_claims
       simple = claims.map {|c| c.simplify }
-      simple.merge_hashes
     end
 
     ##
@@ -105,18 +104,7 @@ module GimmeWikidata
       @claims = [] if @claims.nil?
     end
 
-    ##
-    # Prints a pretty version of the Entity
-    def print(colour = :blue)
-      puts "#{label} (#{id})".bold.colorize(background: colour)
-      puts description.colorize(color: colour)
-      puts "Aliases: " + @aliases.join(', ')
-      puts "Claims:".underline
-      simple_claims.each do |label, value|
-        puts "\t#{label}: ".bold.colorize(color: colour) + "#{value}"
-      end
-      return nil
-    end
+
 
   end
 

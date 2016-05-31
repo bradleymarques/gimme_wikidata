@@ -21,9 +21,9 @@ module GimmeWikidata
     #
     # Example: {sex_or_gender: "Male"}
     def simplify
-      key = @property.label.downcase.gsub(/[^0-9a-z]/, '_').to_sym
+      property = @property.label
       value = simplify_value
-      return {key => value}
+      return {property: property, value: value}
     end
 
     ##
@@ -42,8 +42,5 @@ module GimmeWikidata
         return nil # TODO: Consider throwing an exception here
       end
     end
-
   end
-
-
 end
