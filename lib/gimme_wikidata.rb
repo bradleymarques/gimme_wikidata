@@ -38,19 +38,21 @@ module GimmeWikidata
     end
 
     ##
-    # Fetch Entitiy (or Entities) from Wikidata by id (or ids)
+    # Fetch Entity (or Entities) from Wikidata by id (or ids)
     #
-    # Uses either +fetch_entity+ or +fetch_entities+, so is just for convenience.
+    # Calls either +fetch_entity+ or +fetch_entities+, so is just for convenience.
     #
     # * *Parameters*    :
     #   - +ids+ -> Either a single Wikidata id or an array of them.  If the former, will call +fetch_entity+; if the latter, will call +fetch_entities+
     #   - +props+ -> The properties to pull from Wikidata (see Props class).  Defaults to +aliases+, +labels+, +descriptions+ and +claims+.
     # * *Returns* :
     #   - An Entity in the case of a single id, and an EntityResult in the case of multiple ids
+    # * *Raises* :
+    #   - +ArgumentError+ if ids are not valid Wikidata ids
     def fetch(ids, props: [Props::ALIASES, Props::LABELS, Props::DESCRIPTIONS, Props::CLAIMS])
+      raise ArgumentError.new 'Invalid Wikidata ids' unless valid_ids? ids
       return fetch_entity(ids, props: props) if ids.is_a? String
       return fetch_entities(ids, props: props) if ids.is_a? Array
-      raise ArgumentError.new 'ids was neither a String nor an Array'
     end
 
     ##
@@ -61,7 +63,10 @@ module GimmeWikidata
     #   - +props+ -> The properties to pull from Wikidata (see Props class)
     # * *Returns* :
     #   - An Entity if successful, and an EntityResponse (with error message) if unsuccessful
+    # * *Raises* :
+    #   - +ArgumentError+ if ids are not valid Wikidata ids
     def fetch_entity(id, props: [Props::ALIASES, Props::LABELS, Props::DESCRIPTIONS, Props::CLAIMS])
+      raise ArgumentError.new 'Invalid Wikidata ids' unless valid_ids? ids
       entity_result = fetch_entities([id], props: props)
       return entity_result unless entity_result.was_successful?
       entity_result.entities.first # Simply return the first element, since there was only 1 Entity to fetch
@@ -76,17 +81,15 @@ module GimmeWikidata
     #   - +props+ -> The properties to pull from Wikidata (see Props class)
     # * *Returns* :
     #   - An EntityResult object containing Entities
+    # * *Raises* :
+    #   - +ArgumentError+ if ids are not valid Wikidata ids
     def fetch_entities(ids, props: [Props::ALIASES, Props::LABELS, Props::DESCRIPTIONS, Props::CLAIMS])
-      raise ArgumentError.new('Invalid Wikidata ids') unless valid_ids? ids
+      raise ArgumentError.new 'Invalid Wikidata ids' unless valid_ids? ids
       get_query = WikidataAPI.get_entities_query(ids: ids, props: props)
       response = WikidataAPI.make_call(get_query)
       entity_result = Parser.parse_entity_response(response)
-
-      # Resolve all properties for the fetched entities
       entity_result.resolve_all_properties
-      # Resolve claims that reference other Wikidata items, if claims were fetched
       entity_result.resolve_all_claims if props.include? Props::CLAIMS
-
       return entity_result
     end
 
