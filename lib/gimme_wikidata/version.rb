@@ -1,3 +1,5 @@
 module GimmeWikidata
-  VERSION = "0.2.1"
+  ##
+  # GimmeWikidata gem version
+  VERSION = "0.3.0"
 end
