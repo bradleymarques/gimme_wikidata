@@ -90,7 +90,7 @@ module GimmeWikidata
       entity_result = Parser.parse_entity_response(response)
       entity_result.resolve_all_properties
       entity_result.resolve_all_claims if props.include? Props::CLAIMS
-      return entity_result
+      entity_result
     end
 
     ##
@@ -102,7 +102,8 @@ module GimmeWikidata
     # * *Returns*:
     #   - boolean
     def valid_ids?(ids)
-      return ids.all?(&:valid_id?)
+      return false unless ids.is_a? Array
+      ids.all? { |i| valid_id?(i) }
     end
 
     ##

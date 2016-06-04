@@ -13,27 +13,27 @@
     <div class="jumbotron">
         <h1>Test Results</h1>
         <p>
-            Finished in 0.00s, 7809.29 tests/s, 8519.23 assertions/s
+            Finished in 0h00m29s, 0.63 tests/s, 0.67 assertions/s
         </p>
         <p>
             <strong>
-            <span class="text-info">11 tests</span>,
-            <span class="text-info"> 12 assertions</span>,
+            <span class="text-info">18 tests</span>,
+            <span class="text-info"> 19 assertions</span>,
             <span class=""> 0 failures</span>,
             <span class=""> 0 errors</span>,
-            <span class=""> 0 skips</span>
+            <span class="text-warning"> 1 skips</span>
             </strong>
         </p>
 
         <div class="progress">
-            <div class="progress-bar progress-bar-info" style="width: 100%">
-                100% passed
+            <div class="progress-bar progress-bar-info" style="width: 95%">
+                95% passed
             </div>
             <div class="progress-bar progress-bar-danger" style="width: 0%">
                 0% failed
             </div>
-            <div class="progress-bar progress-bar-warning" style="width: 0%">
-                0% skipped
+            <div class="progress-bar progress-bar-warning" style="width: 5%">
+                5% skipped
             </div>
         </div>
 
@@ -44,12 +44,12 @@
         <div class="panel panel-default">
             <div class="panel-heading"><strong>WikidataAPITest</strong>
                 <span class="pull-right">
-                    <span class="text-info">11 tests</span>,
-                    <span class="text-info"> 12 assertions</span>,
+                    <span class="text-info">18 tests</span>,
+                    <span class="text-info"> 19 assertions</span>,
                     <span class=""> 0 failures</span>,
                     <span class=""> 0 errors</span>,
-                    <span class=""> 0 skips</span>,
-                    <span> finished in 0.0002s</span>
+                    <span class="text-warning"> 1 skips</span>,
+                    <span> finished in 28.5595s</span>
                 </span>
             </div>
             <div class="panel-body">
@@ -58,11 +58,28 @@
                         <div class="list-group-item">
                             <h5 class="list-group-item-heading">
                                 
+                                    <span class="glyphicon glyphicon-ban-circle text-warning" aria-hidden="true"></span>
+                                
+                                test_it_does_something_appropriate_when_there_is_no_internet_connection
+                                <span class="pull-right">
+                                    Assertions 0, time 0.000052s
+                                </span>
+                            </h5>
+                            
+                                <pre class="list-group-item-text">/home/brad/LocalWork/gimme_wikidata/test/wikidata_api_test.rb:104
+
+Skipped, no message given</pre>
+                            
+                        </div>
+                    
+                        <div class="list-group-item">
+                            <h5 class="list-group-item-heading">
+                                
                                     <span class="glyphicon glyphicon-ok text-info" aria-hidden="true"></span>
                                 
                                 test_it_can_build_a_base_url
                                 <span class="pull-right">
-                                    Assertions 1, time 0.000010s
+                                    Assertions 1, time 0.000030s
                                 </span>
                             </h5>
                             
@@ -75,7 +92,7 @@
                                 
                                 test_it_can_build_get_entities_query_with_specified_parameters
                                 <span class="pull-right">
-                                    Assertions 1, time 0.000049s
+                                    Assertions 1, time 0.000040s
                                 </span>
                             </h5>
                             
@@ -88,7 +105,7 @@
                                 
                                 test_it_can_build_get_entties_query_with_default_parameters
                                 <span class="pull-right">
-                                    Assertions 1, time 0.000016s
+                                    Assertions 1, time 0.000035s
                                 </span>
                             </h5>
                             
@@ -101,7 +118,7 @@
                                 
                                 test_it_can_build_search_query_with_default_parameters
                                 <span class="pull-right">
-                                    Assertions 1, time 0.000011s
+                                    Assertions 1, time 0.000016s
                                 </span>
                             </h5>
                             
@@ -114,7 +131,7 @@
                                 
                                 test_it_can_build_search_query_with_specified_parameters
                                 <span class="pull-right">
-                                    Assertions 1, time 0.000013s
+                                    Assertions 1, time 0.000019s
                                 </span>
                             </h5>
                             
@@ -127,7 +144,33 @@
                                 
                                 test_it_can_change_language
                                 <span class="pull-right">
-                                    Assertions 1, time 0.000012s
+                                    Assertions 1, time 0.000017s
+                                </span>
+                            </h5>
+                            
+                        </div>
+                    
+                        <div class="list-group-item">
+                            <h5 class="list-group-item-heading">
+                                
+                                    <span class="glyphicon glyphicon-ok text-info" aria-hidden="true"></span>
+                                
+                                test_it_can_make_a_get_entities_call
+                                <span class="pull-right">
+                                    Assertions 1, time 11.061683s
+                                </span>
+                            </h5>
+                            
+                        </div>
+                    
+                        <div class="list-group-item">
+                            <h5 class="list-group-item-heading">
+                                
+                                    <span class="glyphicon glyphicon-ok text-info" aria-hidden="true"></span>
+                                
+                                test_it_can_make_a_search_call
+                                <span class="pull-right">
+                                    Assertions 1, time 5.945242s
                                 </span>
                             </h5>
                             
@@ -140,7 +183,7 @@
                                 
                                 test_it_defaults_to_english_language
                                 <span class="pull-right">
-                                    Assertions 1, time 0.000008s
+                                    Assertions 1, time 0.000011s
                                 </span>
                             </h5>
                             
@@ -153,7 +196,7 @@
                                 
                                 test_it_does_not_change_language_if_new_language_is_unknown
                                 <span class="pull-right">
-                                    Assertions 1, time 0.000009s
+                                    Assertions 1, time 0.000023s
                                 </span>
                             </h5>
                             
@@ -166,7 +209,7 @@
                                 
                                 test_it_has_correct_api_url
                                 <span class="pull-right">
-                                    Assertions 1, time 0.000008s
+                                    Assertions 1, time 0.000010s
                                 </span>
                             </h5>
                             
@@ -179,7 +222,7 @@
                                 
                                 test_it_has_correct_data_format
                                 <span class="pull-right">
-                                    Assertions 1, time 0.000007s
+                                    Assertions 1, time 0.000018s
                                 </span>
                             </h5>
                             
@@ -192,7 +235,59 @@
                                 
                                 test_it_keeps_its_language_set_over_multiple_api_calls
                                 <span class="pull-right">
-                                    Assertions 2, time 0.000032s
+                                    Assertions 2, time 0.000039s
+                                </span>
+                            </h5>
+                            
+                        </div>
+                    
+                        <div class="list-group-item">
+                            <h5 class="list-group-item-heading">
+                                
+                                    <span class="glyphicon glyphicon-ok text-info" aria-hidden="true"></span>
+                                
+                                test_it_raises_error_if_get_entities_query_called_with_invalid_wikidata_ids
+                                <span class="pull-right">
+                                    Assertions 1, time 0.000047s
+                                </span>
+                            </h5>
+                            
+                        </div>
+                    
+                        <div class="list-group-item">
+                            <h5 class="list-group-item-heading">
+                                
+                                    <span class="glyphicon glyphicon-ok text-info" aria-hidden="true"></span>
+                                
+                                test_it_raises_error_if_get_entities_query_called_with_string
+                                <span class="pull-right">
+                                    Assertions 1, time 0.000019s
+                                </span>
+                            </h5>
+                            
+                        </div>
+                    
+                        <div class="list-group-item">
+                            <h5 class="list-group-item-heading">
+                                
+                                    <span class="glyphicon glyphicon-ok text-info" aria-hidden="true"></span>
+                                
+                                test_it_returns_a_hash_on_all_calls
+                                <span class="pull-right">
+                                    Assertions 2, time 10.047165s
+                                </span>
+                            </h5>
+                            
+                        </div>
+                    
+                        <div class="list-group-item">
+                            <h5 class="list-group-item-heading">
+                                
+                                    <span class="glyphicon glyphicon-ok text-info" aria-hidden="true"></span>
+                                
+                                test_it_returns_error_messages_from_the_wikidata_api
+                                <span class="pull-right">
+                                    Assertions 1, time 1.505000s
                                 </span>
                             </h5>
                             

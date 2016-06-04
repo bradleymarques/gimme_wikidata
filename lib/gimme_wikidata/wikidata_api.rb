@@ -7,12 +7,16 @@ module GimmeWikidata
   ##
   # Responsible for communication with the Wikidata API.
   #
-  # Handles the language and formatting of API calls.
+  # Handles the language and formatting of API calls, and the making of calls.
+  #
+  # Not responsible for making sense of the responses; for that, see Parser.
   #
   # Currently supported API actions:
   # - +wbsearchentities+ -> https://www.wikidata.org/w/api.php?action=help&modules=wbsearchentities
   # - +wbgetentities+ -> https://www.wikidata.org/w/api.php?action=help&modules=wbgetentities
   class WikidataAPI
+
+    include SymbolizeHelper
 
     ##
     # The base API URL: https://www.wikidata.org/w/api.php?
@@ -48,7 +52,7 @@ module GimmeWikidata
     ##
     # Builds a search query.
     #
-    # Interfaces with the module described here: https://www.wikidata.org/w/api.php?action=help&modules=wbsearchentities
+    # The query is described here: https://www.wikidata.org/w/api.php?action=help&modules=wbsearchentities
     #
     # * *Parameters*    :
     #   - +search+ -> the search term to look for
@@ -75,13 +79,15 @@ module GimmeWikidata
     ##
     # Build a query to get Entities (Items and Properties) from Wikidata.
     #
-    # Interfaces the the module described here: https://www.wikidata.org/w/api.php?action=help&modules=wbgetentities
+    # The query is described here: https://www.wikidata.org/w/api.php?action=help&modules=wbgetentities
+    #
     # * *Parameters*    :
     #   - +ids+ -> an array of strings representing the ids of the entities on Wikidata.
     #   - +props+ -> the properties to get.  See the Props class.
     # * *Returns* :
     #   - A +wbgetentities+ query to be used in a Wikidata API call
     def self.get_entities_query(ids = ['Q1'], props: [Props::LABELS, Props::DESCRIPTIONS, Props::ALIASES])
+      raise ArgumentError.new("Ids must be an array of Wikidata ids; it was: #{ids}") unless GimmeWikidata::valid_ids? ids
       url = [base_url]
       url << '&action=' << Actions::GET_ENTITIES
       url << '&ids=' << ids.join('|')
@@ -101,13 +107,13 @@ module GimmeWikidata
     ##
     # Makes a call to the Wikidata API and formats the response into a symbolized hash
     #
-    # * *Parameters*    :
+    # * *Parameters*:
     #   - +query+ -> The query for the API call
     # * *Returns* :
     #   - A hash representation of the API's response
     def self.make_call(query)
       response = HTTParty.get(query).to_h
-      symbolize_recursive(response)
+      SymbolizeHelper.symbolize_recursive(response)
     end
 
   end
