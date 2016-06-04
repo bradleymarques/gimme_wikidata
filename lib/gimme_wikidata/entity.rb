@@ -129,7 +129,7 @@ module GimmeWikidata
     # * *Returns:*
     #   - Array of hashes representing simplified Claims.  See Claim.simplify()
     def simple_claims
-      simple = claims.map {|c| c.simplify }
+      claims.map {|c| c.simplify }
     end
 
     ##
