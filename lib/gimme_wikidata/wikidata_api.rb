@@ -9,7 +9,7 @@ module GimmeWikidata
   #
   # Handles the language and formatting of API calls.
   #
-  # Supported API actions:
+  # Currently supported API actions:
   # - +wbsearchentities+ -> https://www.wikidata.org/w/api.php?action=help&modules=wbsearchentities
   # - +wbgetentities+ -> https://www.wikidata.org/w/api.php?action=help&modules=wbgetentities
   class WikidataAPI
@@ -24,7 +24,7 @@ module GimmeWikidata
 
     ##
     # The current language to use in all communication with the Wikidata API.
-    @@language = Languages::DEFAULT
+    @@language = Languages::ENGLISH
 
     ##
     # Set the language to use when communicating to the the WikidataAPI.
@@ -59,7 +59,7 @@ module GimmeWikidata
     #   - +continue+ -> offset of things
     # * *Returns* :
     #   - A +wbsearchentities+ query to be used in a Wikidata API call
-    def self.search_query (search: "wikidata", strict_language: false, type: 'item', limit: 50, continue: 0)
+    def self.search_query (search = "wikidata", strict_language: false, type: 'item', limit: 50, continue: 0)
       url = [APIURL]
       url << "action=#{Actions::SEARCH}"
       url << "&format=#{FORMAT}"
@@ -81,7 +81,7 @@ module GimmeWikidata
     #   - +props+ -> the properties to get.  See the Props class.
     # * *Returns* :
     #   - A +wbgetentities+ query to be used in a Wikidata API call
-    def self.get_entities_query(ids: ['Q1'], props: [Props::LABELS, Props::DESCRIPTIONS, Props::ALIASES])
+    def self.get_entities_query(ids = ['Q1'], props: [Props::LABELS, Props::DESCRIPTIONS, Props::ALIASES])
       url = [base_url]
       url << '&action=' << Actions::GET_ENTITIES
       url << '&ids=' << ids.join('|')

@@ -1,5 +1,7 @@
 module GimmeWikidata
 
+  ##
+  # TODO: DOCUMENT THIS CLASS
   class Search
 
     attr_reader :search_term, :success

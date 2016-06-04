@@ -6,7 +6,6 @@ module GimmeWikidata
   # The languages possible when communicating with the Wikidata API
   #
   # Currently available values:
-  #  - Languages::DEFAULT = 'en'
   #  - Languages::ENGLISH = 'en'
   #  - Languages::GERMAN = 'de'
   #
@@ -14,7 +13,6 @@ module GimmeWikidata
   class Languages
     include Ruby::Enum
 
-    define :DEFAULT, 'en'
     define :ENGLISH, 'en'
     define :GERMAN, 'de'
     # etc...

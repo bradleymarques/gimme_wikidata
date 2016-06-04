@@ -13,27 +13,27 @@
     <div class="jumbotron">
         <h1>Test Results</h1>
         <p>
-            Finished in 0.00s, 7395.01 tests/s, 3286.67 assertions/s
+            Finished in 0.00s, 7809.29 tests/s, 8519.23 assertions/s
         </p>
         <p>
             <strong>
-            <span class="">18 tests</span>,
-            <span class=""> 8 assertions</span>,
+            <span class="text-info">11 tests</span>,
+            <span class="text-info"> 12 assertions</span>,
             <span class=""> 0 failures</span>,
-            <span class="text-danger"> 2 errors</span>,
-            <span class="text-warning"> 8 skips</span>
+            <span class=""> 0 errors</span>,
+            <span class=""> 0 skips</span>
             </strong>
         </p>
 
         <div class="progress">
-            <div class="progress-bar progress-bar-info" style="width: 45%">
-                45% passed
+            <div class="progress-bar progress-bar-info" style="width: 100%">
+                100% passed
             </div>
-            <div class="progress-bar progress-bar-danger" style="width: 11%">
-                11% failed
+            <div class="progress-bar progress-bar-danger" style="width: 0%">
+                0% failed
             </div>
-            <div class="progress-bar progress-bar-warning" style="width: 44%">
-                44% skipped
+            <div class="progress-bar progress-bar-warning" style="width: 0%">
+                0% skipped
             </div>
         </div>
 
@@ -44,52 +44,16 @@
         <div class="panel panel-default">
             <div class="panel-heading"><strong>WikidataAPITest</strong>
                 <span class="pull-right">
-                    <span class="">10 tests</span>,
-                    <span class=""> 8 assertions</span>,
+                    <span class="text-info">11 tests</span>,
+                    <span class="text-info"> 12 assertions</span>,
                     <span class=""> 0 failures</span>,
-                    <span class="text-danger"> 2 errors</span>,
+                    <span class=""> 0 errors</span>,
                     <span class=""> 0 skips</span>,
                     <span> finished in 0.0002s</span>
                 </span>
             </div>
             <div class="panel-body">
                 <div class="list-group">
-                    
-                        <div class="list-group-item">
-                            <h5 class="list-group-item-heading">
-                                
-                                    <span class="glyphicon glyphicon-remove text-danger"  aria-hidden="true"></span>
-                                
-                                test_it_has_a_data_format
-                                <span class="pull-right">
-                                    Assertions 0, time 0.000017s
-                                </span>
-                            </h5>
-                            
-                                <pre class="list-group-item-text">/home/brad/LocalWork/gimme_wikidata/test/wikidata_api_test.rb:28
-
-NameError: uninitialized constant GimmeWikidata::WikidataAPI::Format
-    /home/brad/LocalWork/gimme_wikidata/test/wikidata_api_test.rb:28:in `test_it_has_a_data_format'</pre>
-                            
-                        </div>
-                    
-                        <div class="list-group-item">
-                            <h5 class="list-group-item-heading">
-                                
-                                    <span class="glyphicon glyphicon-remove text-danger"  aria-hidden="true"></span>
-                                
-                                test_it_has_an_api_url
-                                <span class="pull-right">
-                                    Assertions 0, time 0.000034s
-                                </span>
-                            </h5>
-                            
-                                <pre class="list-group-item-text">/home/brad/LocalWork/gimme_wikidata/test/wikidata_api_test.rb:24
-
-NameError: uninitialized constant GimmeWikidata::WikidataAPI::API_URL
-    /home/brad/LocalWork/gimme_wikidata/test/wikidata_api_test.rb:24:in `test_it_has_an_api_url'</pre>
-                            
-                        </div>
                     
                         <div class="list-group-item">
                             <h5 class="list-group-item-heading">
@@ -111,7 +75,7 @@ NameError: uninitialized constant GimmeWikidata::WikidataAPI::API_URL
                                 
                                 test_it_can_build_get_entities_query_with_specified_parameters
                                 <span class="pull-right">
-                                    Assertions 1, time 0.000021s
+                                    Assertions 1, time 0.000049s
                                 </span>
                             </h5>
                             
@@ -124,7 +88,7 @@ NameError: uninitialized constant GimmeWikidata::WikidataAPI::API_URL
                                 
                                 test_it_can_build_get_entties_query_with_default_parameters
                                 <span class="pull-right">
-                                    Assertions 1, time 0.000034s
+                                    Assertions 1, time 0.000016s
                                 </span>
                             </h5>
                             
@@ -137,7 +101,7 @@ NameError: uninitialized constant GimmeWikidata::WikidataAPI::API_URL
                                 
                                 test_it_can_build_search_query_with_default_parameters
                                 <span class="pull-right">
-                                    Assertions 1, time 0.000018s
+                                    Assertions 1, time 0.000011s
                                 </span>
                             </h5>
                             
@@ -150,7 +114,7 @@ NameError: uninitialized constant GimmeWikidata::WikidataAPI::API_URL
                                 
                                 test_it_can_build_search_query_with_specified_parameters
                                 <span class="pull-right">
-                                    Assertions 1, time 0.000015s
+                                    Assertions 1, time 0.000013s
                                 </span>
                             </h5>
                             
@@ -163,7 +127,20 @@ NameError: uninitialized constant GimmeWikidata::WikidataAPI::API_URL
                                 
                                 test_it_can_change_language
                                 <span class="pull-right">
-                                    Assertions 1, time 0.000013s
+                                    Assertions 1, time 0.000012s
+                                </span>
+                            </h5>
+                            
+                        </div>
+                    
+                        <div class="list-group-item">
+                            <h5 class="list-group-item-heading">
+                                
+                                    <span class="glyphicon glyphicon-ok text-info" aria-hidden="true"></span>
+                                
+                                test_it_defaults_to_english_language
+                                <span class="pull-right">
+                                    Assertions 1, time 0.000008s
                                 </span>
                             </h5>
                             
@@ -176,7 +153,7 @@ NameError: uninitialized constant GimmeWikidata::WikidataAPI::API_URL
                                 
                                 test_it_does_not_change_language_if_new_language_is_unknown
                                 <span class="pull-right">
-                                    Assertions 1, time 0.000012s
+                                    Assertions 1, time 0.000009s
                                 </span>
                             </h5>
                             
@@ -187,165 +164,37 @@ NameError: uninitialized constant GimmeWikidata::WikidataAPI::API_URL
                                 
                                     <span class="glyphicon glyphicon-ok text-info" aria-hidden="true"></span>
                                 
-                                test_it_has_a_default_language
+                                test_it_has_correct_api_url
                                 <span class="pull-right">
-                                    Assertions 1, time 0.000027s
+                                    Assertions 1, time 0.000008s
                                 </span>
                             </h5>
-                            
-                        </div>
-                    
-                </div>
-            </div>
-        </div>
-    
-        <div class="panel panel-default">
-            <div class="panel-heading"><strong>ParserTest</strong>
-                <span class="pull-right">
-                    <span class="text-info">8 tests</span>,
-                    <span class=""> 0 assertions</span>,
-                    <span class=""> 0 failures</span>,
-                    <span class=""> 0 errors</span>,
-                    <span class="text-warning"> 8 skips</span>,
-                    <span> finished in 0.0002s</span>
-                </span>
-            </div>
-            <div class="panel-body">
-                <div class="list-group">
-                    
-                        <div class="list-group-item">
-                            <h5 class="list-group-item-heading">
-                                
-                                    <span class="glyphicon glyphicon-ban-circle text-warning" aria-hidden="true"></span>
-                                
-                                test_entity_response_says_there_are_no_entities
-                                <span class="pull-right">
-                                    Assertions 0, time 0.000033s
-                                </span>
-                            </h5>
-                            
-                                <pre class="list-group-item-text">/home/brad/LocalWork/gimme_wikidata/test/parser_test.rb:32
-
-Skipped, no message given</pre>
                             
                         </div>
                     
                         <div class="list-group-item">
                             <h5 class="list-group-item-heading">
                                 
-                                    <span class="glyphicon glyphicon-ban-circle text-warning" aria-hidden="true"></span>
+                                    <span class="glyphicon glyphicon-ok text-info" aria-hidden="true"></span>
                                 
-                                test_entity_response_says_when_it_is_unsuccessful
+                                test_it_has_correct_data_format
                                 <span class="pull-right">
-                                    Assertions 0, time 0.000030s
+                                    Assertions 1, time 0.000007s
                                 </span>
                             </h5>
-                            
-                                <pre class="list-group-item-text">/home/brad/LocalWork/gimme_wikidata/test/parser_test.rb:36
-
-Skipped, no message given</pre>
                             
                         </div>
                     
                         <div class="list-group-item">
                             <h5 class="list-group-item-heading">
                                 
-                                    <span class="glyphicon glyphicon-ban-circle text-warning" aria-hidden="true"></span>
+                                    <span class="glyphicon glyphicon-ok text-info" aria-hidden="true"></span>
                                 
-                                test_entity_response_throws_an_error_if_there_is_one_present
+                                test_it_keeps_its_language_set_over_multiple_api_calls
                                 <span class="pull-right">
-                                    Assertions 0, time 0.000031s
+                                    Assertions 2, time 0.000032s
                                 </span>
                             </h5>
-                            
-                                <pre class="list-group-item-text">/home/brad/LocalWork/gimme_wikidata/test/parser_test.rb:28
-
-Skipped, no message given</pre>
-                            
-                        </div>
-                    
-                        <div class="list-group-item">
-                            <h5 class="list-group-item-heading">
-                                
-                                    <span class="glyphicon glyphicon-ban-circle text-warning" aria-hidden="true"></span>
-                                
-                                test_it_can_parse_entities_response
-                                <span class="pull-right">
-                                    Assertions 0, time 0.000045s
-                                </span>
-                            </h5>
-                            
-                                <pre class="list-group-item-text">/home/brad/LocalWork/gimme_wikidata/test/parser_test.rb:24
-
-Skipped, no message given</pre>
-                            
-                        </div>
-                    
-                        <div class="list-group-item">
-                            <h5 class="list-group-item-heading">
-                                
-                                    <span class="glyphicon glyphicon-ban-circle text-warning" aria-hidden="true"></span>
-                                
-                                test_it_can_parse_search_response
-                                <span class="pull-right">
-                                    Assertions 0, time 0.000020s
-                                </span>
-                            </h5>
-                            
-                                <pre class="list-group-item-text">/home/brad/LocalWork/gimme_wikidata/test/parser_test.rb:8
-
-Skipped, no message given</pre>
-                            
-                        </div>
-                    
-                        <div class="list-group-item">
-                            <h5 class="list-group-item-heading">
-                                
-                                    <span class="glyphicon glyphicon-ban-circle text-warning" aria-hidden="true"></span>
-                                
-                                test_it_raises_argument_error_if_search_response_does_not_have_correct_form
-                                <span class="pull-right">
-                                    Assertions 0, time 0.000033s
-                                </span>
-                            </h5>
-                            
-                                <pre class="list-group-item-text">/home/brad/LocalWork/gimme_wikidata/test/parser_test.rb:16
-
-Skipped, no message given</pre>
-                            
-                        </div>
-                    
-                        <div class="list-group-item">
-                            <h5 class="list-group-item-heading">
-                                
-                                    <span class="glyphicon glyphicon-ban-circle text-warning" aria-hidden="true"></span>
-                                
-                                test_it_says_search_is_empty_when_its_empty
-                                <span class="pull-right">
-                                    Assertions 0, time 0.000030s
-                                </span>
-                            </h5>
-                            
-                                <pre class="list-group-item-text">/home/brad/LocalWork/gimme_wikidata/test/parser_test.rb:20
-
-Skipped, no message given</pre>
-                            
-                        </div>
-                    
-                        <div class="list-group-item">
-                            <h5 class="list-group-item-heading">
-                                
-                                    <span class="glyphicon glyphicon-ban-circle text-warning" aria-hidden="true"></span>
-                                
-                                test_it_says_search_response_was_successful_when_it_was_successful
-                                <span class="pull-right">
-                                    Assertions 0, time 0.000019s
-                                </span>
-                            </h5>
-                            
-                                <pre class="list-group-item-text">/home/brad/LocalWork/gimme_wikidata/test/parser_test.rb:12
-
-Skipped, no message given</pre>
                             
                         </div>
                     
