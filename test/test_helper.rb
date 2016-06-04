@@ -32,6 +32,10 @@ def empty_search_results
   {"searchinfo":{"search":"jdsakjdnmasdda"},"search":[],"success":1}
 end
 
+def no_search_results
+  {"servedby": "mw1146","error": {"code": "nosearch", "info": "The search parameter must be set", "*": "See https://www.wikidata.org/w/api.php for API usage"}}
+end
+
 def property_search_results
   {"searchinfo":{"search":"gender"},"search":[{"id":"P21","concepturi":"http://www.wikidata.org/entity/P21","url":"//www.wikidata.org/wiki/Property:P21","title":"Property:P21","pageid":3917971,"label":"sex or gender","description":"Sexual identity of subject: male (Q6581097), female (Q6581072), intersex (Q1097630), transgender female (Q1052281),  transgender male (Q2449503). Animals: male animal (Q44148), female animal (Q43445). Groups of same gender use \"subclass of\" (P279)","match":{"type":"alias","language":"en","text":"gender"},"aliases":["gender"]},{"id":"P2433","concepturi":"http://www.wikidata.org/entity/P2433","url":"//www.wikidata.org/wiki/Property:P2433","title":"Property:P2433","pageid":23912901,"label":"gender of a scientific name of a genus","description":"determines the correct form of some names of species and subdivisions of species, also subdivisions of a genus","match":{"type":"label","language":"en","text":"gender of a scientific name of a genus"}}],"success":1}
 end

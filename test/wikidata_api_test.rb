@@ -99,9 +99,8 @@ class WikidataAPITest < Minitest::Test
     refute_nil response.fetch(:error, nil)
   end
 
-  # TODO: Figure out how to test this.  Maybe with stubbing a non-functional HTTParty?
   def test_it_does_something_appropriate_when_there_is_no_internet_connection
-    skip
+    skip "TODO: Figure out how to test this.  Maybe with stubbing a non-functional HTTParty?"
   end
 
 end

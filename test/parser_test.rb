@@ -4,9 +4,53 @@ class ParserTest < Minitest::Test
 
   include GimmeWikidata
 
-  def test_it_can_parse_search_response
-    skip
+
+  # Parsing search results
+
+  def test_it_parses_successful_search_response_into_search_object
+    search = Parser.parse_search_response(sample_search_results)
+    assert_kind_of Search, search
   end
+
+  def test_it_parses_search_success_and_search_term
+    search = Parser.parse_search_response(sample_search_results)
+    assert search.was_successful?
+    assert_equal "attila the hun", search.search_term
+  end
+
+  def test_it_parses_search_result_objects_with_correct_values
+    search = Parser.parse_search_response(sample_search_results)
+    refute search.results.empty?
+    assert_equal 5, search.results.count
+    assert search.results.all? {|sr| sr.is_a? SearchResult }
+    assert_equal ["Q36724", "Q17987270", "Q4818461", "Q4818464", "Q4818462"], search.results.map(&:id)
+    assert_equal ["Attila the Hun", "Attila the Hun", "Attila the Hun", "Attila the Hun", "Attila the Hun in popular culture"], search.results.map(&:label)
+    assert_equal ["King of the Hunnic Empire", "Wikimedia disambiguation page", nil, "Calypsonian", nil], search.results.map(&:description)
+  end
+
+  def test_it_can_parse_empty_search_response
+    search = Parser.parse_search_response(empty_search_results)
+    assert search.empty?
+  end
+
+  def test_it_can_parse_a_no_search_response
+    search = Parser.parse_search_response(no_search_results)
+
+  end
+
+  def test_it_throws_an_error_if_parsing_a_response_without_any_search_info
+    assert_raises(ArgumentError) { Parser.parse_search_response(sample_item_claims) }
+  end
+
+
+
+
+
+
+
+
+
+
 
   def test_it_says_search_response_was_successful_when_it_was_successful
     skip
