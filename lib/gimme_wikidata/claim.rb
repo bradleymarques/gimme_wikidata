@@ -8,7 +8,26 @@ module GimmeWikidata
   # For more details, please see: https://www.wikidata.org/wiki/Wikidata:Glossary#Claims_and_statements
   class Claim
 
-    attr_reader :property, :value, :value_type
+    ##
+    # The Property that the Claim is about
+    attr_reader :property
+
+    ##
+    # The value that the Property is claimed to have
+    attr_reader :value
+
+    ##
+    # The type of value.  Current types:
+    # - item
+    # - property
+    # - wikidata_time
+    # - external_id
+    # - media
+    # - text
+    # - url
+    # - gps_coordinates
+    # - quantity
+    attr_reader :value_type
 
     def initialize(property = nil, value = nil, value_type = nil)
       @property = property
