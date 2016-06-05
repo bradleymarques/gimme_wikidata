@@ -1,0 +1,9 @@
+{
+  "snaktype": "value",
+  "property": "P1",
+  "datavalue": {
+    "value": "Hello",
+    "type": "string"
+  },
+  "datatype": "not-a-wikidata-type"
+}

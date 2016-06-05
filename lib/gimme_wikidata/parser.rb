@@ -110,7 +110,7 @@ module GimmeWikidata
       when 'quantity' then parse_snak_quantity(raw_value)
       when 'math' then parse_snak_math(raw_value)
       else
-        raise NotImplementedError.new "Unsupported Wikidata snak datatype: #{s[:datatype]}"
+        raise StandardError.new "Unsupported Wikidata snak datatype: #{s[:datatype]}"
       end
 
       Claim.new(property, value, value_type)

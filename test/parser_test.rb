@@ -208,6 +208,8 @@ class ParserTest < Minitest::Test
     assert_equal :math, claim.value_type
   end
 
-
+  def test_it_raises_an_error_if_the_snak_type_is_not_supported
+    assert_raises(StandardError) { Parser.parse_snak(ResponseFaker.fake('snaks/unsupported')) }
+  end
 
 end
