@@ -128,26 +128,53 @@ class ParserTest < Minitest::Test
     assert GimmeWikidata.valid_ids?(property_ids, [:property])
   end
 
-  def test_parsed_claims_have_correct_value_type
-    result = Parser.parse_entity_response(ResponseFaker.fake('full_test_entity'))
-    test_entity = result.entities.first
-    actaul_value_types = test_entity.claims.map { |c| c.value_type }
-    expected_value_types = ['something', 'something_else']
-    assert_equal expected_value_types, actaul_value_types
-  end
-
-  def test_parsed_claims_have_correct_values
-    result = Parser.parse_entity_response(ResponseFaker.fake('full_test_entity'))
-    test_entity = result.entities.first
-    actaul_values = test_entity.claims.map { |c| c.values }
-    expected_values = ['something', 'something_else']
-    assert_equal expected_value_types, actaul_values
-  end
-
   # Parsing of Snaks
 
-  def test_it_can_parse_text_snak
+  def test_parsing_a_snak_returns_a_claim
+    claim = Parser.parse_snak(ResponseFaker.fake('snaks/math'))
+    assert_kind_of Claim, claim
+  end
+
+  def test_it_can_parse_wikibase_item_snaks
     skip
+  end
+
+  def test_it_can_parse_external_id_snaks
+    skip
+  end
+
+  def test_it_can_parse_time_snaks
+    skip
+  end
+
+  def test_it_can_parse_commonsMedia_snaks
+    skip
+  end
+
+  def test_it_can_parse_monolingualtext_snaks
+    skip
+  end
+
+  def test_it_can_parse_string_snaks
+    skip
+  end
+
+  def test_it_can_parse_url_snaks
+    skip
+  end
+
+  def test_it_can_parse_globe_coordinate_snaks
+    skip
+  end
+
+  def test_it_can_parse_quantity_snaks
+    skip
+  end
+
+  def test_it_can_parse_math_snak
+    claim = Parser.parse_snak(ResponseFaker.fake('snaks/math'))
+    assert_equal 'test', claim.value
+    assert_equal :math, claim.value_type
   end
 
 

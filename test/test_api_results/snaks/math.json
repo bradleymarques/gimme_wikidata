@@ -1,0 +1,9 @@
+{
+    "snaktype": "value",
+    "property": "P2535",
+    "datavalue": {
+        "value": "test",
+        "type": "string"
+    },
+    "datatype": "math"
+}

@@ -94,33 +94,25 @@ module GimmeWikidata
       property = Property.new(s[:property])
       raw_value = s.fetch(:datavalue, {}).fetch(:value, nil)
 
-      #TODO: Figure out why raw_value has some strange keys
+      #TODO: Figure out why raw_value has some strange keys. Example => ':"key"'
       #TODO: Correct for the very strange keys in raw_value
 
-      value, value_type = case s[:datatype]
-      when 'wikibase-item'
-        parse_snak_wikibase_item(raw_value)
-      when 'external-id'
-        parse_snak_external_id(raw_value)
-      when 'time'
-        parse_snak_time(raw_value)
-      when 'commonsMedia'
-        parse_snak_commons_media(raw_value)
-      when 'monolingualtext'
-        parse_snak_monolingual_text(raw_value)
-      when 'string'
-        parse_snak_string(raw_value)
-      when 'url'
-        parse_snak_url(raw_value)
-      when 'globe-coordinate'
-        parse_snak_gps_coordinate(raw_value)
-      when 'quantity'
-        parse_snak_quantity(raw_value)
-      when 'math'
-        parse_snak_math(raw_value)
+      value, value_type =
+      case s[:datatype]
+      when 'wikibase-item' then parse_snak_wikibase_item(raw_value)
+      when 'external-id' then parse_snak_external_id(raw_value)
+      when 'time' then parse_snak_time(raw_value)
+      when 'commonsMedia' then parse_snak_commons_media(raw_value)
+      when 'monolingualtext' then parse_snak_monolingual_text(raw_value)
+      when 'string' then parse_snak_string(raw_value)
+      when 'url' then parse_snak_url(raw_value)
+      when 'globe-coordinate' then parse_snak_gps_coordinate(raw_value)
+      when 'quantity' then parse_snak_quantity(raw_value)
+      when 'math' then parse_snak_math(raw_value)
       else
         raise NotImplementedError.new "Unsupported Wikidata snak datatype: #{s[:datatype]}"
       end
+
       Claim.new(property, value, value_type)
     end
 
