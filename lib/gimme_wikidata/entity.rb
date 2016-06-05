@@ -27,7 +27,7 @@ module GimmeWikidata
     attr_accessor :claims
 
     def initialize(id, label = nil, description = nil, aliases = nil, claims = [])
-      throw ArgumentError.new 'Invalid Wikidata id' unless GimmeWikidata.valid_id? id
+      throw ArgumentError.new "Invalid Wikidata Entity id: #{id}" unless GimmeWikidata.valid_id? id
       @id = id
       @label = label
       @description = description

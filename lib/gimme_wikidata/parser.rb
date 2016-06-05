@@ -88,6 +88,8 @@ module GimmeWikidata
 
     ##
     # TODO: DOCUMENT
+    #
+    # A List of all Wikidata datatypes: https://www.wikidata.org/wiki/Special:ListDatatypes
     def self.parse_snak(s)
       property = Property.new(s[:property])
       raw_value = s.fetch(:datavalue, {}).fetch(:value, nil)
@@ -114,8 +116,10 @@ module GimmeWikidata
         parse_snak_gps_coordinate(raw_value)
       when 'quantity'
         parse_snak_quantity(raw_value)
+      when 'math'
+        parse_snak_math(raw_value)
       else
-        raise NotImplementedError.new "Unsupported snak datatype: #{s[:datatype]}"
+        raise NotImplementedError.new "Unsupported Wikidata snak datatype: #{s[:datatype]}"
       end
       Claim.new(property, value, value_type)
     end
@@ -135,7 +139,7 @@ module GimmeWikidata
       when 'property'
         return Property.new("P#{id}"), :property
       else
-        raise StandardError.new "Unknown wikibase item type #{raw_value[:entity_type]}"
+        raise StandardError.new "Unknown Wikibase item type #{raw_value[:entity_type]}"
       end
     end
 
@@ -179,6 +183,10 @@ module GimmeWikidata
     def self.parse_snak_quantity(raw_value)
       quantity = {amount: raw_value[:amount], upper_bound: raw_value[:upperBound], lower_bound: raw_value[:lower_bound]}
       return quantity, :quantity
+    end
+
+    def self.parse_snak_math(raw_value)
+      return raw_value, :math
     end
 
   end

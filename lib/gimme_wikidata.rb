@@ -99,11 +99,12 @@ module GimmeWikidata
     # Wikidata has ids in the form 'QN' or 'PN' where Q means 'Item', P means 'Property', and N is any number.
     # * *Parameters*:
     #   - +ids+ -> An array of (possible) Wikidata ids to be validated, in string form
+    #   - +type+ -> array of symbols representing entity types to check. Defaults to +[:item, :property]+
     # * *Returns*:
     #   - boolean
-    def valid_ids?(ids)
+    def valid_ids?(ids, type = [:item, :property])
       return false unless ids.is_a? Array
-      ids.all? { |i| valid_id?(i) }
+      ids.all? { |i| valid_id?(i, type) }
     end
 
     ##
@@ -112,11 +113,22 @@ module GimmeWikidata
     # Wikidata has ids in the form 'QN' or 'PN' where Q means 'Item', P means 'Property', and N is any number.
     # * *Parameters*    :
     #   - +id+ -> A (possible) Wikidata id to be validated, as a String
+    #   - +type+ -> array of symbols representing entity types to check. Defaults to +[:item, :property]+
     # * *Returns*:
     #   - boolean
-    def valid_id?(id)
+    def valid_id?(id, type = [:item, :property])
+
       return false unless id.is_a? String
-      !(/\A[QP][0-9]+\z/.match(id).nil?)
+
+      prefix =
+      case type
+      when [:item, :property] then 'QP'
+      when [:item] then 'Q'
+      when [:property] then 'P'
+      else raise ArgumentError.new "type must be a subset of [:item, :property]"
+      end
+
+      !(/\A[#{prefix}][0-9]+\z/.match(id).nil?)
     end
 
   end

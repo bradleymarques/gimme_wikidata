@@ -118,10 +118,38 @@ class ParserTest < Minitest::Test
   def test_parsed_entities_have_claims_if_response_has_claims
     result = Parser.parse_entity_response(ResponseFaker.fake('full_entity'))
     ireland = result.entities.first
+    assert ireland.has_claims?
   end
 
-  def test_parsed_claims_have_correct_ids
+  def test_parsed_claims_have_properties_with_valid_wikidata_ids
+    result = Parser.parse_entity_response(ResponseFaker.fake('full_entity'))
+    ireland = result.entities.first
+    property_ids = ireland.claims.map {|c| c.property.id }
+    assert GimmeWikidata.valid_ids?(property_ids, [:property])
+  end
+
+  def test_parsed_claims_have_correct_value_type
+    result = Parser.parse_entity_response(ResponseFaker.fake('full_test_entity'))
+    test_entity = result.entities.first
+    actaul_value_types = test_entity.claims.map { |c| c.value_type }
+    expected_value_types = ['something', 'something_else']
+    assert_equal expected_value_types, actaul_value_types
+  end
+
+  def test_parsed_claims_have_correct_values
+    result = Parser.parse_entity_response(ResponseFaker.fake('full_test_entity'))
+    test_entity = result.entities.first
+    actaul_values = test_entity.claims.map { |c| c.values }
+    expected_values = ['something', 'something_else']
+    assert_equal expected_value_types, actaul_values
+  end
+
+  # Parsing of Snaks
+
+  def test_it_can_parse_text_snak
     skip
   end
+
+
 
 end
