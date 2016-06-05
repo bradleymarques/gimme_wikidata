@@ -1,0 +1,14 @@
+{
+    "snaktype": "value",
+    "property": "P1106",
+    "datavalue": {
+        "value": {
+            "amount": "+100",
+            "unit": "1",
+            "upperBound": "+101",
+            "lowerBound": "+99"
+        },
+        "type": "quantity"
+    },
+    "datatype": "quantity"
+}

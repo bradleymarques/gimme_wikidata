@@ -1,0 +1,9 @@
+{
+  "snaktype": "value",
+  "property": "P528",
+  "datavalue": {
+    "value": "Hello",
+    "type": "string"
+  },
+  "datatype": "string"
+}

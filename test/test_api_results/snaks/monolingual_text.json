@@ -1,0 +1,13 @@
+{
+  "snaktype": "value",
+  "property": "P1476",
+  "hash": "53ccd470afaceb5c20d4a94d24ccfa3ee956a879",
+  "datavalue": {
+    "value": {
+      "text": "Бастиа Фредерик",
+      "language": "ru"
+    },
+    "type": "monolingualtext"
+  },
+  "datatype": "monolingualtext"
+}

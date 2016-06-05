@@ -1,0 +1,15 @@
+{
+    "snaktype": "value",
+    "property": "P626",
+    "datavalue": {
+        "value": {
+            "latitude": 40.748433,
+            "longitude": -73.985656,
+            "altitude": null,
+            "precision": 1.0e-6,
+            "globe": "http://www.wikidata.org/entity/Q2"
+        },
+        "type": "globecoordinate"
+    },
+    "datatype": "globe-coordinate"
+}

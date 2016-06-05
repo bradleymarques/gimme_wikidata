@@ -136,39 +136,70 @@ class ParserTest < Minitest::Test
   end
 
   def test_it_can_parse_wikibase_item_snaks
-    skip
+    claim = Parser.parse_snak(ResponseFaker.fake('snaks/wikibase_item'))
+    assert_equal :item, claim.value_type
+    assert_kind_of Item, claim.value
+    assert_equal 'Q7823779', claim.value.id
   end
 
   def test_it_can_parse_external_id_snaks
-    skip
+    claim = Parser.parse_snak(ResponseFaker.fake('snaks/external_id'))
+    assert_equal 'Zorg', claim.value
+    assert_equal :external_id, claim.value_type
   end
 
   def test_it_can_parse_time_snaks
-    skip
+    skip 'CURRENTLY NOT SUPPORTED'
   end
 
-  def test_it_can_parse_commonsMedia_snaks
-    skip
+  def test_it_can_parse_time_snaks_with_different_precision
+    skip 'CURRENTLY NOT SUPPORTED'
   end
 
-  def test_it_can_parse_monolingualtext_snaks
-    skip
+  def test_it_can_parse_time_snaks_with_different_calendar_models
+    skip 'CURRENTLY NOT SUPPORTED'
+  end
+
+  def test_it_can_parse_commons_media_snaks
+    claim = Parser.parse_snak(ResponseFaker.fake('snaks/commons_media'))
+    assert_equal 'https://commons.wikimedia.org/wiki/File:Test.svg', claim.value
+    assert_equal :media, claim.value_type
+  end
+
+  def test_it_can_parse_monolingual_text_snaks
+    claim = Parser.parse_snak(ResponseFaker.fake('snaks/monolingual_text'))
+    assert_equal 'Бастиа Фредерик', claim.value
+    assert_equal :text, claim.value_type
   end
 
   def test_it_can_parse_string_snaks
-    skip
+    claim = Parser.parse_snak(ResponseFaker.fake('snaks/string'))
+    assert_equal 'Hello', claim.value
+    assert_equal :text, claim.value_type
   end
 
   def test_it_can_parse_url_snaks
-    skip
+    claim = Parser.parse_snak(ResponseFaker.fake('snaks/url'))
+    assert_equal 'https://github.com/bradleymarques/gimme_wikidata', claim.value
+    assert_equal :url, claim.value_type
   end
 
   def test_it_can_parse_globe_coordinate_snaks
-    skip
+    claim = Parser.parse_snak(ResponseFaker.fake('snaks/globe_coordinate'))
+    assert_kind_of Hash, claim.value
+    assert_equal 40.748433, claim.value[:latitude]
+    assert_equal -73.985656, claim.value[:longitude]
+    assert_equal :gps_coordinates, claim.value_type
   end
 
   def test_it_can_parse_quantity_snaks
-    skip
+    claim = Parser.parse_snak(ResponseFaker.fake('snaks/quantity'))
+    assert_kind_of Hash, claim.value
+    assert_equal 100 , claim.value[:amount]
+    assert_equal 101 , claim.value[:upper_bound]
+    assert_equal 99 , claim.value[:lower_bound]
+    assert_equal 1 , claim.value[:unit]
+    assert_equal :quantity, claim.value_type
   end
 
   def test_it_can_parse_math_snak

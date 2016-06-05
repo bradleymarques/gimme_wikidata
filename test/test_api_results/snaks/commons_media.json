@@ -1,0 +1,9 @@
+{
+  "snaktype": "value",
+  "property": "P368",
+  "datavalue": {
+    "value": "Test.svg",
+    "type": "string"
+  },
+  "datatype": "commonsMedia"
+}

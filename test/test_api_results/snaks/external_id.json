@@ -1,0 +1,9 @@
+{
+  "snaktype": "value",
+  "property": "P2002",
+  "datavalue": {
+    "value": "Zorg",
+    "type": "string"
+  },
+  "datatype": "external-id"
+}

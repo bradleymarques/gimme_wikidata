@@ -1,0 +1,12 @@
+{
+    "snaktype": "value",
+    "property": "P54",
+    "datavalue": {
+        "value": {
+            "entity-type": "item",
+            "numeric-id": 7823779
+        },
+        "type": "wikibase-entityid"
+    },
+    "datatype": "wikibase-item"
+}

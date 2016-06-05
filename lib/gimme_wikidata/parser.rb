@@ -149,11 +149,13 @@ module GimmeWikidata
       #precision = raw_value[:precision]
       # TODO: Format this into a Ruby DateTime object
       # TODO: Figure out how to store variable-precision dates
-      return raw_value, :wikidata_time
+      return 'WIKIDATA TIMES ARE CURRENTLY NOT SUPPORTED', :wikidata_time_not_supported
     end
 
     def self.parse_snak_commons_media(raw_value)
-      return raw_value, :media
+      file_name = raw_value.to_s.gsub(' ', '_')
+      full_url = "https://commons.wikimedia.org/wiki/File:" + file_name
+      return full_url, :media
     end
 
     def self.parse_snak_monolingual_text(raw_value)
@@ -173,7 +175,12 @@ module GimmeWikidata
     end
 
     def self.parse_snak_quantity(raw_value)
-      quantity = {amount: raw_value[:amount], upper_bound: raw_value[:upperBound], lower_bound: raw_value[:lower_bound]}
+      quantity = {
+        amount: raw_value.fetch(:amount, 0).to_f,
+        upper_bound: raw_value.fetch(:upperBound, 0).to_f,
+        lower_bound: raw_value.fetch(:lowerBound, 0).to_f,
+        unit: raw_value.fetch(:unit, 0).to_f
+      }
       return quantity, :quantity
     end
 

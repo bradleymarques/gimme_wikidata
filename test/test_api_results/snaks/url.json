@@ -1,0 +1,9 @@
+{
+  "snaktype": "value",
+  "property": "P854",
+  "datavalue": {
+    "value": "https://github.com/bradleymarques/gimme_wikidata",
+    "type": "string"
+  },
+  "datatype": "url"
+}
