@@ -7,17 +7,7 @@ include GimmeWikidata
 
 # You can add fixtures and/or initialization code here to make experimenting with your gem easier.
 
-def fetch_winston_churchill
-  wc = GimmeWikidata.fetch('Q332528')
-end
-
-def fetch_ireland
-  i = GimmeWikidata.fetch('Q27')
-end
-
-def ruby_ids
-  ["Q43088", "Q161053", "Q218935", "Q3942185", "Q79807", "Q2987013", "Q3734530"]
-end
+require "#{File.join(Dir.pwd, 'test', 'test_api_results', 'response_faker')}"
 
 # You can also use a different console, if you like.
 # Let's use pry:

@@ -13,27 +13,27 @@
     <div class="jumbotron">
         <h1>Test Results</h1>
         <p>
-            Finished in 0.00s, 1061.47 tests/s, 1061.47 assertions/s
+            Finished in 0h00m07s, 5.33 tests/s, 6.31 assertions/s
         </p>
         <p>
             <strong>
-            <span class="">1 tests</span>,
-            <span class=""> 1 assertions</span>,
+            <span class="">38 tests</span>,
+            <span class=""> 45 assertions</span>,
             <span class="text-danger"> 1 failures</span>,
             <span class=""> 0 errors</span>,
-            <span class=""> 0 skips</span>
+            <span class="text-warning"> 2 skips</span>
             </strong>
         </p>
 
         <div class="progress">
-            <div class="progress-bar progress-bar-info" style="width: 0%">
-                0% passed
+            <div class="progress-bar progress-bar-info" style="width: 93%">
+                93% passed
             </div>
-            <div class="progress-bar progress-bar-danger" style="width: 100%">
-                100% failed
+            <div class="progress-bar progress-bar-danger" style="width: 2%">
+                2% failed
             </div>
-            <div class="progress-bar progress-bar-warning" style="width: 0%">
-                0% skipped
+            <div class="progress-bar progress-bar-warning" style="width: 5%">
+                5% skipped
             </div>
         </div>
 
@@ -44,12 +44,12 @@
         <div class="panel panel-default">
             <div class="panel-heading"><strong>ParserTest</strong>
                 <span class="pull-right">
-                    <span class="">1 tests</span>,
-                    <span class=""> 1 assertions</span>,
+                    <span class="">20 tests</span>,
+                    <span class=""> 26 assertions</span>,
                     <span class="text-danger"> 1 failures</span>,
                     <span class=""> 0 errors</span>,
-                    <span class=""> 0 skips</span>,
-                    <span> finished in 0.0002s</span>
+                    <span class="text-warning"> 1 skips</span>,
+                    <span> finished in 0.0205s</span>
                 </span>
             </div>
             <div class="panel-body">
@@ -58,17 +58,529 @@
                         <div class="list-group-item">
                             <h5 class="list-group-item-heading">
                                 
-                                    <span class="glyphicon glyphicon-remove text-danger"  aria-hidden="true"></span>
+                                    <span class="glyphicon glyphicon-ban-circle text-warning" aria-hidden="true"></span>
                                 
-                                test_it_throws_an_error_if_parsing_a_response_without_any_search_info
+                                test_parsed_claims_have_correct_ids
                                 <span class="pull-right">
-                                    Assertions 1, time 0.000181s
+                                    Assertions 0, time 0.000048s
                                 </span>
                             </h5>
                             
-                                <pre class="list-group-item-text">/home/brad/LocalWork/gimme_wikidata/test/parser_test.rb:42
+                                <pre class="list-group-item-text">/home/brad/LocalWork/gimme_wikidata/test/parser_test.rb:124
 
-ArgumentError expected but nothing was raised.</pre>
+Skipped, no message given</pre>
+                            
+                        </div>
+                    
+                        <div class="list-group-item">
+                            <h5 class="list-group-item-heading">
+                                
+                                    <span class="glyphicon glyphicon-remove text-danger"  aria-hidden="true"></span>
+                                
+                                test_parsed_entities_have_correct_descriptions
+                                <span class="pull-right">
+                                    Assertions 1, time 0.001955s
+                                </span>
+                            </h5>
+                            
+                                <pre class="list-group-item-text">/home/brad/LocalWork/gimme_wikidata/test/parser_test.rb:104
+
+--- expected
++++ actual
+@@ -1 +1 @@
+-["totality of planets, stars, galaxies, intergalactic space, or all matter or all energy", "occupation of a person; see also \\\"field of work\\\" (Property:P101), \\\"position held\\\" (Property:P39)", "location the item, physical object or event is within. In case of an administrative entity use P131. In case of a distinct terrain feature use P706.", "third planet closest to the Sun in the Solar System"]
++["totality of planets, stars, galaxies, intergalactic space, or all matter or all energy", "occupation of a person; see also \"field of work\" (Property:P101), \"position held\" (Property:P39)", "location the item, physical object or event is within. In case of an administrative entity use P131. In case of a distinct terrain feature use P706.", "third planet closest to the Sun in the Solar System"]
+</pre>
+                            
+                        </div>
+                    
+                        <div class="list-group-item">
+                            <h5 class="list-group-item-heading">
+                                
+                                    <span class="glyphicon glyphicon-ok text-info" aria-hidden="true"></span>
+                                
+                                test_entity_response_empty_if_no_entities_in_response
+                                <span class="pull-right">
+                                    Assertions 1, time 0.000066s
+                                </span>
+                            </h5>
+                            
+                        </div>
+                    
+                        <div class="list-group-item">
+                            <h5 class="list-group-item-heading">
+                                
+                                    <span class="glyphicon glyphicon-ok text-info" aria-hidden="true"></span>
+                                
+                                test_entity_response_throws_an_error_if_there_is_one_present
+                                <span class="pull-right">
+                                    Assertions 1, time 0.000112s
+                                </span>
+                            </h5>
+                            
+                        </div>
+                    
+                        <div class="list-group-item">
+                            <h5 class="list-group-item-heading">
+                                
+                                    <span class="glyphicon glyphicon-ok text-info" aria-hidden="true"></span>
+                                
+                                test_entity_result_holds_correct_number_of_entities
+                                <span class="pull-right">
+                                    Assertions 1, time 0.000306s
+                                </span>
+                            </h5>
+                            
+                        </div>
+                    
+                        <div class="list-group-item">
+                            <h5 class="list-group-item-heading">
+                                
+                                    <span class="glyphicon glyphicon-ok text-info" aria-hidden="true"></span>
+                                
+                                test_entity_result_is_successful_when_response_successful
+                                <span class="pull-right">
+                                    Assertions 2, time 0.000099s
+                                </span>
+                            </h5>
+                            
+                        </div>
+                    
+                        <div class="list-group-item">
+                            <h5 class="list-group-item-heading">
+                                
+                                    <span class="glyphicon glyphicon-ok text-info" aria-hidden="true"></span>
+                                
+                                test_entity_result_unsuccessful_when_response_unsuccessful
+                                <span class="pull-right">
+                                    Assertions 1, time 0.000076s
+                                </span>
+                            </h5>
+                            
+                        </div>
+                    
+                        <div class="list-group-item">
+                            <h5 class="list-group-item-heading">
+                                
+                                    <span class="glyphicon glyphicon-ok text-info" aria-hidden="true"></span>
+                                
+                                test_it_can_parse_a_no_search_response
+                                <span class="pull-right">
+                                    Assertions 2, time 0.000052s
+                                </span>
+                            </h5>
+                            
+                        </div>
+                    
+                        <div class="list-group-item">
+                            <h5 class="list-group-item-heading">
+                                
+                                    <span class="glyphicon glyphicon-ok text-info" aria-hidden="true"></span>
+                                
+                                test_it_can_parse_empty_search_response
+                                <span class="pull-right">
+                                    Assertions 2, time 0.000041s
+                                </span>
+                            </h5>
+                            
+                        </div>
+                    
+                        <div class="list-group-item">
+                            <h5 class="list-group-item-heading">
+                                
+                                    <span class="glyphicon glyphicon-ok text-info" aria-hidden="true"></span>
+                                
+                                test_it_can_parse_entity_response_into_entity_result_object
+                                <span class="pull-right">
+                                    Assertions 1, time 0.000102s
+                                </span>
+                            </h5>
+                            
+                        </div>
+                    
+                        <div class="list-group-item">
+                            <h5 class="list-group-item-heading">
+                                
+                                    <span class="glyphicon glyphicon-ok text-info" aria-hidden="true"></span>
+                                
+                                test_it_correctly_parses_search_term
+                                <span class="pull-right">
+                                    Assertions 1, time 0.000190s
+                                </span>
+                            </h5>
+                            
+                        </div>
+                    
+                        <div class="list-group-item">
+                            <h5 class="list-group-item-heading">
+                                
+                                    <span class="glyphicon glyphicon-ok text-info" aria-hidden="true"></span>
+                                
+                                test_it_parses_search_result_objects_with_correct_values
+                                <span class="pull-right">
+                                    Assertions 6, time 0.000216s
+                                </span>
+                            </h5>
+                            
+                        </div>
+                    
+                        <div class="list-group-item">
+                            <h5 class="list-group-item-heading">
+                                
+                                    <span class="glyphicon glyphicon-ok text-info" aria-hidden="true"></span>
+                                
+                                test_it_parses_successful_search_response_into_search_object
+                                <span class="pull-right">
+                                    Assertions 1, time 0.000135s
+                                </span>
+                            </h5>
+                            
+                        </div>
+                    
+                        <div class="list-group-item">
+                            <h5 class="list-group-item-heading">
+                                
+                                    <span class="glyphicon glyphicon-ok text-info" aria-hidden="true"></span>
+                                
+                                test_it_says_search_response_was_successful_when_it_was_successful
+                                <span class="pull-right">
+                                    Assertions 1, time 0.000183s
+                                </span>
+                            </h5>
+                            
+                        </div>
+                    
+                        <div class="list-group-item">
+                            <h5 class="list-group-item-heading">
+                                
+                                    <span class="glyphicon glyphicon-ok text-info" aria-hidden="true"></span>
+                                
+                                test_it_throws_an_error_if_parsing_a_response_without_any_search_info
+                                <span class="pull-right">
+                                    Assertions 1, time 0.000079s
+                                </span>
+                            </h5>
+                            
+                        </div>
+                    
+                        <div class="list-group-item">
+                            <h5 class="list-group-item-heading">
+                                
+                                    <span class="glyphicon glyphicon-ok text-info" aria-hidden="true"></span>
+                                
+                                test_parsed_entities_have_claims_if_response_has_claims
+                                <span class="pull-right">
+                                    Assertions 0, time 0.015602s
+                                </span>
+                            </h5>
+                            
+                        </div>
+                    
+                        <div class="list-group-item">
+                            <h5 class="list-group-item-heading">
+                                
+                                    <span class="glyphicon glyphicon-ok text-info" aria-hidden="true"></span>
+                                
+                                test_parsed_entities_have_correct_aliases
+                                <span class="pull-right">
+                                    Assertions 1, time 0.000355s
+                                </span>
+                            </h5>
+                            
+                        </div>
+                    
+                        <div class="list-group-item">
+                            <h5 class="list-group-item-heading">
+                                
+                                    <span class="glyphicon glyphicon-ok text-info" aria-hidden="true"></span>
+                                
+                                test_parsed_entities_have_correct_entity_type
+                                <span class="pull-right">
+                                    Assertions 1, time 0.000288s
+                                </span>
+                            </h5>
+                            
+                        </div>
+                    
+                        <div class="list-group-item">
+                            <h5 class="list-group-item-heading">
+                                
+                                    <span class="glyphicon glyphicon-ok text-info" aria-hidden="true"></span>
+                                
+                                test_parsed_entities_have_correct_id
+                                <span class="pull-right">
+                                    Assertions 1, time 0.000192s
+                                </span>
+                            </h5>
+                            
+                        </div>
+                    
+                        <div class="list-group-item">
+                            <h5 class="list-group-item-heading">
+                                
+                                    <span class="glyphicon glyphicon-ok text-info" aria-hidden="true"></span>
+                                
+                                test_parsed_entities_have_correct_labels
+                                <span class="pull-right">
+                                    Assertions 1, time 0.000446s
+                                </span>
+                            </h5>
+                            
+                        </div>
+                    
+                </div>
+            </div>
+        </div>
+    
+        <div class="panel panel-default">
+            <div class="panel-heading"><strong>WikidataAPITest</strong>
+                <span class="pull-right">
+                    <span class="text-info">18 tests</span>,
+                    <span class=""> 19 assertions</span>,
+                    <span class=""> 0 failures</span>,
+                    <span class=""> 0 errors</span>,
+                    <span class="text-warning"> 1 skips</span>,
+                    <span> finished in 7.1084s</span>
+                </span>
+            </div>
+            <div class="panel-body">
+                <div class="list-group">
+                    
+                        <div class="list-group-item">
+                            <h5 class="list-group-item-heading">
+                                
+                                    <span class="glyphicon glyphicon-ban-circle text-warning" aria-hidden="true"></span>
+                                
+                                test_it_does_something_appropriate_when_there_is_no_internet_connection
+                                <span class="pull-right">
+                                    Assertions 0, time 0.000075s
+                                </span>
+                            </h5>
+                            
+                                <pre class="list-group-item-text">/home/brad/LocalWork/gimme_wikidata/test/wikidata_api_test.rb:103
+
+TODO: Figure out how to test this.  Maybe with stubbing a non-functional HTTParty?  There is a gem called Webmock: https://github.com/bblimke/webmock</pre>
+                            
+                        </div>
+                    
+                        <div class="list-group-item">
+                            <h5 class="list-group-item-heading">
+                                
+                                    <span class="glyphicon glyphicon-ok text-info" aria-hidden="true"></span>
+                                
+                                test_it_can_build_a_base_url
+                                <span class="pull-right">
+                                    Assertions 1, time 0.000014s
+                                </span>
+                            </h5>
+                            
+                        </div>
+                    
+                        <div class="list-group-item">
+                            <h5 class="list-group-item-heading">
+                                
+                                    <span class="glyphicon glyphicon-ok text-info" aria-hidden="true"></span>
+                                
+                                test_it_can_build_get_entities_query_with_specified_parameters
+                                <span class="pull-right">
+                                    Assertions 1, time 0.000048s
+                                </span>
+                            </h5>
+                            
+                        </div>
+                    
+                        <div class="list-group-item">
+                            <h5 class="list-group-item-heading">
+                                
+                                    <span class="glyphicon glyphicon-ok text-info" aria-hidden="true"></span>
+                                
+                                test_it_can_build_get_entties_query_with_default_parameters
+                                <span class="pull-right">
+                                    Assertions 1, time 0.000035s
+                                </span>
+                            </h5>
+                            
+                        </div>
+                    
+                        <div class="list-group-item">
+                            <h5 class="list-group-item-heading">
+                                
+                                    <span class="glyphicon glyphicon-ok text-info" aria-hidden="true"></span>
+                                
+                                test_it_can_build_search_query_with_default_parameters
+                                <span class="pull-right">
+                                    Assertions 1, time 0.000036s
+                                </span>
+                            </h5>
+                            
+                        </div>
+                    
+                        <div class="list-group-item">
+                            <h5 class="list-group-item-heading">
+                                
+                                    <span class="glyphicon glyphicon-ok text-info" aria-hidden="true"></span>
+                                
+                                test_it_can_build_search_query_with_specified_parameters
+                                <span class="pull-right">
+                                    Assertions 1, time 0.000027s
+                                </span>
+                            </h5>
+                            
+                        </div>
+                    
+                        <div class="list-group-item">
+                            <h5 class="list-group-item-heading">
+                                
+                                    <span class="glyphicon glyphicon-ok text-info" aria-hidden="true"></span>
+                                
+                                test_it_can_change_language
+                                <span class="pull-right">
+                                    Assertions 1, time 0.000016s
+                                </span>
+                            </h5>
+                            
+                        </div>
+                    
+                        <div class="list-group-item">
+                            <h5 class="list-group-item-heading">
+                                
+                                    <span class="glyphicon glyphicon-ok text-info" aria-hidden="true"></span>
+                                
+                                test_it_can_make_a_get_entities_call
+                                <span class="pull-right">
+                                    Assertions 1, time 1.429944s
+                                </span>
+                            </h5>
+                            
+                        </div>
+                    
+                        <div class="list-group-item">
+                            <h5 class="list-group-item-heading">
+                                
+                                    <span class="glyphicon glyphicon-ok text-info" aria-hidden="true"></span>
+                                
+                                test_it_can_make_a_search_call
+                                <span class="pull-right">
+                                    Assertions 1, time 1.383561s
+                                </span>
+                            </h5>
+                            
+                        </div>
+                    
+                        <div class="list-group-item">
+                            <h5 class="list-group-item-heading">
+                                
+                                    <span class="glyphicon glyphicon-ok text-info" aria-hidden="true"></span>
+                                
+                                test_it_defaults_to_english_language
+                                <span class="pull-right">
+                                    Assertions 1, time 0.000015s
+                                </span>
+                            </h5>
+                            
+                        </div>
+                    
+                        <div class="list-group-item">
+                            <h5 class="list-group-item-heading">
+                                
+                                    <span class="glyphicon glyphicon-ok text-info" aria-hidden="true"></span>
+                                
+                                test_it_does_not_change_language_if_new_language_is_unknown
+                                <span class="pull-right">
+                                    Assertions 1, time 0.000011s
+                                </span>
+                            </h5>
+                            
+                        </div>
+                    
+                        <div class="list-group-item">
+                            <h5 class="list-group-item-heading">
+                                
+                                    <span class="glyphicon glyphicon-ok text-info" aria-hidden="true"></span>
+                                
+                                test_it_has_correct_api_url
+                                <span class="pull-right">
+                                    Assertions 1, time 0.000027s
+                                </span>
+                            </h5>
+                            
+                        </div>
+                    
+                        <div class="list-group-item">
+                            <h5 class="list-group-item-heading">
+                                
+                                    <span class="glyphicon glyphicon-ok text-info" aria-hidden="true"></span>
+                                
+                                test_it_has_correct_data_format
+                                <span class="pull-right">
+                                    Assertions 1, time 0.000016s
+                                </span>
+                            </h5>
+                            
+                        </div>
+                    
+                        <div class="list-group-item">
+                            <h5 class="list-group-item-heading">
+                                
+                                    <span class="glyphicon glyphicon-ok text-info" aria-hidden="true"></span>
+                                
+                                test_it_keeps_its_language_set_over_multiple_api_calls
+                                <span class="pull-right">
+                                    Assertions 2, time 0.000065s
+                                </span>
+                            </h5>
+                            
+                        </div>
+                    
+                        <div class="list-group-item">
+                            <h5 class="list-group-item-heading">
+                                
+                                    <span class="glyphicon glyphicon-ok text-info" aria-hidden="true"></span>
+                                
+                                test_it_raises_error_if_get_entities_query_called_with_invalid_wikidata_ids
+                                <span class="pull-right">
+                                    Assertions 1, time 0.000046s
+                                </span>
+                            </h5>
+                            
+                        </div>
+                    
+                        <div class="list-group-item">
+                            <h5 class="list-group-item-heading">
+                                
+                                    <span class="glyphicon glyphicon-ok text-info" aria-hidden="true"></span>
+                                
+                                test_it_raises_error_if_get_entities_query_called_with_string
+                                <span class="pull-right">
+                                    Assertions 1, time 0.000048s
+                                </span>
+                            </h5>
+                            
+                        </div>
+                    
+                        <div class="list-group-item">
+                            <h5 class="list-group-item-heading">
+                                
+                                    <span class="glyphicon glyphicon-ok text-info" aria-hidden="true"></span>
+                                
+                                test_it_returns_a_hash_on_all_calls
+                                <span class="pull-right">
+                                    Assertions 2, time 3.167602s
+                                </span>
+                            </h5>
+                            
+                        </div>
+                    
+                        <div class="list-group-item">
+                            <h5 class="list-group-item-heading">
+                                
+                                    <span class="glyphicon glyphicon-ok text-info" aria-hidden="true"></span>
+                                
+                                test_it_returns_error_messages_from_the_wikidata_api
+                                <span class="pull-right">
+                                    Assertions 1, time 1.126851s
+                                </span>
+                            </h5>
                             
                         </div>
                     

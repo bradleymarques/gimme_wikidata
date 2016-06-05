@@ -36,8 +36,8 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'pry'
   spec.add_development_dependency 'rdoc'
 
-
   spec.add_dependency 'httparty'
   spec.add_dependency 'ruby-enum'
   spec.add_dependency 'colorize'
+  spec.add_dependency 'json'
 end

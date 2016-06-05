@@ -4,13 +4,14 @@ module GimmeWikidata
   # TODO: DOCUMENT THIS CLASS
   class Search
 
-    attr_reader :search_term, :success
+    attr_reader :search_term, :success, :error
     attr_accessor :results
 
-    def initialize(success, search_term, results = [])
+    def initialize(success, error, search_term, results = [])
       @search_term = search_term
       @success = (success == 1)
       @results = results
+      @error = error
     end
 
     def was_successful?
@@ -27,6 +28,8 @@ module GimmeWikidata
 
   end
 
+  ##
+  # TODO: DOCUMENT THIS CLASS
   class SearchResult
 
     attr_accessor :id, :type, :label, :description

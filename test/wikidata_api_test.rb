@@ -100,7 +100,7 @@ class WikidataAPITest < Minitest::Test
   end
 
   def test_it_does_something_appropriate_when_there_is_no_internet_connection
-    skip "TODO: Figure out how to test this.  Maybe with stubbing a non-functional HTTParty?"
+    skip "TODO: Figure out how to test this.  Maybe with stubbing a non-functional HTTParty?  There is a gem called Webmock: https://github.com/bblimke/webmock"
   end
 
 end

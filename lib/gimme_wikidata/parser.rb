@@ -19,9 +19,12 @@ module GimmeWikidata
     #   - A +Search+ object representing and containing the +SearchResults+ found
     # Returns a Search object representing a collection of the SearchResults found
     def self.parse_search_response(response)
-      return ArgumentError, 'response did not seem to be a response from a search query' if response[:searchinfo].nil?
-      search = Search.new(response[:success], response[:searchinfo][:search])
+      search = Search.new(
+        response.fetch(:success, false),
+        response.fetch(:error, nil),
+        response.fetch(:searchinfo, {}).fetch(:search, nil))
       return search unless search.was_successful?
+      raise ArgumentError, 'response did not seem to be a response from a search query' if response[:searchinfo].nil?
       response[:search].each do |r|
         search.results << SearchResult.new(r[:id], r[:label], r[:description])
       end
@@ -36,7 +39,8 @@ module GimmeWikidata
     # * *Returns* :
     #   - A +EntityResult+ object representing the +Entites+ fetched
     def self.parse_entity_response(response)
-      entity_result = EntityResult.new(response[:success], response[:error])
+      entity_result = EntityResult.new(response.fetch(:success, false), response.fetch(:error, nil))
+      return entity_result unless entity_result.was_successful?
       response[:entities].each do |key, value|
         entity_result.entities << parse_entity(value)
       end
