@@ -98,7 +98,7 @@ class ParserTest < Minitest::Test
   def test_parsed_entities_have_correct_descriptions
     result = Parser.parse_entity_response(ResponseFaker.fake('mixed_entities'))
     expected_descriptions = ['totality of planets, stars, galaxies, intergalactic space, or all matter or all energy']
-    expected_descriptions << 'occupation of a person; see also \"field of work\" (Property:P101), \"position held\" (Property:P39)'
+    expected_descriptions << 'occupation of a person; see also "field of work" (Property:P101), "position held" (Property:P39)'
     expected_descriptions << 'location the item, physical object or event is within. In case of an administrative entity use P131. In case of a distinct terrain feature use P706.'
     expected_descriptions << 'third planet closest to the Sun in the Solar System'
     assert_equal expected_descriptions, result.entities.map(&:description)
