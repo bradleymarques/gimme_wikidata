@@ -1,6 +1,6 @@
 # GimmeWikidata
 
-A Ruby gem to search and receive (and, in future create) data on the [Wikidata](https://www.wikidata.org/wiki/Wikidata:Main_Page) open knowledge base.
+Search and get data from the [Wikidata](https://www.wikidata.org/wiki/Wikidata:Main_Page) open knowledge base.
 
 ## Installation
 
@@ -22,13 +22,9 @@ Or install it yourself as:
 
 ### Search Wikidata
 
-```
+```ruby
 search = GimmeWikidata.search('David Bowie');
-```
 
-This will return a `Search` object, which you can use like:
-
-```
 search.was_successful?
   => true
 
@@ -38,18 +34,62 @@ search.search_term
 search.results.count
   => 7
 
-search.top_result.id
-  => "Q5383"
+search.top_result
+=> #<GimmeWikidata::SearchResult:0x00555df75cdaa0
+    @description="British musician, actor, record producer and arranger",
+    @id="Q5383",
+    @label="David Bowie",
+    @type=GimmeWikidata::Item>
 ```
 
 ### Get Data from Wikidata
 
-You could use the search results above to get more data about an `Item` (identtified by an `id`):
+You could use the search results above to get more data about an `Item` (identified by an `id`):
+
+```ruby
+david_bowie = GimmeWikidata.fetch('Q5383')
+
+david_bowie.aliases
+=> ["David Robert Jones", "Ziggy Stardust", "David Jones", "Bowie"]
+
+david_bowie.print
+===================
+David Bowie (Q5383)
+===================
+Description British musician, actor, record producer and arranger
+Aliases   David Robert Jones, Ziggy Stardust, David Jones, Bowie
+Claims:
+instance of: human (Q5)
+sex or gender: male (Q6581097)
+place of birth: Brixton (Q146690)
+spouse: Iman (Q256531)
+spouse: Angela Bowie (Q2669959)
+VIAF ID: 79021253
+GND ID: 118514091
+SUDOC authorities: 026748363
+LCAuth ID: n81112099
+BnF ID: 11893660s
+discography: David Bowie discography (Q1173801)
+Commons category: David Bowie
+ISNI: 0000 0001 1444 8576
+ISNI: 0000 0003 6858 7082
+ISNI: 0000 0003 6858 7074
+occupation: painter (Q1028181)
+occupation: singer-songwriter (Q488205)
+occupation: guitarist (Q855091)
+occupation: saxophonist (Q12800682)
+occupation: composer (Q36834)
+occupation: film actor (Q10800557)
+occupation: record producer (Q183945)
+occupation: songwriter (Q753110)
+occupation: actor (Q33999)
+# ... etc
 
 ```
-entities = GimmeWikidata.fetch(["Q5383", "Q1"])
-result.entities # Will return a collection of the Entities grabbed from Wikidata
-```
+
+## Retrieving Multiple Entities
+
+TODO: DOCUMENT
 
 ### Publish
 

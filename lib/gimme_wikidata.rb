@@ -31,8 +31,8 @@ module GimmeWikidata
     #   - +continue+ -> Where to continue the search from.  Defaults to 0.
     # * *Returns* :
     #   - A Search object representing and containing the +SearchResults+ found
-    def search(search_term, strict_language: false, type: 'item', limit: 50, continue: 0)
-      search_query = WikidataAPI.search_query(search: search_term, strict_language: strict_language, type: type, limit: limit, continue: continue)
+    def search(search_term = 'wikidata', strict_language: false, type: 'item', limit: 50, continue: 0)
+      search_query = WikidataAPI.search_query(search_term, strict_language: strict_language, type: type, limit: limit, continue: continue)
       response = WikidataAPI.make_call(search_query)
       Parser.parse_search_response(response)
     end
@@ -50,9 +50,16 @@ module GimmeWikidata
     # * *Raises* :
     #   - +ArgumentError+ if ids are not valid Wikidata ids
     def fetch(ids, props: [Props::ALIASES, Props::LABELS, Props::DESCRIPTIONS, Props::CLAIMS])
-      raise ArgumentError.new 'Invalid Wikidata ids' unless valid_ids? ids
-      return fetch_entity(ids, props: props) if ids.is_a? String
-      return fetch_entities(ids, props: props) if ids.is_a? Array
+      case ids.class.to_s
+      when 'Array'
+        raise ArgumentError.new 'Invalid Wikidata ids' unless valid_ids? ids
+        return fetch_entities(ids, props: props)
+      when 'String'
+        raise ArgumentError.new 'Invalid Wikidata id' unless valid_id? ids
+        return fetch_entity(ids, props: props)
+      else
+        raise ArgumentError.new 'Invalid Wikidata ids'
+      end
     end
 
     ##
@@ -66,7 +73,7 @@ module GimmeWikidata
     # * *Raises* :
     #   - +ArgumentError+ if ids are not valid Wikidata ids
     def fetch_entity(id, props: [Props::ALIASES, Props::LABELS, Props::DESCRIPTIONS, Props::CLAIMS])
-      raise ArgumentError.new 'Invalid Wikidata ids' unless valid_ids? ids
+      raise ArgumentError.new 'Invalid Wikidata id' unless valid_id? id
       entity_result = fetch_entities([id], props: props)
       return entity_result unless entity_result.was_successful?
       entity_result.entities.first # Simply return the first element, since there was only 1 Entity to fetch
@@ -85,7 +92,7 @@ module GimmeWikidata
     #   - +ArgumentError+ if ids are not valid Wikidata ids
     def fetch_entities(ids, props: [Props::ALIASES, Props::LABELS, Props::DESCRIPTIONS, Props::CLAIMS])
       raise ArgumentError.new 'Invalid Wikidata ids' unless valid_ids? ids
-      get_query = WikidataAPI.get_entities_query(ids: ids, props: props)
+      get_query = WikidataAPI.get_entities_query(ids, props: props)
       response = WikidataAPI.make_call(get_query)
       entity_result = Parser.parse_entity_response(response)
       entity_result.resolve_all_properties
