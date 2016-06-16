@@ -1,4 +1,7 @@
 require 'simplecov'
+require 'coveralls'
+Coveralls.wear!
+
 SimpleCov.start do
   add_filter "/test/"
   add_filter "/lib/gimme_wikidata/version.rb"
