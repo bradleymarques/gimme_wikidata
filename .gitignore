@@ -1,11 +1,13 @@
 /.bundle/
 /.yardoc
-/Gemfile.lock
 /_yardoc/
-/coverage/
-/doc/
+/Gemfile.lock
 /pkg/
 /spec/reports/
-/test/html_reports/
 /tmp/
 /.coveralls.yml
+
+# Documentation
+/doc/
+/doc/test_coverage/
+/doc/test_results/

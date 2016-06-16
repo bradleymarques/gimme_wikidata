@@ -40,8 +40,8 @@ class WikidataAPITest < Minitest::Test
     WikidataAPI.set_language(:GERMAN)
     first_query = WikidataAPI.search_query('Hotdog')
     second_query = WikidataAPI.search_query('Cheese')
-    refute_nil /&language=de/ =~ first_query
-    refute_nil /&language=de/ =~ second_query
+    refute_nil (/&language=de/) =~ first_query
+    refute_nil (/&language=de/) =~ second_query
   end
 
   # Building API calls:
@@ -77,16 +77,19 @@ class WikidataAPITest < Minitest::Test
   # Making API Calls:
 
   def test_it_can_make_a_search_call
+    flunk 'THIS TEST NEEDS TO MOCK THE API, NOT ACTUALLY RELY ON AN INTERNET CONNECTION TO PASS'
     search_query = WikidataAPI.search_query('Attila the Hun')
     assert WikidataAPI.make_call(search_query) # asserts no exceptions raised
   end
 
   def test_it_can_make_a_get_entities_call
+    flunk 'THIS TEST NEEDS TO MOCK THE API, NOT ACTUALLY RELY ON AN INTERNET CONNECTION TO PASS'
     get_query = WikidataAPI.get_entities_query(['Q1'])
     assert WikidataAPI.make_call(get_query) # asserts no exceptions raised
   end
 
   def test_it_returns_a_hash_on_all_calls
+    flunk 'THIS TEST NEEDS TO MOCK THE API, NOT ACTUALLY RELY ON AN INTERNET CONNECTION TO PASS'
     search_response = WikidataAPI.make_call(WikidataAPI.search_query('Attila The Hun'))
     entity_response = WikidataAPI.make_call(WikidataAPI.get_entities_query(['Q36724']))
     assert_kind_of Hash, search_response
@@ -94,12 +97,14 @@ class WikidataAPITest < Minitest::Test
   end
 
   def test_it_returns_error_messages_from_the_wikidata_api
+    flunk 'THIS TEST NEEDS TO MOCK THE API, NOT ACTUALLY RELY ON AN INTERNET CONNECTION TO PASS'
     search_query = WikidataAPI.get_entities_query(['Q0']) # There is no entity Q0
     response = WikidataAPI.make_call(search_query)
     refute_nil response.fetch(:error, nil)
   end
 
   def test_it_does_something_appropriate_when_there_is_no_internet_connection
+    flunk 'THIS TEST NEEDS TO MOCK THE API, NOT ACTUALLY RELY ON AN INTERNET CONNECTION TO PASS'
     skip "TODO: Figure out how to test this.  Maybe with stubbing a non-functional HTTParty?  There is a gem called Webmock: https://github.com/bblimke/webmock"
   end
 

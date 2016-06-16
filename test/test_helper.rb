@@ -2,8 +2,9 @@ require 'simplecov'
 require 'coveralls'
 Coveralls.wear!
 
+SimpleCov.coverage_dir('doc/test_coverage/')
+
 SimpleCov.start do
-  coverage_dir = '/test/html_reports/coverage'
   add_filter "/test/"
   add_filter "/lib/gimme_wikidata/version.rb"
 end
@@ -29,5 +30,8 @@ MiniTest::Display.options = {
   }
 }
 
-Minitest::Reporters.use! [ Minitest::Reporters::SpecReporter.new(color: true), Minitest::Reporters::HtmlReporter.new ]
+Minitest::Reporters.use! [
+  Minitest::Reporters::SpecReporter.new(color: true),
+  Minitest::Reporters::HtmlReporter.new({reports_dir: 'doc/test_results/'})
+]
 

@@ -44,7 +44,7 @@ class ParserTest < Minitest::Test
   end
 
   def test_it_throws_an_error_if_parsing_a_response_without_any_search_info
-    assert_raises(ArgumentError) { search = Parser.parse_search_response(ResponseFaker.fake('simple_single_item')) }
+    assert_raises(ArgumentError) { Parser.parse_search_response(ResponseFaker.fake('simple_single_item')) }
   end
 
   # Parsing Get Entity Responses
@@ -188,7 +188,7 @@ class ParserTest < Minitest::Test
     claim = Parser.parse_snak(ResponseFaker.fake('snaks/globe_coordinate'))
     assert_kind_of Hash, claim.value
     assert_equal 40.748433, claim.value[:latitude]
-    assert_equal -73.985656, claim.value[:longitude]
+    assert_equal (-73.985656), claim.value[:longitude]
     assert_equal :gps_coordinates, claim.value_type
   end
 
