@@ -1,8 +1,4 @@
 require 'simplecov'
-require 'coveralls'
-Coveralls.wear!
-
-SimpleCov.coverage_dir('doc/test_coverage/')
 
 SimpleCov.start do
   add_filter "/test/"
@@ -30,8 +26,5 @@ MiniTest::Display.options = {
   }
 }
 
-Minitest::Reporters.use! [
-  Minitest::Reporters::SpecReporter.new(color: true),
-  Minitest::Reporters::HtmlReporter.new({reports_dir: 'doc/test_results/'})
-]
+Minitest::Reporters.use! [Minitest::Reporters::SpecReporter.new(color: true), Minitest::Reporters::HtmlReporter.new()]
 
