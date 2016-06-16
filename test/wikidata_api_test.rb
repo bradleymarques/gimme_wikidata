@@ -10,8 +10,6 @@ class WikidataAPITest < Minitest::Test
     WikidataAPI.set_language(:ENGLISH)
   end
 
-  # Tests:
-
   # Basic properties:
 
   def test_it_has_correct_api_url
@@ -45,7 +43,6 @@ class WikidataAPITest < Minitest::Test
   end
 
   # Building API calls:
-
   def test_it_can_build_a_base_url
     assert_equal 'https://www.wikidata.org/w/api.php?format=json&languages=en', WikidataAPI.base_url
   end
@@ -75,37 +72,31 @@ class WikidataAPITest < Minitest::Test
   end
 
   # Making API Calls:
+  # For these tests, I am mocking the actual Wikidata API, since the tests should not rely on an Internet Connection
 
   def test_it_can_make_a_search_call
-    skip 'THIS TEST NEEDS TO MOCK THE API, NOT ACTUALLY RELY ON AN INTERNET CONNECTION TO PASS'
+    WikidataAPI.stubs(:make_call).returns(ResponseFaker.fake('sample_search'))
     search_query = WikidataAPI.search_query('Attila the Hun')
     assert WikidataAPI.make_call(search_query) # asserts no exceptions raised
   end
 
   def test_it_can_make_a_get_entities_call
-    skip 'THIS TEST NEEDS TO MOCK THE API, NOT ACTUALLY RELY ON AN INTERNET CONNECTION TO PASS'
+    WikidataAPI.stubs(:make_call).returns(ResponseFaker.fake('simple_single_item'))
     get_query = WikidataAPI.get_entities_query(['Q1'])
     assert WikidataAPI.make_call(get_query) # asserts no exceptions raised
   end
 
-  def test_it_returns_a_hash_on_all_calls
-    skip 'THIS TEST NEEDS TO MOCK THE API, NOT ACTUALLY RELY ON AN INTERNET CONNECTION TO PASS'
-    search_response = WikidataAPI.make_call(WikidataAPI.search_query('Attila The Hun'))
+  def test_it_returns_a_hash_on_api_calls
+    WikidataAPI.stubs(:make_call).returns(ResponseFaker.fake('simple_single_item'))
     entity_response = WikidataAPI.make_call(WikidataAPI.get_entities_query(['Q36724']))
-    assert_kind_of Hash, search_response
     assert_kind_of Hash, entity_response
   end
 
   def test_it_returns_error_messages_from_the_wikidata_api
-    skip 'THIS TEST NEEDS TO MOCK THE API, NOT ACTUALLY RELY ON AN INTERNET CONNECTION TO PASS'
+    WikidataAPI.stubs(:make_call).returns(ResponseFaker.fake('no_such_entity'))
     search_query = WikidataAPI.get_entities_query(['Q0']) # There is no entity Q0
     response = WikidataAPI.make_call(search_query)
     refute_nil response.fetch(:error, nil)
-  end
-
-  def test_it_does_something_appropriate_when_there_is_no_internet_connection
-    skip 'THIS TEST NEEDS TO MOCK THE API, NOT ACTUALLY RELY ON AN INTERNET CONNECTION TO PASS'
-    skip "TODO: Figure out how to test this.  Maybe with stubbing a non-functional HTTParty?  There is a gem called Webmock: https://github.com/bblimke/webmock"
   end
 
 end

@@ -14,7 +14,7 @@
       <img src="./assets/0.10.0/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2016-06-16T13:36:09+02:00">2016-06-16T13:36:09+02:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2016-06-16T21:41:17+02:00">2016-06-16T21:41:17+02:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -25,7 +25,7 @@
      covered at
      <span class="covered_strength">
        <span class="green">
-         193.75
+         195.05
        </span>
     </span> hits/line)
   </h2>
@@ -57,7 +57,7 @@
         <td>50</td>
         <td>29</td>
         <td>21</td>
-        <td>116.8</td>
+        <td>117.2</td>
       </tr>
       
       <tr>
@@ -107,7 +107,7 @@
         <td>19</td>
         <td>15</td>
         <td>4</td>
-        <td>2672.4</td>
+        <td>2693.4</td>
       </tr>
       
       <tr>
@@ -163,11 +163,11 @@
       <tr>
         <td class="strong"><a href="#9fd130f898622ffb977f9fe8bfcd9e068519b3a2" class="src_link" title="lib/gimme_wikidata/wikidata_api.rb">lib/gimme_wikidata/wikidata_api.rb</a></td>
         <td class="green strong">95.12 %</td>
-        <td>121</td>
+        <td>123</td>
         <td>41</td>
         <td>39</td>
         <td>2</td>
-        <td>4.2</td>
+        <td>5.1</td>
       </tr>
       
     </tbody>
@@ -872,14 +872,14 @@
           <code class="ruby">    def valid_ids?(ids, type = [:item, :property])</code>
         </li>
       
-        <li class="covered" data-hits="5" data-linenumber="113">
-          <span class="hits">5</span>
+        <li class="covered" data-hits="8" data-linenumber="113">
+          <span class="hits">8</span>
           
           <code class="ruby">      return false unless ids.is_a? Array</code>
         </li>
       
-        <li class="covered" data-hits="201" data-linenumber="114">
-          <span class="hits">201</span>
+        <li class="covered" data-hits="207" data-linenumber="114">
+          <span class="hits">207</span>
           
           <code class="ruby">      ids.all? { |i| valid_id?(i, type) }</code>
         </li>
@@ -962,8 +962,8 @@
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1403" data-linenumber="128">
-          <span class="hits">1403</span>
+        <li class="covered" data-hits="1406" data-linenumber="128">
+          <span class="hits">1406</span>
           
           <code class="ruby">      return false unless id.is_a? String</code>
         </li>
@@ -974,8 +974,8 @@
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1403" data-linenumber="130">
-          <span class="hits">1403</span>
+        <li class="covered" data-hits="1406" data-linenumber="130">
+          <span class="hits">1406</span>
           
           <code class="ruby">      prefix =</code>
         </li>
@@ -986,8 +986,8 @@
           <code class="ruby">      case type</code>
         </li>
       
-        <li class="covered" data-hits="610" data-linenumber="132">
-          <span class="hits">610</span>
+        <li class="covered" data-hits="613" data-linenumber="132">
+          <span class="hits">613</span>
           
           <code class="ruby">      when [:item, :property] then &#39;QP&#39;</code>
         </li>
@@ -1022,8 +1022,8 @@
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1403" data-linenumber="138">
-          <span class="hits">1403</span>
+        <li class="covered" data-hits="1406" data-linenumber="138">
+          <span class="hits">1406</span>
           
           <code class="ruby">      !(/\A[#{prefix}][0-9]+\z/.match(id).nil?)</code>
         </li>
@@ -3116,14 +3116,14 @@
           <code class="ruby">  def symbolize_recursive(hash)</code>
         </li>
       
-        <li class="covered" data-hits="3938" data-linenumber="9">
-          <span class="hits">3938</span>
+        <li class="covered" data-hits="3972" data-linenumber="9">
+          <span class="hits">3972</span>
           
           <code class="ruby">    {}.tap do |h|</code>
         </li>
       
-        <li class="covered" data-hits="16808" data-linenumber="10">
-          <span class="hits">16808</span>
+        <li class="covered" data-hits="16944" data-linenumber="10">
+          <span class="hits">16944</span>
           
           <code class="ruby">      hash.each { |key, value| h[key.to_sym] = transform(value) }</code>
         </li>
@@ -3164,26 +3164,26 @@
           <code class="ruby">  def transform(thing)</code>
         </li>
       
-        <li class="covered" data-hits="14297" data-linenumber="17">
-          <span class="hits">14297</span>
+        <li class="covered" data-hits="14407" data-linenumber="17">
+          <span class="hits">14407</span>
           
           <code class="ruby">    case thing</code>
         </li>
       
-        <li class="covered" data-hits="3907" data-linenumber="18">
-          <span class="hits">3907</span>
+        <li class="covered" data-hits="3937" data-linenumber="18">
+          <span class="hits">3937</span>
           
           <code class="ruby">    when Hash; symbolize_recursive(thing)</code>
         </li>
       
-        <li class="covered" data-hits="2958" data-linenumber="19">
-          <span class="hits">2958</span>
+        <li class="covered" data-hits="2971" data-linenumber="19">
+          <span class="hits">2971</span>
           
           <code class="ruby">    when Array; thing.map { |v| transform(v) }</code>
         </li>
       
-        <li class="covered" data-hits="8859" data-linenumber="20">
-          <span class="hits">8859</span>
+        <li class="covered" data-hits="8934" data-linenumber="20">
+          <span class="hits">8934</span>
           
           <code class="ruby">    else; thing</code>
         </li>
@@ -5546,20 +5546,20 @@
           <code class="ruby">    def self.set_language(language_symbol)</code>
         </li>
       
-        <li class="covered" data-hits="21" data-linenumber="41">
-          <span class="hits">21</span>
+        <li class="covered" data-hits="20" data-linenumber="41">
+          <span class="hits">20</span>
           
           <code class="ruby">      new_lang = Languages.to_h[language_symbol]</code>
         </li>
       
-        <li class="covered" data-hits="21" data-linenumber="42">
-          <span class="hits">21</span>
+        <li class="covered" data-hits="20" data-linenumber="42">
+          <span class="hits">20</span>
           
           <code class="ruby">      @@language = new_lang unless new_lang.nil?</code>
         </li>
       
-        <li class="covered" data-hits="21" data-linenumber="43">
-          <span class="hits">21</span>
+        <li class="covered" data-hits="20" data-linenumber="43">
+          <span class="hits">20</span>
           
           <code class="ruby">      @@language</code>
         </li>
@@ -5702,62 +5702,62 @@
           <code class="ruby">    def self.search_query (search = &quot;wikidata&quot;, strict_language: false, type: &#39;item&#39;, limit: 50, continue: 0)</code>
         </li>
       
-        <li class="covered" data-hits="4" data-linenumber="67">
-          <span class="hits">4</span>
+        <li class="covered" data-hits="5" data-linenumber="67">
+          <span class="hits">5</span>
           
           <code class="ruby">      url = [APIURL]</code>
         </li>
       
-        <li class="covered" data-hits="4" data-linenumber="68">
-          <span class="hits">4</span>
+        <li class="covered" data-hits="5" data-linenumber="68">
+          <span class="hits">5</span>
           
           <code class="ruby">      url &lt;&lt; &quot;action=#{Actions::SEARCH}&quot;</code>
         </li>
       
-        <li class="covered" data-hits="4" data-linenumber="69">
-          <span class="hits">4</span>
+        <li class="covered" data-hits="5" data-linenumber="69">
+          <span class="hits">5</span>
           
           <code class="ruby">      url &lt;&lt; &quot;&amp;format=#{FORMAT}&quot;</code>
         </li>
       
-        <li class="covered" data-hits="4" data-linenumber="70">
-          <span class="hits">4</span>
+        <li class="covered" data-hits="5" data-linenumber="70">
+          <span class="hits">5</span>
           
           <code class="ruby">      url &lt;&lt; &quot;&amp;search=#{search}&quot;</code>
         </li>
       
-        <li class="covered" data-hits="4" data-linenumber="71">
-          <span class="hits">4</span>
+        <li class="covered" data-hits="5" data-linenumber="71">
+          <span class="hits">5</span>
           
           <code class="ruby">      url &lt;&lt; &quot;&amp;language=#{@@language}&quot;</code>
         </li>
       
-        <li class="covered" data-hits="4" data-linenumber="72">
-          <span class="hits">4</span>
+        <li class="covered" data-hits="5" data-linenumber="72">
+          <span class="hits">5</span>
           
           <code class="ruby">      url &lt;&lt; &quot;&amp;strictlanguage=#{strict_language}&quot; unless strict_language == false</code>
         </li>
       
-        <li class="covered" data-hits="4" data-linenumber="73">
-          <span class="hits">4</span>
+        <li class="covered" data-hits="5" data-linenumber="73">
+          <span class="hits">5</span>
           
           <code class="ruby">      url &lt;&lt; &quot;&amp;type=#{type}&quot; unless type == &#39;item&#39;</code>
         </li>
       
-        <li class="covered" data-hits="4" data-linenumber="74">
-          <span class="hits">4</span>
+        <li class="covered" data-hits="5" data-linenumber="74">
+          <span class="hits">5</span>
           
           <code class="ruby">      url &lt;&lt; &quot;&amp;limit=#{limit}&quot; unless limit == 50</code>
         </li>
       
-        <li class="covered" data-hits="4" data-linenumber="75">
-          <span class="hits">4</span>
+        <li class="covered" data-hits="5" data-linenumber="75">
+          <span class="hits">5</span>
           
           <code class="ruby">      url &lt;&lt; &quot;&amp;continue=#{continue}&quot; unless continue == 0</code>
         </li>
       
-        <li class="covered" data-hits="4" data-linenumber="76">
-          <span class="hits">4</span>
+        <li class="covered" data-hits="5" data-linenumber="76">
+          <span class="hits">5</span>
           
           <code class="ruby">      url.join</code>
         </li>
@@ -5840,38 +5840,38 @@
           <code class="ruby">    def self.get_entities_query(ids = [&#39;Q1&#39;], props: [Props::LABELS, Props::DESCRIPTIONS, Props::ALIASES])</code>
         </li>
       
-        <li class="covered" data-hits="4" data-linenumber="90">
-          <span class="hits">4</span>
+        <li class="covered" data-hits="7" data-linenumber="90">
+          <span class="hits">7</span>
           
           <code class="ruby">      raise ArgumentError.new(&quot;Ids must be an array of Wikidata ids; it was: #{ids}&quot;) unless GimmeWikidata::valid_ids? ids</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="91">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="5" data-linenumber="91">
+          <span class="hits">5</span>
           
           <code class="ruby">      url = [base_url]</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="92">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="5" data-linenumber="92">
+          <span class="hits">5</span>
           
           <code class="ruby">      url &lt;&lt; &#39;&amp;action=&#39; &lt;&lt; Actions::GET_ENTITIES</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="93">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="5" data-linenumber="93">
+          <span class="hits">5</span>
           
           <code class="ruby">      url &lt;&lt; &#39;&amp;ids=&#39; &lt;&lt; ids.join(&#39;|&#39;)</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="94">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="5" data-linenumber="94">
+          <span class="hits">5</span>
           
           <code class="ruby">      url &lt;&lt; &#39;&amp;props=&#39; &lt;&lt; props.join(&#39;|&#39;)</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="95">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="5" data-linenumber="95">
+          <span class="hits">5</span>
           
           <code class="ruby">      url.join</code>
         </li>
@@ -5906,26 +5906,26 @@
           <code class="ruby">    def self.base_url</code>
         </li>
       
-        <li class="covered" data-hits="3" data-linenumber="101">
-          <span class="hits">3</span>
+        <li class="covered" data-hits="6" data-linenumber="101">
+          <span class="hits">6</span>
           
           <code class="ruby">      url = [APIURL]</code>
         </li>
       
-        <li class="covered" data-hits="3" data-linenumber="102">
-          <span class="hits">3</span>
+        <li class="covered" data-hits="6" data-linenumber="102">
+          <span class="hits">6</span>
           
           <code class="ruby">      url &lt;&lt; &#39;format=&#39; &lt;&lt; FORMAT</code>
         </li>
       
-        <li class="covered" data-hits="3" data-linenumber="103">
-          <span class="hits">3</span>
+        <li class="covered" data-hits="6" data-linenumber="103">
+          <span class="hits">6</span>
           
           <code class="ruby">      url &lt;&lt; &#39;&amp;languages=&#39; &lt;&lt; @@language</code>
         </li>
       
-        <li class="covered" data-hits="3" data-linenumber="104">
-          <span class="hits">3</span>
+        <li class="covered" data-hits="6" data-linenumber="104">
+          <span class="hits">6</span>
           
           <code class="ruby">      url.join</code>
         </li>
@@ -5963,61 +5963,61 @@
         <li class="never" data-hits="" data-linenumber="110">
           
           
-          <code class="ruby">    # * *Parameters*:</code>
+          <code class="ruby">    # Uses HTTParty gem</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="111">
           
           
-          <code class="ruby">    #   - +query+ -&gt; The query for the API call</code>
+          <code class="ruby">    #</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="112">
           
           
-          <code class="ruby">    # * *Returns* :</code>
+          <code class="ruby">    # * *Parameters*:</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="113">
           
           
+          <code class="ruby">    #   - +query+ -&gt; The query for the API call</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="114">
+          
+          
+          <code class="ruby">    # * *Returns* :</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="115">
+          
+          
           <code class="ruby">    #   - A hash representation of the API&#39;s response</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="114">
+        <li class="covered" data-hits="1" data-linenumber="116">
           <span class="hits">1</span>
           
           <code class="ruby">    def self.make_call(query)</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="115">
+        <li class="missed" data-hits="0" data-linenumber="117">
           
           
           <code class="ruby">      response = HTTParty.get(query).to_h</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="116">
+        <li class="missed" data-hits="0" data-linenumber="118">
           
           
           <code class="ruby">      SymbolizeHelper.symbolize_recursive(response)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="117">
-          
-          
-          <code class="ruby">    end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="118">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
         <li class="never" data-hits="" data-linenumber="119">
           
           
-          <code class="ruby">  end</code>
+          <code class="ruby">    end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="120">
@@ -6027,6 +6027,18 @@
         </li>
       
         <li class="never" data-hits="" data-linenumber="121">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="122">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="123">
           
           
           <code class="ruby">end</code>

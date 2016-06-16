@@ -107,6 +107,8 @@ module GimmeWikidata
     ##
     # Makes a call to the Wikidata API and formats the response into a symbolized hash
     #
+    # Uses HTTParty gem
+    #
     # * *Parameters*:
     #   - +query+ -> The query for the API call
     # * *Returns* :

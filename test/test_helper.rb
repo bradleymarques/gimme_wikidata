@@ -1,4 +1,6 @@
 require 'simplecov'
+#require 'coveralls'
+#Coveralls.wear!
 
 SimpleCov.start do
   add_filter "/test/"
@@ -12,6 +14,7 @@ require 'minitest'
 require 'minitest/autorun'
 require 'minitest/display'
 require 'minitest/reporters'
+require 'mocha/mini_test'
 
 require "#{File.join(Dir.pwd, 'test', 'test_api_results', 'response_faker')}"
 
