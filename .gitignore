@@ -6,5 +6,6 @@
 /doc/
 /pkg/
 /spec/reports/
+/test/html_reports/
 /tmp/
 /.coveralls.yml

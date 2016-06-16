@@ -3,6 +3,7 @@ require 'coveralls'
 Coveralls.wear!
 
 SimpleCov.start do
+  SimpleCov.coverage_path = '/test/html_reports/coverage'
   add_filter "/test/"
   add_filter "/lib/gimme_wikidata/version.rb"
 end
