@@ -1,3 +1,8 @@
+[![Gem Version](http://img.shields.io/gem/v/gimme_wikidata.svg?style=flat-square)](https://rubygems.org/gems/gimme_wikidata)
+[![Coverage Status](https://coveralls.io/repos/github/bradleymarques/gimme_wikidata/badge.svg?branch=master)](https://coveralls.io/github/bradleymarques/gimme_wikidata?branch=master)
+[![Inline docs](http://inch-ci.org/github/bradleymarques/gimme_wikidata.svg?branch=master)](http://inch-ci.org/github/bradleymarques/gimme_wikidata)
+[![License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)](http://bradleymarques.mit-license.org)
+
 # GimmeWikidata
 
 Search and get data from the [Wikidata](https://www.wikidata.org/wiki/Wikidata:Main_Page) open knowledge base.
