@@ -36,13 +36,13 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'pry', '~> 0.10.3', '>= 0.10.3'
   spec.add_development_dependency 'rdoc', '~> 4.2.2', '>= 4.2.2'
   spec.add_development_dependency 'mocha', '~> 1.1.0', '>= 1.1.0'
-  spec.add_development_dependency 'dotenv'
-  spec.add_development_dependency 'codeclimate-test-reporter'
+  spec.add_development_dependency 'dotenv', '~> 2.0.2', '>= 2.0.2'
+  spec.add_development_dependency 'codeclimate-test-reporter', '~> 0.5.2', '>= 0.5.2'
 
-  spec.add_dependency 'httparty'
-  spec.add_dependency 'ruby-enum'
-  spec.add_dependency 'colorize'
-  spec.add_dependency 'json'
+  spec.add_dependency 'httparty', '~> 0.13.7', '>= 0.13.7'
+  spec.add_dependency 'ruby-enum', '~> 0.5.0', '>= 0.5.0'
+  spec.add_dependency 'colorize', '~> 0.7.7', '>= 0.7.7'
+  spec.add_dependency 'json', '~> 1.8.3', '>= 1.8.3'
   spec.add_dependency 'carbon_date', '~> 0.1.2', '>= 0.1.2'
 
 end
