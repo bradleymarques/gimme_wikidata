@@ -1,5 +1,6 @@
 [![Gem Version](http://img.shields.io/gem/v/gimme_wikidata.svg?style=flat-square)](https://rubygems.org/gems/gimme_wikidata)
-[![Coverage Status](https://coveralls.io/repos/github/bradleymarques/gimme_wikidata/badge.svg?branch=master)](https://coveralls.io/github/bradleymarques/gimme_wikidata?branch=master)
+[![Code Climate](https://codeclimate.com/github/bradleymarques/gimme_wikidata/badges/gpa.svg)](https://codeclimate.com/github/bradleymarques/gimme_wikidata)
+[![Test Coverage](https://codeclimate.com/github/bradleymarques/gimme_wikidata/badges/coverage.svg)](https://codeclimate.com/github/bradleymarques/gimme_wikidata/coverage)
 [![Inline docs](http://inch-ci.org/github/bradleymarques/gimme_wikidata.svg?branch=master)](http://inch-ci.org/github/bradleymarques/gimme_wikidata)
 [![License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)](http://bradleymarques.mit-license.org)
 
