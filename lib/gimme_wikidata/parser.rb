@@ -167,7 +167,7 @@ module GimmeWikidata
     def self.parse_snak_time(raw_value)
       time = raw_value.fetch(:time, nil)
       precision = raw_value.fetch(:precision, nil)
-      return CarbonDate.from_iso8601(time, precision), :carbon_date
+      return CarbonDate::Date.iso8601(time, precision), :carbon_date
     end
 
     def self.parse_snak_commons_media(raw_value)

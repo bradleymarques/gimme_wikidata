@@ -13,24 +13,24 @@
     <div class="jumbotron">
         <h1>Test Results</h1>
         <p>
-            Finished in 0.00s, 869.37 tests/s, 0.00 assertions/s
+            Finished in 0.00s, 934.20 tests/s, 934.20 assertions/s
         </p>
         <p>
             <strong>
-            <span class="">1 tests</span>,
-            <span class=""> 0 assertions</span>,
+            <span class="text-info">1 tests</span>,
+            <span class="text-info"> 1 assertions</span>,
             <span class=""> 0 failures</span>,
-            <span class="text-danger"> 1 errors</span>,
+            <span class=""> 0 errors</span>,
             <span class=""> 0 skips</span>
             </strong>
         </p>
 
         <div class="progress">
-            <div class="progress-bar progress-bar-info" style="width: 0%">
-                0% passed
+            <div class="progress-bar progress-bar-info" style="width: 100%">
+                100% passed
             </div>
-            <div class="progress-bar progress-bar-danger" style="width: 100%">
-                100% failed
+            <div class="progress-bar progress-bar-danger" style="width: 0%">
+                0% failed
             </div>
             <div class="progress-bar progress-bar-warning" style="width: 0%">
                 0% skipped
@@ -44,10 +44,10 @@
         <div class="panel panel-default">
             <div class="panel-heading"><strong>ParserTest</strong>
                 <span class="pull-right">
-                    <span class="">1 tests</span>,
-                    <span class=""> 0 assertions</span>,
+                    <span class="text-info">1 tests</span>,
+                    <span class="text-info"> 1 assertions</span>,
                     <span class=""> 0 failures</span>,
-                    <span class="text-danger"> 1 errors</span>,
+                    <span class=""> 0 errors</span>,
                     <span class=""> 0 skips</span>,
                     <span> finished in 0.0002s</span>
                 </span>
@@ -58,20 +58,13 @@
                         <div class="list-group-item">
                             <h5 class="list-group-item-heading">
                                 
-                                    <span class="glyphicon glyphicon-remove text-danger"  aria-hidden="true"></span>
+                                    <span class="glyphicon glyphicon-ok text-info" aria-hidden="true"></span>
                                 
                                 test_it_can_parse_valid_time_snaks
                                 <span class="pull-right">
-                                    Assertions 0, time 0.000182s
+                                    Assertions 1, time 0.000203s
                                 </span>
                             </h5>
-                            
-                                <pre class="list-group-item-text">/home/brad/LocalWork/gimme_wikidata/lib/gimme_wikidata/parser.rb:170
-
-NoMethodError: undefined method `from_iso8601' for CarbonDate:Module
-    /home/brad/LocalWork/gimme_wikidata/lib/gimme_wikidata/parser.rb:170:in `parse_snak_time'
-    /home/brad/LocalWork/gimme_wikidata/lib/gimme_wikidata/parser.rb:109:in `parse_snak'
-    /home/brad/LocalWork/gimme_wikidata/test/parser_test.rb:152:in `test_it_can_parse_valid_time_snaks'</pre>
                             
                         </div>
                     
