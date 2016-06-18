@@ -3,7 +3,7 @@
 [![Inline docs](http://inch-ci.org/github/bradleymarques/gimme_wikidata.svg?branch=master)](http://inch-ci.org/github/bradleymarques/gimme_wikidata)
 [![License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)](http://bradleymarques.mit-license.org)
 
-# GimmeWikidata
+![alt text](https://github.com/bradleymarques/gimme_wikidata/tree/master/img/gimme_wikidata_logo.png "Gimme Wikidata")
 
 Search and get data from the [Wikidata](https://www.wikidata.org/wiki/Wikidata:Main_Page) open knowledge base.
 
