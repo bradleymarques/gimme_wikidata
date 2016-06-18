@@ -13,27 +13,27 @@
     <div class="jumbotron">
         <h1>Test Results</h1>
         <p>
-            Finished in 0.04s, 1303.00 tests/s, 1865.08 assertions/s
+            Finished in 0.04s, 1287.83 tests/s, 1857.44 assertions/s
         </p>
         <p>
             <strong>
-            <span class="text-info">51 tests</span>,
-            <span class="text-info"> 73 assertions</span>,
-            <span class=""> 0 failures</span>,
-            <span class=""> 0 errors</span>,
-            <span class="text-warning"> 3 skips</span>
+            <span class="">52 tests</span>,
+            <span class=""> 75 assertions</span>,
+            <span class="text-danger"> 1 failures</span>,
+            <span class="text-danger"> 1 errors</span>,
+            <span class="text-warning"> 1 skips</span>
             </strong>
         </p>
 
         <div class="progress">
-            <div class="progress-bar progress-bar-info" style="width: 95%">
-                95% passed
+            <div class="progress-bar progress-bar-info" style="width: 96%">
+                96% passed
             </div>
-            <div class="progress-bar progress-bar-danger" style="width: 0%">
-                0% failed
+            <div class="progress-bar progress-bar-danger" style="width: 3%">
+                3% failed
             </div>
-            <div class="progress-bar progress-bar-warning" style="width: 5%">
-                5% skipped
+            <div class="progress-bar progress-bar-warning" style="width: 1%">
+                1% skipped
             </div>
         </div>
 
@@ -44,12 +44,12 @@
         <div class="panel panel-default">
             <div class="panel-heading"><strong>ParserTest</strong>
                 <span class="pull-right">
-                    <span class="text-info">34 tests</span>,
-                    <span class="text-info"> 55 assertions</span>,
-                    <span class=""> 0 failures</span>,
-                    <span class=""> 0 errors</span>,
-                    <span class="text-warning"> 3 skips</span>,
-                    <span> finished in 0.0334s</span>
+                    <span class="">35 tests</span>,
+                    <span class=""> 57 assertions</span>,
+                    <span class="text-danger"> 1 failures</span>,
+                    <span class="text-danger"> 1 errors</span>,
+                    <span class="text-warning"> 1 skips</span>,
+                    <span> finished in 0.0344s</span>
                 </span>
             </div>
             <div class="panel-body">
@@ -60,49 +60,51 @@
                                 
                                     <span class="glyphicon glyphicon-ban-circle text-warning" aria-hidden="true"></span>
                                 
-                                test_it_can_parse_time_snaks
+                                test_it_can_parse_time_snaks_with_different_precisions
                                 <span class="pull-right">
-                                    Assertions 0, time 0.000063s
+                                    Assertions 0, time 0.000045s
                                 </span>
                             </h5>
                             
-                                <pre class="list-group-item-text">/home/brad/LocalWork/gimme_wikidata/test/parser_test.rb:152
+                                <pre class="list-group-item-text">/home/brad/LocalWork/gimme_wikidata/test/parser_test.rb:167
 
-CURRENTLY NOT SUPPORTED</pre>
+TODO: IMPLEMENT TEST</pre>
                             
                         </div>
                     
                         <div class="list-group-item">
                             <h5 class="list-group-item-heading">
                                 
-                                    <span class="glyphicon glyphicon-ban-circle text-warning" aria-hidden="true"></span>
+                                    <span class="glyphicon glyphicon-remove text-danger"  aria-hidden="true"></span>
                                 
-                                test_it_can_parse_time_snaks_with_different_calendar_models
+                                test_parsed_time_snaks_are_carbon_dates
                                 <span class="pull-right">
-                                    Assertions 0, time 0.000036s
+                                    Assertions 1, time 0.000122s
                                 </span>
                             </h5>
                             
-                                <pre class="list-group-item-text">/home/brad/LocalWork/gimme_wikidata/test/parser_test.rb:160
+                                <pre class="list-group-item-text">/home/brad/LocalWork/gimme_wikidata/test/parser_test.rb:157
 
-CURRENTLY NOT SUPPORTED</pre>
+Expected: :carbon_date
+  Actual: :wikidata_time_not_supported</pre>
                             
                         </div>
                     
                         <div class="list-group-item">
                             <h5 class="list-group-item-heading">
                                 
-                                    <span class="glyphicon glyphicon-ban-circle text-warning" aria-hidden="true"></span>
+                                    <span class="glyphicon glyphicon-remove text-danger"  aria-hidden="true"></span>
                                 
-                                test_it_can_parse_time_snaks_with_different_precision
+                                test_parsed_time_snaks_have_correct_value
                                 <span class="pull-right">
-                                    Assertions 0, time 0.000049s
+                                    Assertions 0, time 0.000096s
                                 </span>
                             </h5>
                             
-                                <pre class="list-group-item-text">/home/brad/LocalWork/gimme_wikidata/test/parser_test.rb:156
+                                <pre class="list-group-item-text">/home/brad/LocalWork/gimme_wikidata/test/parser_test.rb:163
 
-CURRENTLY NOT SUPPORTED</pre>
+NameError: uninitialized constant ParserTest::CarbonDate
+    /home/brad/LocalWork/gimme_wikidata/test/parser_test.rb:163:in `test_parsed_time_snaks_have_correct_value'</pre>
                             
                         </div>
                     
@@ -113,7 +115,7 @@ CURRENTLY NOT SUPPORTED</pre>
                                 
                                 test_entity_response_empty_if_no_entities_in_response
                                 <span class="pull-right">
-                                    Assertions 1, time 0.000058s
+                                    Assertions 1, time 0.000057s
                                 </span>
                             </h5>
                             
@@ -126,7 +128,7 @@ CURRENTLY NOT SUPPORTED</pre>
                                 
                                 test_entity_response_throws_an_error_if_there_is_one_present
                                 <span class="pull-right">
-                                    Assertions 1, time 0.000076s
+                                    Assertions 1, time 0.000119s
                                 </span>
                             </h5>
                             
@@ -139,7 +141,7 @@ CURRENTLY NOT SUPPORTED</pre>
                                 
                                 test_entity_result_holds_correct_number_of_entities
                                 <span class="pull-right">
-                                    Assertions 1, time 0.000302s
+                                    Assertions 1, time 0.000310s
                                 </span>
                             </h5>
                             
@@ -152,7 +154,7 @@ CURRENTLY NOT SUPPORTED</pre>
                                 
                                 test_entity_result_is_successful_when_response_successful
                                 <span class="pull-right">
-                                    Assertions 2, time 0.000113s
+                                    Assertions 2, time 0.000111s
                                 </span>
                             </h5>
                             
@@ -165,7 +167,7 @@ CURRENTLY NOT SUPPORTED</pre>
                                 
                                 test_entity_result_unsuccessful_when_response_unsuccessful
                                 <span class="pull-right">
-                                    Assertions 1, time 0.000070s
+                                    Assertions 1, time 0.000072s
                                 </span>
                             </h5>
                             
@@ -178,7 +180,7 @@ CURRENTLY NOT SUPPORTED</pre>
                                 
                                 test_it_can_parse_a_no_search_response
                                 <span class="pull-right">
-                                    Assertions 2, time 0.000067s
+                                    Assertions 2, time 0.000043s
                                 </span>
                             </h5>
                             
@@ -191,7 +193,7 @@ CURRENTLY NOT SUPPORTED</pre>
                                 
                                 test_it_can_parse_commons_media_snaks
                                 <span class="pull-right">
-                                    Assertions 2, time 0.000086s
+                                    Assertions 2, time 0.000083s
                                 </span>
                             </h5>
                             
@@ -204,7 +206,7 @@ CURRENTLY NOT SUPPORTED</pre>
                                 
                                 test_it_can_parse_empty_search_response
                                 <span class="pull-right">
-                                    Assertions 2, time 0.000058s
+                                    Assertions 2, time 0.000042s
                                 </span>
                             </h5>
                             
@@ -217,7 +219,7 @@ CURRENTLY NOT SUPPORTED</pre>
                                 
                                 test_it_can_parse_entity_response_into_entity_result_object
                                 <span class="pull-right">
-                                    Assertions 1, time 0.000104s
+                                    Assertions 1, time 0.000091s
                                 </span>
                             </h5>
                             
@@ -230,7 +232,7 @@ CURRENTLY NOT SUPPORTED</pre>
                                 
                                 test_it_can_parse_external_id_snaks
                                 <span class="pull-right">
-                                    Assertions 2, time 0.000088s
+                                    Assertions 2, time 0.000079s
                                 </span>
                             </h5>
                             
@@ -243,7 +245,7 @@ CURRENTLY NOT SUPPORTED</pre>
                                 
                                 test_it_can_parse_globe_coordinate_snaks
                                 <span class="pull-right">
-                                    Assertions 4, time 0.000088s
+                                    Assertions 4, time 0.000114s
                                 </span>
                             </h5>
                             
@@ -269,7 +271,7 @@ CURRENTLY NOT SUPPORTED</pre>
                                 
                                 test_it_can_parse_monolingual_text_snaks
                                 <span class="pull-right">
-                                    Assertions 2, time 0.000075s
+                                    Assertions 2, time 0.000114s
                                 </span>
                             </h5>
                             
@@ -282,7 +284,7 @@ CURRENTLY NOT SUPPORTED</pre>
                                 
                                 test_it_can_parse_quantity_snaks
                                 <span class="pull-right">
-                                    Assertions 6, time 0.000121s
+                                    Assertions 6, time 0.000114s
                                 </span>
                             </h5>
                             
@@ -295,7 +297,20 @@ CURRENTLY NOT SUPPORTED</pre>
                                 
                                 test_it_can_parse_string_snaks
                                 <span class="pull-right">
-                                    Assertions 2, time 0.000076s
+                                    Assertions 2, time 0.000102s
+                                </span>
+                            </h5>
+                            
+                        </div>
+                    
+                        <div class="list-group-item">
+                            <h5 class="list-group-item-heading">
+                                
+                                    <span class="glyphicon glyphicon-ok text-info" aria-hidden="true"></span>
+                                
+                                test_it_can_parse_time_snaks
+                                <span class="pull-right">
+                                    Assertions 1, time 0.000119s
                                 </span>
                             </h5>
                             
@@ -308,7 +323,7 @@ CURRENTLY NOT SUPPORTED</pre>
                                 
                                 test_it_can_parse_url_snaks
                                 <span class="pull-right">
-                                    Assertions 2, time 0.000080s
+                                    Assertions 2, time 0.000090s
                                 </span>
                             </h5>
                             
@@ -334,7 +349,7 @@ CURRENTLY NOT SUPPORTED</pre>
                                 
                                 test_it_correctly_parses_search_term
                                 <span class="pull-right">
-                                    Assertions 1, time 0.000119s
+                                    Assertions 1, time 0.000130s
                                 </span>
                             </h5>
                             
@@ -347,7 +362,7 @@ CURRENTLY NOT SUPPORTED</pre>
                                 
                                 test_it_parses_search_result_objects_with_correct_values
                                 <span class="pull-right">
-                                    Assertions 6, time 0.000159s
+                                    Assertions 6, time 0.000152s
                                 </span>
                             </h5>
                             
@@ -360,7 +375,7 @@ CURRENTLY NOT SUPPORTED</pre>
                                 
                                 test_it_parses_successful_search_response_into_search_object
                                 <span class="pull-right">
-                                    Assertions 1, time 0.000142s
+                                    Assertions 1, time 0.000139s
                                 </span>
                             </h5>
                             
@@ -373,7 +388,7 @@ CURRENTLY NOT SUPPORTED</pre>
                                 
                                 test_it_raises_an_error_if_the_snak_type_is_not_supported
                                 <span class="pull-right">
-                                    Assertions 1, time 0.000093s
+                                    Assertions 1, time 0.000081s
                                 </span>
                             </h5>
                             
@@ -386,7 +401,7 @@ CURRENTLY NOT SUPPORTED</pre>
                                 
                                 test_it_says_search_response_was_successful_when_it_was_successful
                                 <span class="pull-right">
-                                    Assertions 1, time 0.000139s
+                                    Assertions 1, time 0.000157s
                                 </span>
                             </h5>
                             
@@ -399,7 +414,7 @@ CURRENTLY NOT SUPPORTED</pre>
                                 
                                 test_it_throws_an_error_if_parsing_a_response_without_any_search_info
                                 <span class="pull-right">
-                                    Assertions 1, time 0.000086s
+                                    Assertions 1, time 0.000106s
                                 </span>
                             </h5>
                             
@@ -412,7 +427,7 @@ CURRENTLY NOT SUPPORTED</pre>
                                 
                                 test_parsed_claims_have_properties_with_valid_wikidata_ids
                                 <span class="pull-right">
-                                    Assertions 1, time 0.017213s
+                                    Assertions 1, time 0.014016s
                                 </span>
                             </h5>
                             
@@ -425,7 +440,7 @@ CURRENTLY NOT SUPPORTED</pre>
                                 
                                 test_parsed_entities_have_claims_if_response_has_claims
                                 <span class="pull-right">
-                                    Assertions 1, time 0.012110s
+                                    Assertions 1, time 0.015825s
                                 </span>
                             </h5>
                             
@@ -438,7 +453,7 @@ CURRENTLY NOT SUPPORTED</pre>
                                 
                                 test_parsed_entities_have_correct_aliases
                                 <span class="pull-right">
-                                    Assertions 1, time 0.000274s
+                                    Assertions 1, time 0.000269s
                                 </span>
                             </h5>
                             
@@ -451,7 +466,7 @@ CURRENTLY NOT SUPPORTED</pre>
                                 
                                 test_parsed_entities_have_correct_descriptions
                                 <span class="pull-right">
-                                    Assertions 1, time 0.000304s
+                                    Assertions 1, time 0.000316s
                                 </span>
                             </h5>
                             
@@ -464,7 +479,7 @@ CURRENTLY NOT SUPPORTED</pre>
                                 
                                 test_parsed_entities_have_correct_entity_type
                                 <span class="pull-right">
-                                    Assertions 1, time 0.000252s
+                                    Assertions 1, time 0.000387s
                                 </span>
                             </h5>
                             
@@ -477,7 +492,7 @@ CURRENTLY NOT SUPPORTED</pre>
                                 
                                 test_parsed_entities_have_correct_id
                                 <span class="pull-right">
-                                    Assertions 1, time 0.000357s
+                                    Assertions 1, time 0.000281s
                                 </span>
                             </h5>
                             
@@ -490,7 +505,7 @@ CURRENTLY NOT SUPPORTED</pre>
                                 
                                 test_parsed_entities_have_correct_labels
                                 <span class="pull-right">
-                                    Assertions 1, time 0.000254s
+                                    Assertions 1, time 0.000300s
                                 </span>
                             </h5>
                             
@@ -503,7 +518,7 @@ CURRENTLY NOT SUPPORTED</pre>
                                 
                                 test_parsing_a_snak_returns_a_claim
                                 <span class="pull-right">
-                                    Assertions 1, time 0.000085s
+                                    Assertions 1, time 0.000079s
                                 </span>
                             </h5>
                             
@@ -517,7 +532,7 @@ CURRENTLY NOT SUPPORTED</pre>
             <div class="panel-heading"><strong>WikidataAPITest</strong>
                 <span class="pull-right">
                     <span class="text-info">17 tests</span>,
-                    <span class="text-info"> 18 assertions</span>,
+                    <span class=""> 18 assertions</span>,
                     <span class=""> 0 failures</span>,
                     <span class=""> 0 errors</span>,
                     <span class=""> 0 skips</span>,
@@ -534,7 +549,7 @@ CURRENTLY NOT SUPPORTED</pre>
                                 
                                 test_it_can_build_a_base_url
                                 <span class="pull-right">
-                                    Assertions 1, time 0.000025s
+                                    Assertions 1, time 0.000018s
                                 </span>
                             </h5>
                             
@@ -547,7 +562,7 @@ CURRENTLY NOT SUPPORTED</pre>
                                 
                                 test_it_can_build_get_entities_query_with_specified_parameters
                                 <span class="pull-right">
-                                    Assertions 1, time 0.000104s
+                                    Assertions 1, time 0.000089s
                                 </span>
                             </h5>
                             
@@ -560,7 +575,7 @@ CURRENTLY NOT SUPPORTED</pre>
                                 
                                 test_it_can_build_get_entties_query_with_default_parameters
                                 <span class="pull-right">
-                                    Assertions 1, time 0.000041s
+                                    Assertions 1, time 0.000033s
                                 </span>
                             </h5>
                             
@@ -573,7 +588,7 @@ CURRENTLY NOT SUPPORTED</pre>
                                 
                                 test_it_can_build_search_query_with_default_parameters
                                 <span class="pull-right">
-                                    Assertions 1, time 0.000016s
+                                    Assertions 1, time 0.000063s
                                 </span>
                             </h5>
                             
@@ -586,7 +601,7 @@ CURRENTLY NOT SUPPORTED</pre>
                                 
                                 test_it_can_build_search_query_with_specified_parameters
                                 <span class="pull-right">
-                                    Assertions 1, time 0.000026s
+                                    Assertions 1, time 0.000052s
                                 </span>
                             </h5>
                             
@@ -599,7 +614,7 @@ CURRENTLY NOT SUPPORTED</pre>
                                 
                                 test_it_can_change_language
                                 <span class="pull-right">
-                                    Assertions 1, time 0.000080s
+                                    Assertions 1, time 0.000014s
                                 </span>
                             </h5>
                             
@@ -612,7 +627,7 @@ CURRENTLY NOT SUPPORTED</pre>
                                 
                                 test_it_can_make_a_get_entities_call
                                 <span class="pull-right">
-                                    Assertions 1, time 0.000268s
+                                    Assertions 1, time 0.000330s
                                 </span>
                             </h5>
                             
@@ -625,7 +640,7 @@ CURRENTLY NOT SUPPORTED</pre>
                                 
                                 test_it_can_make_a_search_call
                                 <span class="pull-right">
-                                    Assertions 1, time 0.000307s
+                                    Assertions 1, time 0.000328s
                                 </span>
                             </h5>
                             
@@ -638,7 +653,7 @@ CURRENTLY NOT SUPPORTED</pre>
                                 
                                 test_it_defaults_to_english_language
                                 <span class="pull-right">
-                                    Assertions 1, time 0.000012s
+                                    Assertions 1, time 0.000029s
                                 </span>
                             </h5>
                             
@@ -651,7 +666,7 @@ CURRENTLY NOT SUPPORTED</pre>
                                 
                                 test_it_does_not_change_language_if_new_language_is_unknown
                                 <span class="pull-right">
-                                    Assertions 1, time 0.000023s
+                                    Assertions 1, time 0.000029s
                                 </span>
                             </h5>
                             
@@ -664,7 +679,7 @@ CURRENTLY NOT SUPPORTED</pre>
                                 
                                 test_it_has_correct_api_url
                                 <span class="pull-right">
-                                    Assertions 1, time 0.000024s
+                                    Assertions 1, time 0.000032s
                                 </span>
                             </h5>
                             
@@ -677,7 +692,7 @@ CURRENTLY NOT SUPPORTED</pre>
                                 
                                 test_it_has_correct_data_format
                                 <span class="pull-right">
-                                    Assertions 1, time 0.000043s
+                                    Assertions 1, time 0.000012s
                                 </span>
                             </h5>
                             
@@ -690,7 +705,7 @@ CURRENTLY NOT SUPPORTED</pre>
                                 
                                 test_it_keeps_its_language_set_over_multiple_api_calls
                                 <span class="pull-right">
-                                    Assertions 2, time 0.000055s
+                                    Assertions 2, time 0.000034s
                                 </span>
                             </h5>
                             
@@ -703,7 +718,7 @@ CURRENTLY NOT SUPPORTED</pre>
                                 
                                 test_it_raises_error_if_get_entities_query_called_with_invalid_wikidata_ids
                                 <span class="pull-right">
-                                    Assertions 1, time 0.000068s
+                                    Assertions 1, time 0.000059s
                                 </span>
                             </h5>
                             
@@ -716,7 +731,7 @@ CURRENTLY NOT SUPPORTED</pre>
                                 
                                 test_it_raises_error_if_get_entities_query_called_with_string
                                 <span class="pull-right">
-                                    Assertions 1, time 0.000020s
+                                    Assertions 1, time 0.000058s
                                 </span>
                             </h5>
                             
@@ -729,7 +744,7 @@ CURRENTLY NOT SUPPORTED</pre>
                                 
                                 test_it_returns_a_hash_on_api_calls
                                 <span class="pull-right">
-                                    Assertions 1, time 0.000475s
+                                    Assertions 1, time 0.000449s
                                 </span>
                             </h5>
                             
@@ -742,7 +757,7 @@ CURRENTLY NOT SUPPORTED</pre>
                                 
                                 test_it_returns_error_messages_from_the_wikidata_api
                                 <span class="pull-right">
-                                    Assertions 1, time 0.000269s
+                                    Assertions 1, time 0.000313s
                                 </span>
                             </h5>
                             

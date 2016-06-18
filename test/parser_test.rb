@@ -149,15 +149,22 @@ class ParserTest < Minitest::Test
   end
 
   def test_it_can_parse_time_snaks
-    skip 'CURRENTLY NOT SUPPORTED'
+    assert Parser.parse_snak(ResponseFaker.fake('snaks/time_day'))
   end
 
-  def test_it_can_parse_time_snaks_with_different_precision
-    skip 'CURRENTLY NOT SUPPORTED'
+  def test_parsed_time_snaks_are_carbon_dates
+    claim = Parser.parse_snak(ResponseFaker.fake('snaks/time_day'))
+    assert_equal :carbon_date, claim.value_type
+    assert_kind_of CarbonDate::Date, claim.value
   end
 
-  def test_it_can_parse_time_snaks_with_different_calendar_models
-    skip 'CURRENTLY NOT SUPPORTED'
+  def test_parsed_time_snaks_have_correct_value
+    claim = Parser.parse_snak(ResponseFaker.fake('snaks/time_day'))
+    assert_equal CarbonDate::Date.new(1940, 10, 10, precision: :day), claim.value
+  end
+
+  def test_it_can_parse_time_snaks_with_different_precisions
+    skip 'TODO: IMPLEMENT TEST'
   end
 
   def test_it_can_parse_commons_media_snaks
