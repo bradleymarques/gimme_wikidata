@@ -5,7 +5,7 @@
 [![Inline docs](http://inch-ci.org/github/bradleymarques/gimme_wikidata.svg?branch=master)](http://inch-ci.org/github/bradleymarques/gimme_wikidata)
 [![License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)](http://bradleymarques.mit-license.org)
 
-![alt text](https://raw.githubusercontent.com/bradleymarques/gimme_wikidata/master/img/gimme_wikidata_logo.png "Gimme Wikidata")
+![GimmeWikidata](https://raw.githubusercontent.com/bradleymarques/gimme_wikidata/master/img/gimme_wikidata_logo.png "GimmeWikidata")
 
 Search and get data from the [Wikidata](https://www.wikidata.org/wiki/Wikidata:Main_Page) open knowledge base.
 
@@ -136,3 +136,9 @@ Permission is hereby granted, free of charge, to any person obtaining a copy of 
 The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+## Attribution
+
+Including data from Wikidata
+
+![Powered by Wikidata](https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Wikidata_Stamp_Rec_Dark.svg/842px-Wikidata_Stamp_Rec_Dark.svg.png "Powered by Wikidata")
