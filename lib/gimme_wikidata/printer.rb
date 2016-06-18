@@ -20,9 +20,9 @@ module GimmeWikidata
   class Claim
     ##
     # Prints a pretty version of the Claim to the console
-    def print(colour = :red)
+    def print(colour = :blue)
       simple = simplify
-      puts "#{simple[:property]}: ".bold.colorize(color: colour) + "#{simple[:value]}"
+      puts "#{simple[:property]}: ".bold.colorize(color: colour) + "#{simple[:value].to_s}"
     end
   end
 

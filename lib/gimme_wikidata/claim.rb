@@ -48,13 +48,13 @@ module GimmeWikidata
     ##
     # Simplifies the value
     #
-    # TODO: THAT IS REDUNDANT DOCUMENTATION
+    # TODO: DOCUMENT THIS FUNCTION BETTER
     def simplify_value
       case @value_type
       when :item, :property
         return "#{@value.label} (#{@value.id})"
-      when :wikidata_time
-        return @value.fetch(:time, nil)
+      when :carbon_date
+        return @value.to_s
       when :external_id, :media, :text, :url, :gps_coordinates, :quantity
         return @value
       else
