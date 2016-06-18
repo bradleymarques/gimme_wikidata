@@ -149,22 +149,88 @@ class ParserTest < Minitest::Test
   end
 
   def test_it_can_parse_valid_time_snaks
-    assert Parser.parse_snak(ResponseFaker.fake('snaks/time_day'))
+    assert Parser.parse_snak(ResponseFaker.fake('snaks/time/day'))
   end
 
   def test_parsed_time_snaks_are_carbon_dates
-    claim = Parser.parse_snak(ResponseFaker.fake('snaks/time_day'))
+    claim = Parser.parse_snak(ResponseFaker.fake('snaks/time/day'))
     assert_equal :carbon_date, claim.value_type
     assert_kind_of CarbonDate::Date, claim.value
   end
 
-  def test_parsed_time_snaks_have_correct_value
-    claim = Parser.parse_snak(ResponseFaker.fake('snaks/time_day'))
+  def test_it_can_parse_time_snaks_with_billion_years_precision
+    claim = Parser.parse_snak(ResponseFaker.fake('snaks/time/billion_years'))
+    assert_equal CarbonDate::Date.new(-4540000000 , precision: :billion_years), claim.value
+  end
+
+  def test_it_can_parse_time_snaks_with_hundred_million_years_precision
+    claim = Parser.parse_snak(ResponseFaker.fake('snaks/time/hundred_million_years'))
+    assert_equal CarbonDate::Date.new(-4540000000 , precision: :hundred_million_years), claim.value
+  end
+
+  def test_it_can_parse_time_snaks_with_ten_million_years_precision
+    claim = Parser.parse_snak(ResponseFaker.fake('snaks/time/ten_million_years'))
+    assert_equal CarbonDate::Date.new(-4540000000 , precision: :ten_million_years), claim.value
+  end
+
+  def test_it_can_parse_time_snaks_with_million_years_precision
+    claim = Parser.parse_snak(ResponseFaker.fake('snaks/time/million_years'))
+    assert_equal CarbonDate::Date.new(-4540000000 , precision: :million_years), claim.value
+  end
+
+  def test_it_can_parse_time_snaks_with_hundred_thousand_years_precision
+    claim = Parser.parse_snak(ResponseFaker.fake('snaks/time/hundred_thousand_years'))
+    assert_equal CarbonDate::Date.new(-4540000 , precision: :hundred_thousand_years), claim.value
+  end
+
+  def test_it_can_parse_time_snaks_with_ten_thousand_years_precision
+    claim = Parser.parse_snak(ResponseFaker.fake('snaks/time/ten_thousand_years'))
+    assert_equal CarbonDate::Date.new(-10001 , precision: :ten_thousand_years), claim.value
+  end
+
+  def test_it_can_parse_time_snaks_with_millennium_precision
+    claim = Parser.parse_snak(ResponseFaker.fake('snaks/time/millennium'))
+    assert_equal CarbonDate::Date.new(2000 , precision: :millennium), claim.value
+  end
+
+  def test_it_can_parse_time_snaks_with_century_precision
+    claim = Parser.parse_snak(ResponseFaker.fake('snaks/time/century'))
+    assert_equal CarbonDate::Date.new(1405 , precision: :century), claim.value
+  end
+
+  def test_it_can_parse_time_snaks_with_decade_precision
+    claim = Parser.parse_snak(ResponseFaker.fake('snaks/time/decade'))
+    assert_equal CarbonDate::Date.new(1972 , precision: :decade), claim.value
+  end
+
+  def test_it_can_parse_time_snaks_with_year_precision
+    claim = Parser.parse_snak(ResponseFaker.fake('snaks/time/year'))
+    assert_equal CarbonDate::Date.new(1972 , precision: :year), claim.value
+  end
+
+  def test_it_can_parse_time_snaks_with_month_precision
+    claim = Parser.parse_snak(ResponseFaker.fake('snaks/time/month'))
+    assert_equal CarbonDate::Date.new(1972, 5, precision: :month), claim.value
+  end
+
+  def test_it_can_parse_time_snaks_with_day_precision
+    claim = Parser.parse_snak(ResponseFaker.fake('snaks/time/day'))
     assert_equal CarbonDate::Date.new(1940, 10, 10, precision: :day), claim.value
   end
 
-  def test_it_can_parse_time_snaks_with_different_precisions
-    skip 'TODO: IMPLEMENT TEST'
+  def test_it_can_parse_time_snaks_with_hour_precision
+    claim = Parser.parse_snak(ResponseFaker.fake('snaks/time/hour'))
+    assert_equal CarbonDate::Date.new(1972, 5, 1, 15, precision: :hour), claim.value
+  end
+
+  def test_it_can_parse_time_snaks_with_minute_precision
+    claim = Parser.parse_snak(ResponseFaker.fake('snaks/time/minute'))
+    assert_equal CarbonDate::Date.new(1972, 5, 1, 15, 43, precision: :minute), claim.value
+  end
+
+  def test_it_can_parse_time_snaks_with_second_precision
+    claim = Parser.parse_snak(ResponseFaker.fake('snaks/time/second'))
+    assert_equal CarbonDate::Date.new(1972, 5, 1, 15, 43, 4, precision: :second), claim.value
   end
 
   def test_it_can_parse_commons_media_snaks
