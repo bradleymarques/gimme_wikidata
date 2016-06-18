@@ -9,15 +9,15 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Bradley Marques"]
   spec.email         = ["bradmarxmoosepi@gmail.com"]
 
-  spec.summary       = %q{Search and fetch data from Wikidata}
-  spec.description   = %q{GimmeWikidata is a Ruby gem that provides an interface to search, pull and publish data from Wikidata.  It provides a number of classes that encapsualte the concept model of Wikidata.}
+  spec.summary       = %q{Search and get data from the Wikidata open knowledge base.}
+  spec.description   = %q{GimmeWikidata is a Ruby gem that provides an interface to search, pull (and, in future, publish) data from Wikidata.  It provides a number of classes that encapsulate the data model of Wikidata.}
   spec.homepage      = "https://github.com/bradleymarques/gimme_wikidata"
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org by setting 'allowed_push_host', or
   # delete this section to allow pushing this gem to any host.
   if spec.respond_to?(:metadata)
-    spec.metadata['allowed_push_host'] = "TODO: Set to 'http://mygemserver.com'"
+    spec.metadata['allowed_push_host'] = "https://rubygems.org"
   else
     raise "RubyGems 2.0 or newer is required to protect against public gem pushes."
   end
