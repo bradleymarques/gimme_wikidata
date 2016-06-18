@@ -5,9 +5,11 @@
 /pkg/
 /spec/reports/
 /tmp/
-/.code_climate_repo_token.yml
 
 # Documentation
 /doc/
 /coverage/
 /test/html_reports/
+
+# Configuration
+/.env
