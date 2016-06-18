@@ -36,7 +36,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'pry', '~> 0.10.3', '>= 0.10.3'
   spec.add_development_dependency 'rdoc', '~> 4.2.2', '>= 4.2.2'
   spec.add_development_dependency 'mocha', '~> 1.1.0', '>= 1.1.0'
-  spec.add_development_dependency 'coveralls', '~> 0.8.13', '>= 0.8.13'
+  spec.add_development_dependency 'codeclimate-test-reporter'
 
   spec.add_dependency 'httparty'
   spec.add_dependency 'ruby-enum'
