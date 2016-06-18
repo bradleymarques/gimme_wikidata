@@ -9,5 +9,5 @@
 
 # Documentation
 /doc/
-/doc/test_coverage/
-/doc/test_results/
+/coverage/
+/test/html_reports/
