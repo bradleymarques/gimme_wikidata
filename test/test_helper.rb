@@ -1,11 +1,5 @@
-require 'simplecov'
 require "codeclimate-test-reporter"
 CodeClimate::TestReporter.start
-
-SimpleCov.start do
-  add_filter "/test/"
-  add_filter "/lib/gimme_wikidata/version.rb"
-end
 
 $LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
 require 'gimme_wikidata'

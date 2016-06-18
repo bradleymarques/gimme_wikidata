@@ -5,7 +5,7 @@
 /pkg/
 /spec/reports/
 /tmp/
-/.coveralls.yml
+/.code_climate_repo_token.yml
 
 # Documentation
 /doc/

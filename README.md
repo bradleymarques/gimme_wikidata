@@ -2,6 +2,7 @@
 [![Code Climate](https://codeclimate.com/github/bradleymarques/gimme_wikidata/badges/gpa.svg)](https://codeclimate.com/github/bradleymarques/gimme_wikidata)
 [![Test Coverage](https://codeclimate.com/github/bradleymarques/gimme_wikidata/badges/coverage.svg)](https://codeclimate.com/github/bradleymarques/gimme_wikidata/coverage)
 [![Inline docs](http://inch-ci.org/github/bradleymarques/gimme_wikidata.svg?branch=master)](http://inch-ci.org/github/bradleymarques/gimme_wikidata)
+[![Issue Count](https://codeclimate.com/github/bradleymarques/gimme_wikidata/badges/issue_count.svg)](https://codeclimate.com/github/bradleymarques/gimme_wikidata)
 [![License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)](http://bradleymarques.mit-license.org)
 
 ![alt text](https://raw.githubusercontent.com/bradleymarques/gimme_wikidata/master/img/gimme_wikidata_logo.png "Gimme Wikidata")
