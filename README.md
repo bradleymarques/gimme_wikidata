@@ -141,4 +141,4 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 Including data from Wikidata
 
-![Powered by Wikidata](https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Wikidata_Stamp_Rec_Dark.svg/842px-Wikidata_Stamp_Rec_Dark.svg.png "Powered by Wikidata")
+![Powered by Wikidata](https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Wikidata_stamp.png/174px-Wikidata_stamp.png "Powered by Wikidata")
