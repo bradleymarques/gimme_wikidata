@@ -5,7 +5,7 @@
 [![Inline docs](http://inch-ci.org/github/bradleymarques/gimme_wikidata.svg?branch=master)](http://inch-ci.org/github/bradleymarques/gimme_wikidata)
 [![License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)](http://bradleymarques.mit-license.org)
 
-![GimmeWikidata](https://raw.githubusercontent.com/bradleymarques/gimme_wikidata/master/img/gimme_wikidata_logo.png =200x "GimmeWikidata")
+![GimmeWikidata](https://raw.githubusercontent.com/bradleymarques/gimme_wikidata/master/img/gimme_wikidata_logo.png "GimmeWikidata")
 
 Search and get data from the [Wikidata](https://www.wikidata.org/wiki/Wikidata:Main_Page) open knowledge base.
 
@@ -141,4 +141,4 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 Including data from Wikidata
 
-![Powered by Wikidata](https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Wikidata_Stamp_Rec_Dark.svg/842px-Wikidata_Stamp_Rec_Dark.svg.png =100x "Powered by Wikidata")
+![Powered by Wikidata](https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Wikidata_Stamp_Rec_Dark.svg/842px-Wikidata_Stamp_Rec_Dark.svg.png "Powered by Wikidata")
