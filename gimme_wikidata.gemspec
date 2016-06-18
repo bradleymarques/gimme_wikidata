@@ -42,4 +42,6 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'ruby-enum'
   spec.add_dependency 'colorize'
   spec.add_dependency 'json'
+  spec.add_dependency 'carbon_date', '~> 0.1.2', '>= 0.1.2'
+
 end

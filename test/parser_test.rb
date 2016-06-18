@@ -148,7 +148,7 @@ class ParserTest < Minitest::Test
     assert_equal :external_id, claim.value_type
   end
 
-  def test_it_can_parse_time_snaks
+  def test_it_can_parse_valid_time_snaks
     assert Parser.parse_snak(ResponseFaker.fake('snaks/time_day'))
   end
 

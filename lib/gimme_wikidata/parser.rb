@@ -1,4 +1,5 @@
 require 'gimme_wikidata/wikidata_api'
+require 'carbon_date'
 
 module GimmeWikidata
 
@@ -10,6 +11,8 @@ module GimmeWikidata
   # - +wbsearchentities+
   # - +wbgetentities+
   class Parser
+
+    include CarbonDate
 
     ##
     # Parses the results from a search query (wbsearchentities)
@@ -97,6 +100,8 @@ module GimmeWikidata
       #TODO: Figure out why raw_value has some strange keys. Example => ':"key"'
       #TODO: Correct for the very strange keys in raw_value
 
+      ##
+      # TODO: Use meta-programming and public_send() to DRY this code up:
       value, value_type =
       case s[:datatype]
       when 'wikibase-item' then parse_snak_wikibase_item(raw_value)
@@ -143,13 +148,26 @@ module GimmeWikidata
     ##
     # Parses a Wikidata Time value
     #
-    # Times on Wikidata are stored as timestamp resembling ISO 8601
+    # Times on Wikidata are stored as timestamp in the ISO8601 standard.  Use the CarbonDate gem (https://github.com/bradleymarques/carbon_date) to interpret these
+    #
+    # Params:
+    # - +raw_value+: a hash with the keys:
+    #   - +:time+: The time in the ISO8601 standard
+    #   - +:timezone+: currently unused
+    #   - +:before+: currently unused
+    #   - +:after+: currently unused
+    #   - +:precision+: an integer value (0..14)
+    #   - +:calendarmodel+: currently unused
+    #
+    # Example +raw_value+:
+    # {"time": "+1940-10-10T00:00:00Z", "timezone": 0, "before": 0, "after": 0, "precision": 11, "calendarmodel": "http://www.wikidata.org/entity/Q1985727"}
+    #
+    # Returns:
+    # - [CarbonDate::Date object, :carbon_date]
     def self.parse_snak_time(raw_value)
-      #timestamp = raw_value[:time]
-      #precision = raw_value[:precision]
-      # TODO: Format this into a Ruby DateTime object
-      # TODO: Figure out how to store variable-precision dates
-      return 'WIKIDATA TIMES ARE CURRENTLY NOT SUPPORTED', :wikidata_time_not_supported
+      time = raw_value.fetch(:time, nil)
+      precision = raw_value.fetch(:precision, nil)
+      return CarbonDate.from_iso8601(time, precision), :carbon_date
     end
 
     def self.parse_snak_commons_media(raw_value)
