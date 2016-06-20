@@ -9,15 +9,15 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Bradley Marques"]
   spec.email         = ["bradmarxmoosepi@gmail.com"]
 
-  spec.summary       = %q{Search and fetch data from Wikidata}
-  spec.description   = %q{GimmeWikidata is a Ruby gem that provides an interface to search, pull and publish data from Wikidata.  It provides a number of classes that encapsualte the concept model of Wikidata.}
+  spec.summary       = %q{Search and get data from the Wikidata open knowledge base.}
+  spec.description   = %q{GimmeWikidata is a Ruby gem that provides an interface to search, pull (and, in future, publish) data from Wikidata.  It provides a number of classes that encapsulate the data model of Wikidata.}
   spec.homepage      = "https://github.com/bradleymarques/gimme_wikidata"
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org by setting 'allowed_push_host', or
   # delete this section to allow pushing this gem to any host.
   if spec.respond_to?(:metadata)
-    spec.metadata['allowed_push_host'] = "TODO: Set to 'http://mygemserver.com'"
+    spec.metadata['allowed_push_host'] = "https://rubygems.org"
   else
     raise "RubyGems 2.0 or newer is required to protect against public gem pushes."
   end
@@ -36,13 +36,13 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'pry', '~> 0.10.3', '>= 0.10.3'
   spec.add_development_dependency 'rdoc', '~> 4.2.2', '>= 4.2.2'
   spec.add_development_dependency 'mocha', '~> 1.1.0', '>= 1.1.0'
-  spec.add_development_dependency 'dotenv'
-  spec.add_development_dependency 'codeclimate-test-reporter'
+  spec.add_development_dependency 'dotenv', '~> 2.0.2', '>= 2.0.2'
+  spec.add_development_dependency 'codeclimate-test-reporter', '~> 0.5.2', '>= 0.5.2'
 
-  spec.add_dependency 'httparty'
-  spec.add_dependency 'ruby-enum'
-  spec.add_dependency 'colorize'
-  spec.add_dependency 'json'
+  spec.add_dependency 'httparty', '~> 0.13.7', '>= 0.13.7'
+  spec.add_dependency 'ruby-enum', '~> 0.5.0', '>= 0.5.0'
+  spec.add_dependency 'colorize', '~> 0.7.7', '>= 0.7.7'
+  spec.add_dependency 'json', '~> 1.8.3', '>= 1.8.3'
   spec.add_dependency 'carbon_date', '~> 0.1.2', '>= 0.1.2'
 
 end

@@ -13,3 +13,6 @@
 
 # Configuration
 /.env
+
+# Generated *.gem files
+/*.gem
